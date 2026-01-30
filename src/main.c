@@ -7,10 +7,10 @@
 
 int main ( void )
 {
-  TaskHandle_t hello_Handle = NULL;
+   TaskHandle_t hello_Handle = NULL;
 
    // configure the uart for 9600/N/8/2
-  uart_init(9600);
+  uart_init(115200);
   /* Create the task without using any dynamic memory allocation. */
   hello_Handle = xTaskCreateStatic(
                                     stats_task, /* Function that implements the task. */
@@ -58,16 +58,6 @@ static StackType_t uxIdleTaskStack[ configMINIMAL_STACK_SIZE ];
     Note that, as the array is necessarily of type StackType_t,
     configMINIMAL_STACK_SIZE is specified in words, not bytes. */
     *pulIdleTaskStackSize = configMINIMAL_STACK_SIZE;
-}
-
-int get_stats_counter()
-{
-    return 0;
-}
-
-void setup_stats_timer()
-{
-    
 }
 
 /*-----------------------------------------------------------*/

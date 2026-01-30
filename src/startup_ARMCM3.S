@@ -51,8 +51,8 @@ __Vectors:
         /* Interrupts */
         /* AXI_TIMER_0_ISR */
         /* AXI_TIMER_1_ISR */
-        .long    Interrupt0_Handler         /*   0 Interrupt 0 */
-        .long    Interrupt1_Handler         /*   1 Interrupt 1 */
+        .long    AXI_TIMER_0_ISR         /*   0 Interrupt 0 */
+        .long    AXI_TIMER_1_ISR         /*   1 Interrupt 1 */
         .long    Interrupt2_Handler         /*   2 Interrupt 2 */
         .long    Interrupt3_Handler         /*   3 Interrupt 3 */
         .long    Interrupt4_Handler         /*   4 Interrupt 4 */

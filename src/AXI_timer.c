@@ -118,10 +118,19 @@ void AXI_timer_handler(volatile AXI_timer_device_t *device)
      to get more speed, but the code would probably be longer.  You
      can optimize for speed or code size.  In this case I chose to
      minimize code size. */
-      // If timer i is signalling an interruptt, 
-          // then call its handler (if it does not have one, then
-          // something is terribly wrong.
+     for (int i=0; i<2; i++)
+     {
+        if (device->timer[i]->TCSR.bits.TINT == 1) //check int bit
+        {
+          if (device->handler[i] != NULL)
+          {
+            device->handler[i](); //call the handler
+          }
+
           // Clear the interrupt in the timer device.
+          device->timer[i]->TCSR.bits.TINT = 1;
+        }
+     }
   // clear the interrupt in the Cortex M3 NVIC. 
   NVIC_ClearPendingIRQ(device->NVIC_IRQ_NUM);
 }
@@ -148,13 +157,37 @@ void AXI_TIMER_1_ISR()
 /* Allocate a timer.  Returns -1 if no timers are available. */
 int AXI_TIMER_allocate()
 {
+  for (int dev = 0; dev < NUM_AXI_TIMERS/2; dev++) //go though each device
+  {
+    for (int channel = 0; channel<2; channel++) //and each channel of that device
+    {
+      if (timer_device[dev].owner[channel] == NULL) //if there is no owner
+      {
+        // we found a free timer
+        // mark it as used by current task handle
+        timer_device[dev].owner[channel] = xTaskGetCurrentTaskHandle(); 
+        return (dev*2 + channel); //return which timer it is
+      }
+    }
+  }
 
+  // no timers available
+  return -1;
 }
 
 /* Release a timer. */
 void AXI_TIMER_free(unsigned int timer)
 {
-
+  int dev = timer / 2;
+  int channel = timer % 2;
+  // only release if the current task is the owner
+  if (timer_device[dev].owner[channel] == xTaskGetCurrentTaskHandle())
+  {
+    // mark the timer as free
+    timer_device[dev].owner[channel] = NULL;
+    // remove any handler
+    timer_device[dev].handler[channel] = NULL;
+  }
 }
 
 /* Assign a functon to handle interrupts for the given timer. The
@@ -162,74 +195,122 @@ void AXI_TIMER_free(unsigned int timer)
    interrupt. */
 void AXI_TIMER_set_handler(unsigned int timer, void (*handler)())
 {
-
+  int dev = timer / 2;
+  int channel = timer % 2;
+  
+  //check if current task is the owner
+  if (timer_device[dev].owner[channel] == xTaskGetCurrentTaskHandle())
+  {
+    timer_device[dev].handler[channel] = handler;
+  }
 }
 
 
 // start the timer
 void AXI_TIMER_enable(unsigned int timer)
 {
-  // Get the device number for the timer.
-  // Get the channel number for the timer.
-  // make sure load bit is zero. We just want to restart with the
-  // current count.
-  // timer_device[dev].timer[channel]->TCSR.bits.LOAD = 0; 
-  // enable interrupt for this timer
-  // enable timer
+  int dev = timer / 2;
+  int channel = timer % 2;
+  
+  //check if current task is the owner
+  if (timer_device[dev].owner[channel] == xTaskGetCurrentTaskHandle())
+  {
+    timer_device[dev].timer[channel]->TCSR.bits.LOAD = 0; //make sure load bit is zero so keep current count
+    AXI_TIMER_enable_interrupt(timer); //enable interrupts
+    timer_device[dev].timer[channel]->TCSR.bits.ENT = 1;  //enable timer
+  }
 }
 
 /* stop the timer. If remove_handler != 0 then the hander is also
    unset */
 void AXI_TIMER_disable(unsigned int timer, int remove_handler)
 {
-  // Get the device number for the timer.
-  // Get the channel number for the timer.
-  // timer_device[dev].timer[channel]->TCSR.bits.LOAD = 0;
+  int dev = timer / 2;
+  int channel = timer % 2;
+
+  if (timer_device[dev].owner[channel] == xTaskGetCurrentTaskHandle())
+  {
+    timer_device[dev].timer[channel]->TCSR.bits.LOAD = 0;
+    timer_device[dev].timer[channel]->TCSR.bits.ENT = 0;  //disable timer
+
+    if(remove_handler != 0)
+    {
+      timer_device[dev].handler[channel] = NULL;
+    }
+  }
 }
 
 /* enable the timer to generate interrupts */
 void AXI_TIMER_enable_interrupt(unsigned int timer)
 {
-  // Get the device number for the timer.
-  // Get the channel number for the timer.
-  int channel = timer & 1;
+  int dev = timer / 2;
+  int channel = timer % 2;
 
-  // finally, enable the interrupt in the NVIC
-  NVIC_EnableIRQ(timer_device[dev].NVIC_IRQ_NUM);
+  if (timer_device[dev].owner[channel] == xTaskGetCurrentTaskHandle())
+  {
+    timer_device[dev].timer[channel]->TCSR.bits.ENIT = 1;
+
+    // finally, enable the interrupt in the NVIC
+    NVIC_EnableIRQ(timer_device[dev].NVIC_IRQ_NUM);
+  }
 }
 
 /* Disable the timer interrupt   */
 void AXI_TIMER_disable_interrupt(unsigned int timer)
 {
-  // Get the device number for the timer.
-  // Get the channel number for the timer.
+  int dev = timer / 2;
+  int channel = timer % 2;
 
-  // If the other channel also has interrupts disabled, then
-  // turn off interrupts in the NVIC
+  if (timer_device[dev].owner[channel] == xTaskGetCurrentTaskHandle())
+  {
+    timer_device[dev].timer[channel]->TCSR.bits.ENIT = 0;
+
+    // If the other channel also has interrupts disabled, then
+    // turn off interrupts in the NVIC
+    if (timer_device[dev].timer[1-channel]->TCSR.bits.ENIT == 0 )
+    {
+      NVIC_DisableIRQ(timer_device[dev].NVIC_IRQ_NUM);
+    }
+  }
 }
 
 /* In the following two functions, value is set in clock cycles. Use
    AXI_TIMER_US_TO_COUNT to convert desired nanoseconds to desired timer
-   count value, or uset AXI_TIMER_HZ_TO_COUNT to set it in Hertz. */
+   count value, or use AXI_TIMER_HZ_TO_COUNT to set it in Hertz. */
 
 /* Configure and start the timer to give repeating interrupts. */
 void AXI_TIMER_set_repeating(unsigned int timer, int count)
 {
-  // Get the device number for the timer.
-  // Get the channel number for the timer.
+  int dev = timer / 2;
+  int channel = timer % 2;
 
-  // finally, enable the interrupts in the NVIC
-  NVIC_EnableIRQ(timer_device[dev].NVIC_IRQ_NUM);
+  if (timer_device[dev].owner[channel] == xTaskGetCurrentTaskHandle())
+  {
+    timer_device[dev].timer[channel]->TCSR.bits.ARHT = 1; //loop around and reload value
+    timer_device[dev].timer[channel]->TLR = count; //put in count value
+    timer_device[dev].timer[channel]->TCSR.bits.UDT = 1; //count down
+
+    AXI_TIMER_enable(timer);
+    // finally, enable the interrupts in the NVIC
+    NVIC_EnableIRQ(timer_device[dev].NVIC_IRQ_NUM);
+  }
 }
 
 /* Configure and start the timer give a single interrupt and then stop. */
 void AXI_TIMER_set_oneshot(unsigned int timer, int count)
 {
-  // Get the device number for the timer.
-  // Get the channel number for the timer.
+  int dev = timer / 2;
+  int channel = timer % 2;
 
+  if (timer_device[dev].owner[channel] == xTaskGetCurrentTaskHandle())
+  {
+    timer_device[dev].timer[channel]->TCSR.bits.ARHT = 0; //hold counter
+    timer_device[dev].timer[channel]->TLR = count; //put in count value
+    timer_device[dev].timer[channel]->TCSR.bits.UDT = 1; //count down
 
-  // finally, enable the interrupts in the NVIC
-  NVIC_EnableIRQ(timer_device[dev].NVIC_IRQ_NUM);
+    AXI_TIMER_enable(timer);
+    // finally, enable the interrupts in the NVIC
+    NVIC_EnableIRQ(timer_device[dev].NVIC_IRQ_NUM);
+  }
 }
 
