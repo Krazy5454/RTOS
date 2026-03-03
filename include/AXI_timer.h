@@ -1,9 +1,6 @@
 #ifndef AXI_TIMER_H
 #define AXI_TIMER_H
 
-// Interrupt handlers for the two timer devices.
-void AXI_TIMER_0_ISR() __attribute__((aligned(4), interrupt));
-void AXI_TIMER_1_ISR() __attribute__((aligned(4), interrupt));
 
 // If you add more AXI_timer devices to the design, then change this
 // define.  Each device supports two timers, and we currently have two
@@ -31,7 +28,7 @@ void AXI_TIMER_1_ISR() __attribute__((aligned(4), interrupt));
 // Allocate a timer.  Returns -1 if no timers are available.
 int AXI_TIMER_allocate();
 
-// Release a timer. only release one that is in use.
+// Release a timer. 
 void AXI_TIMER_free(unsigned int timer);
 
 // Assign a functon to handle interrupts for the given timer. The

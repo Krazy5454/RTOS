@@ -13,14 +13,12 @@
 // Include CMSIS for your device, or comment this out and set the
 // parameters manually
 #include <ARMCM3.h> 
-//#include <Device.h>
-//#include <core_cm3.h>
-//__NVIC_PRIO_BITS will be specified when CMSIS is being used. BUT
-// ONLY IF YOU INCLUDE THE CMSIS HEADER PREVIOUSLY
+// __NVIC_PRIO_BITS will be specified when CMSIS is being used. BUT
+//  ONLY IF YOU INCLUDE THE CMSIS HEADER PREVIOUSLY
 #ifdef __NVIC_PRIO_BITS
-	#define configPRIO_BITS	                         __NVIC_PRIO_BITS
+  #define configPRIO_BITS	                         __NVIC_PRIO_BITS
 #else
-	#define configPRIO_BITS				 3
+  #define configPRIO_BITS				 3
 #endif
 
 #define configENABLE_TRUSTZONE  0
@@ -49,7 +47,7 @@
 #define configUSE_PORT_OPTIMISED_TASK_SELECTION    0
 #define configCPU_CLOCK_HZ          ((unsigned long)50000000)
 #define configTICK_RATE_HZ          ((TickType_t)1000)
-#define configMINIMAL_STACK_SIZE    ((unsigned short)1024)
+#define configMINIMAL_STACK_SIZE    ((unsigned short)256)
 
 /* HEAP SCHEME is either 
    1 (only alloc), 
@@ -71,7 +69,7 @@
 
 #define configSUPPORT_DYNAMIC_ALLOCATION                 1
 
-#define configUSE_NEWLIB_REENTRANT                       1
+#define configUSE_NEWLIB_REENTRANT                       0
 #define configMAX_TASK_NAME_LEN                          ( 16 )
 #define configUSE_16_BIT_TICKS                           0
 #define configIDLE_SHOULD_YIELD                          0
@@ -94,12 +92,19 @@
 #define configUSE_TICK_HOOK                              0
 #define configUSE_DAEMON_TASK_STARTUP_HOOK               0
 
+
+void vAssertCalled( unsigned line, const char * const filename );
 //#define configASSERT_DEFINED                             1
-//extern void vAssertCalled( void );
 //#define configASSERT( x )    if( ( x ) == 0 ) vAssertCalled()
 
-#define configUSE_MUTEXES                         0
-#define configUSE_RECURSIVE_MUTEXES               0
+/* Define to trap certain errors in application code during development. */
+#define ASSERT( x ) if( ( x ) == 0 ) vAssertCalled( __LINE__, __FILE__);
+// #define ASSERT( x )
+
+
+
+#define configUSE_MUTEXES                         1
+#define configUSE_RECURSIVE_MUTEXES               1
 #define configUSE_TIMERS                          0
 #define configTIMER_TASK_STACK_DEPTH              (256)
 
@@ -118,7 +123,7 @@ void setup_stats_timer();
    function. */
 #define INCLUDE_vTaskPrioritySet                  0
 #define INCLUDE_uxTaskPriorityGet                 0
-#define INCLUDE_vTaskDelete                       0
+#define INCLUDE_vTaskDelete                       1
 #define INCLUDE_vTaskCleanUpResources             0
 #define INCLUDE_vTaskSuspend                      0
 #define INCLUDE_vTaskDelayUntil                   1
