@@ -47,7 +47,7 @@
 #define configUSE_PORT_OPTIMISED_TASK_SELECTION    0
 #define configCPU_CLOCK_HZ          ((unsigned long)50000000)
 #define configTICK_RATE_HZ          ((TickType_t)1000)
-#define configMINIMAL_STACK_SIZE    ((unsigned short)256)
+#define configMINIMAL_STACK_SIZE    ((unsigned short)256)  //old 256
 
 /* HEAP SCHEME is either 
    1 (only alloc), 
@@ -62,14 +62,14 @@
     Heap Limit (default __HeapLimit): end address of heap
     Heap size (default __heap_size): size of the heap memory in bytes */
 
-#define configUSE_HEAP_SCHEME                            (3)
+#define configUSE_HEAP_SCHEME                            (6)
 
 /* TOTAL_HEAP_SIZE is not used with heap scheme 6 */
-#define configTOTAL_HEAP_SIZE                            ((size_t)(0x8000))
+#define configTOTAL_HEAP_SIZE                            ((size_t)(__HEAP_SIZE))
 
 #define configSUPPORT_DYNAMIC_ALLOCATION                 1
 
-#define configUSE_NEWLIB_REENTRANT                       0
+#define configUSE_NEWLIB_REENTRANT                       1
 #define configMAX_TASK_NAME_LEN                          ( 16 )
 #define configUSE_16_BIT_TICKS                           0
 #define configIDLE_SHOULD_YIELD                          0
@@ -82,7 +82,7 @@
 #define configUSE_COUNTING_SEMAPHORES                    0
 #define configSUPPORT_STATIC_ALLOCATION                  1
 #define configSTREAM_BUFFER_TRIGGER_LEVEL_TEST_MARGIN    2
-#define configCHECK_FOR_STACK_OVERFLOW			 0
+#define configCHECK_FOR_STACK_OVERFLOW			 2
 
 //#define configUSE_MALLOC_FAILED_HOOK                     1
 //extern void malloc_failed();
@@ -105,8 +105,8 @@ void vAssertCalled( unsigned line, const char * const filename );
 
 #define configUSE_MUTEXES                         1
 #define configUSE_RECURSIVE_MUTEXES               1
-#define configUSE_TIMERS                          0
-#define configTIMER_TASK_STACK_DEPTH              (256)
+#define configUSE_TIMERS                          1
+#define configTIMER_TASK_STACK_DEPTH              (2048)//old (256)
 
 // Set up everything needed for statistics reporting.  All af the
 // following must be set to get the runtime stats task to run

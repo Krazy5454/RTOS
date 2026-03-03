@@ -11,7 +11,7 @@ void hello_task(void *pvParameters);
 stack. NOTE: This is the number of words the stack will hold, not the
 number of bytes. For example, if each stack item is 32-bits, and this
 is set to 100, then 400 bytes (100 * 32-bits) will be allocated. */
-#define HELLO_STACK_SIZE 2048
+#define HELLO_STACK_SIZE 256
 
 /* Structure that will hold the TCB of the task being created. */
 extern StaticTask_t hello_TCB;

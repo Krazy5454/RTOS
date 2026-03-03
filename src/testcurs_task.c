@@ -15,6 +15,7 @@
 #include <string.h>
 #include <curses.h>
 #include <testcurs_task.h>
+#include <task.h>
 
 #ifdef WACS_S1
 # define HAVE_WIDE 1
@@ -49,7 +50,7 @@
 void inputTest(WINDOW *);
 void scrollTest(WINDOW *);
 void introTest(WINDOW *);
-int initTest(WINDOW **, int, char **);
+int initTest(WINDOW **);
 void outputTest(WINDOW *);
 void padTest(WINDOW *);
 void acsTest(WINDOW *);
@@ -116,8 +117,8 @@ void testcurs_task(void *pvParameters)
 
     setlocale(LC_ALL, "");
 
-    if (initTest(&win, argc, argv))
-        return 1;
+    if (initTest(&win))
+        vTaskDelete(NULL);
 
 #ifdef A_COLOR
     if (has_colors())
@@ -202,7 +203,7 @@ void testcurs_task(void *pvParameters)
     delwin(win);
     endwin();
 
-    return 0;
+    vTaskDelete(NULL);
 }
 
 void Continue(WINDOW *win)
@@ -223,7 +224,7 @@ void Continue2(void)
     getch();
 }
 
-int initTest(WINDOW **win, int argc, char *argv[])
+int initTest(WINDOW **win)
 {
 #ifdef XCURSES
     Xinitscr(argc, argv);
