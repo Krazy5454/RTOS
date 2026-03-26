@@ -2,13 +2,15 @@
 #include <FreeRTOS.h>
 #include <task.h>
 #include <UART_16550.h>
+#include <PM.h>
 #include <hello_task.h>
 #include <stats_task.h>
 //#include <receiver_task.h>
 //#include <firework_task.h>
 //#include <xmas_task.h>
 //#include <testcurs_task.h>
-#include <nInvaders.h>
+//#include <nInvaders.h>
+#include <PM_test_task.h>
 #include <device_addrs.h>
 
 // "screen /dev/ttyUSB1 9600"
@@ -22,18 +24,22 @@ int main( void )
   // TaskHandle_t firework_handle = NULL;
   // TaskHandle_t xmas_handle = NULL;
   // TaskHandle_t testcurs_handle = NULL;
-  TaskHandle_t ninvaders_handle = NULL;
+  // TaskHandle_t ninvaders_handle = NULL;
+  TaskHandle_t pm_test_handle = NULL;
 
 
   NVIC_SetPriority(UART0_IRQ,0x6); // priority for UART
   NVIC_SetPriority(UART1_IRQ,0x6); // priority for UART
 
+  //init PM
+  PM_init();
+  
   // Intitialize all UARTS
   UART_16550_init(); //done by curses
 
   // Configure UART0 for 9600/N/8/2
   UART_16550_configure(UART0,115200,UART_PARITY_NONE,8,1);
-  UART_16550_configure(UART1,9600,UART_PARITY_NONE,8,1);
+  UART_16550_configure(UART1,115200,UART_PARITY_NONE,8,1);
   
   /* Create the task without using any dynamic memory allocation. */
   hello_handle = xTaskCreateStatic(hello_task,"hello",HELLO_STACK_SIZE,
@@ -57,8 +63,11 @@ int main( void )
   // testcurs_handle = xTaskCreateStatic(testcurs_task,"testcurs",TESTCURS_STACK_SIZE,
 	// 			  NULL,1,testcurs_stack,&testcurs_TCB);
 
-  ninvaders_handle = xTaskCreateStatic(ninvaders_task,"ninvaders",NINVADERS_STACK_SIZE,
-	 			  NULL,1,ninvaders_stack,&ninvaders_TCB);
+  // ninvaders_handle = xTaskCreateStatic(ninvaders_task,"ninvaders",NINVADERS_STACK_SIZE,
+	//  			  NULL,1,ninvaders_stack,&ninvaders_TCB)
+  
+  pm_test_handle = xTaskCreateStatic(pm_test_task,"pm_test",PM_TEST_STACK_SIZE,
+	 			  NULL,1,pm_test_stack,&pm_test_TCB);
 			      
   /* start the scheduler */
   vTaskStartScheduler();

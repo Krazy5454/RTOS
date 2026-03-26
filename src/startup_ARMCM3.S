@@ -49,20 +49,18 @@ __Vectors:
         .long    xPortSysTickHandler        /*  -1 SysTick Handler */
 
         /* Interrupts */
-        /* AXI_TIMER_0_ISR */
-        /* AXI_TIMER_1_ISR */
-        .long    AXI_TIMER_0_ISR         /*   0 Interrupt 0 */
-        .long    AXI_TIMER_1_ISR         /*   1 Interrupt 1 */
+        .long    AXI_TIMER_0_ISR            /*   0 Interrupt 0 */
+        .long    AXI_TIMER_1_ISR            /*   1 Interrupt 1 */
         .long    Interrupt2_Handler         /*   2 Interrupt 2 */
         .long    Interrupt3_Handler         /*   3 Interrupt 3 */
-        .long    Interrupt4_Handler         /*   4 Interrupt 4 */
-        .long    Interrupt5_Handler         /*   5 Interrupt 5 */
-        .long    Interrupt6_Handler         /*   6 Interrupt 6 */
+        .long    PM_ISR         /*   4 Interrupt 4 */
+        .long    UART0_handler              /*   5 Interrupt 5 */
+        .long    UART1_handler              /*   6 Interrupt 6 */
         .long    Interrupt7_Handler         /*   7 Interrupt 7 */
-        .long    Interrupt8_Handler         /*   8 Interrupt 8 */
-        .long    Interrupt9_Handler         /*   9 Interrupt 9 */
+        //.long    Interrupt8_Handler         /*   8 Interrupt 8 */
+        //.long    Interrupt9_Handler         /*   9 Interrupt 9 */
 
-        .space   (214 * 4)/* Interrupts 10 .. 224 are left out */
+        //.space   (214 * 4)/* Interrupts 10 .. 224 are left out */
 __Vectors_End:
         .equ     __Vectors_Size, __Vectors_End - __Vectors
         .size    __Vectors, . - __Vectors
@@ -185,21 +183,25 @@ Default_Handler:
         Set_Default_Handler  Interrupt9_Handler
 
 	
-	/* Macro to define defaults for some C standard functions.
-	*  Defaults are weak symbols with an endless loop.
-	*  They can be overwritten by real functions.
-	*/
-        .macro   provide_DUMMY  DUMMY_Name
-        .weak    \DUMMY_Name
-        .set     \DUMMY_Name, Default_Handler
-        .endm
-
+	/* Macro to define defaults for some internal NewLib
+	   functions.  Defaults are weak symbols with an endless
+  	   loop.  They can be overwritten by real functions.  */
+	.macro provide_DUMMY DUMMY_Name
+	.weak \DUMMY_Name
+	.set \DUMMY_Name, Default_Handler
+	.endm
+	
 	provide_DUMMY _close
 	provide_DUMMY _getpid
 	provide_DUMMY _kill
 	provide_DUMMY _lseek
 	provide_DUMMY _read
 	provide_DUMMY _write
+	provide_DUMMY _fstat_r
+	provide_DUMMY _isatty_r
+        provide_DUMMY _gettimeofday_r
+        provide_DUMMY _open_r
+        provide_DUMMY _times_r
 
         
 	

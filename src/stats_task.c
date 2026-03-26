@@ -3,6 +3,7 @@
 #include <task.h>
 #include <UART_16550.h>
 #include <AXI_timer.h>
+#include <ANSI_terminal.h>
 
 static int stats_counter=0;
 
@@ -27,11 +28,23 @@ void stats_task(void *pvParameters)
   timer = AXI_TIMER_allocate();
   AXI_TIMER_set_handler(timer,stats_handler);
   AXI_TIMER_set_repeating(timer,AXI_TIMER_HZ_TO_COUNT(20000));
+
+  vTaskDelay(pdMS_TO_TICKS( 5000 )); //this delay is to fix issue with stats freezing right away
  
   while(1)
     {
+      int width = 0, height = 0;
       vTaskGetRunTimeStats(stats_buffer);
       // lock uart
+      ANSI_getScreenSize(UART1, &width, &height);
+      for (int i = 1; i < height; i++)
+      {
+        //clear every line bellow hello world
+        ANSI_moveTo(UART1, i, 0); 
+        ANSI_cleartoeol(UART1);
+      }
+      
+      ANSI_moveTo(UART1, 2, 0); //write bellow hello world
       UART_16550_write_string(UART1,stats_buffer,portMAX_DELAY);
       // unlock uart
       vTaskDelay(pdMS_TO_TICKS( 5000 ));

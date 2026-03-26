@@ -4,6 +4,7 @@
 #include <task.h>
 #include <UART_16550.h>
 #include <stdio.h>
+#include <ANSI_terminal.h>
 
 // "screen /dev/ttyUSB1 9600"
 
@@ -12,6 +13,7 @@ void hello_task(void *pvParameters)
   char buffer[128];
   uint32_t ticks,last_tick=0,time,min_time=1<<31,max_time=0,max_jitter=0,loop_times=0;
   const TickType_t period = pdMS_TO_TICKS(100);
+  int hello_count = 0;
   
   TickType_t lastwake = xTaskGetTickCount();
   while(1)
@@ -33,7 +35,9 @@ void hello_task(void *pvParameters)
 	}
       loop_times++;
 
-      sprintf(buffer,"Hello World %10lu %10lu %10lu\n\r",max_time,min_time,max_jitter);
+      ANSI_moveTo(UART1, 0, 0);
+      ANSI_cleartoeol(UART1);
+      sprintf(buffer,"Hello World %10lu %10lu %10lu %10lu\n\r",max_time,min_time,max_jitter,hello_count);
 
       // acquire uart 
       UART_16550_write_string(UART1,buffer,portMAX_DELAY);
@@ -44,6 +48,7 @@ void hello_task(void *pvParameters)
       //                "12094828712837409237last\r\n");
       //UART_16550_write_string(UART0,buffer,portMAX_DELAY);
 
+      hello_count++;
       last_tick = ticks;
     }
 }
