@@ -69,6 +69,7 @@ void* PM_ISR()
             if (PM_device[channel].device->CSR.IA == 1)
             {
                 PM_device[channel].device->CSR.IE = 0;
+                ASSERT(1 == 0);
             }
         }
     }
@@ -194,7 +195,7 @@ int PM_enable_FIFO(int channel)
     {
         PM_device[channel].device->CSR.SLFM = 1;
     }
-    
+
     return 1;
 }
 
@@ -247,6 +248,8 @@ int PM_enable_interrupt(int channel)
     if (PM_device[channel].interrupt_handler != NULL)
     {
         PM_device[channel].device->CSR.IE = 1;
+        PM_device[channel].device->CSR.fil = 4; //just defulat 4. not sure exactly
+
         NVIC_EnableIRQ(PM_IRQ); //might want to move to enable channel
     }
 }
@@ -266,11 +269,12 @@ void PM_disable_interrupt(int channel)
 // FIFO mode, this function writes to the FIFO. Otherwise,
 // it writes directly to the Duty Cycle Register.
 //duty is a int 0 to 100 representing 0 to 100%
-void PM_set_duty(int channel, int duty)
+void PM_set_duty_percent(int channel, int duty)
 {
-    //check channel valid and owner correct
+    //check channel valid and owner correct (intrupt can also access)
     ASSERT(channel  >= 0 && channel < NUM_PM_CHANNELS);
-    ASSERT(PM_device[channel].owner == xTaskGetCurrentTaskHandle());
+    ASSERT(PM_device[channel].owner == xTaskGetCurrentTaskHandle() ||
+           xPortIsInsideInterrupt() == pdTRUE);
     //check duty in range of BCR
    
     //int bcr = PM_device[channel].device->BCR; //debug
@@ -281,13 +285,29 @@ void PM_set_duty(int channel, int duty)
         PM_device[channel].device->DCR = duty;
 }
 
+void PM_set_duty_absolute(int channel, int duty)
+{
+    //check channel valid and owner correct (intrupt can also access)
+    ASSERT(channel  >= 0 && channel < NUM_PM_CHANNELS);
+    ASSERT(PM_device[channel].owner == xTaskGetCurrentTaskHandle() ||
+           xPortIsInsideInterrupt() == pdTRUE);
+    //check duty in range of BCR
+   
+    int bcr = PM_device[channel].device->BCR; //debug
+    ASSERT(duty >= 0 && duty <= PM_device[channel].device->BCR + 1);
+
+    if ( duty <= PM_device[channel].device->BCR + 1 )
+        PM_device[channel].device->DCR = duty;
+}
+
 // If the channel is in FIFO mode, this function returns 1 if
 // the FIFO is full. In all other cases, it returns zero.
 int PM_FIFO_full(int channel)
 {
-    //check channel valid and owner correct
+    //check channel valid and owner correct (intrupt can also acess)
     ASSERT(channel  >= 0 && channel < NUM_PM_CHANNELS);
-    ASSERT(PM_device[channel].owner == xTaskGetCurrentTaskHandle());
+    ASSERT(PM_device[channel].owner == xTaskGetCurrentTaskHandle() ||
+           xPortIsInsideInterrupt() == pdTRUE);
 
     if ( PM_device[channel].device->CSR.SLFM == 1 &&
          PM_device[channel].device->CSR.FF == 1)

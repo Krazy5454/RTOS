@@ -53,7 +53,10 @@ void PM_disable_interrupt(int channel);
 // Set the duty cycle for the channel. If the channel is in
 // FIFO mode, this function writes to the FIFO. Otherwise,
 // it writes directly to the Duty Cycle Register.
-void PM_set_duty(int channel,int duty);
+void PM_set_duty_percent(int channel,int duty);
+
+
+void PM_set_duty_absolute(int channel, int duty);
 
 // If the channel is in FIFO mode, this function returns 1 if
 // the FIFO is full. In all other cases, it returns zero.
