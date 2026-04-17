@@ -39,10 +39,10 @@ int main( void )
   effect_init();
   
   // Intitialize all UARTS
-  //UART_16550_init(); //done by curses
+  UART_16550_init(); //done by curses
 
   // Configure UART0 for 9600/N/8/2
-  //UART_16550_configure(UART0,115200,UART_PARITY_NONE,8,1);
+  UART_16550_configure(UART0,9600,UART_PARITY_NONE,8,1);
   //UART_16550_configure(UART1,115200,UART_PARITY_NONE,8,1);
   
   /* Create the task without using any dynamic memory allocation. */
@@ -50,8 +50,8 @@ int main( void )
 	//			   NULL,3,hello_stack,&hello_TCB);
 			      
   /* Create the task without using any dynamic memory allocation. */
-  //stats_handle = xTaskCreateStatic(stats_task,"stats",STATS_STACK_SIZE,
-	///			   NULL,2,stats_stack,&stats_TCB); 
+  stats_handle = xTaskCreateStatic(stats_task,"stats",STATS_STACK_SIZE,
+				   NULL,2,stats_stack,&stats_TCB); 
 
   /* Create the task without using anydynamic memory allocation. */
   //receiver_handle = xTaskCreateStatic(receiver_task,"receiver",RECEIVER_STACK_SIZE,

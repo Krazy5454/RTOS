@@ -84,7 +84,7 @@
 #define configSTREAM_BUFFER_TRIGGER_LEVEL_TEST_MARGIN    2
 #define configCHECK_FOR_STACK_OVERFLOW			 2
 
-//#define configUSE_MALLOC_FAILED_HOOK                     1
+#define configUSE_MALLOC_FAILED_HOOK                     1
 //extern void malloc_failed();
 //#define vApplicationMallocFailedHook(x)     malloc_failed()
 

@@ -54,7 +54,7 @@ static volatile PM_device_t PM_device[NUM_PM_CHANNELS] = {
     {NULL, NULL, PM4_ctrl,     {}},
 };
 
-void* PM_ISR()
+void PM_ISR()
 {
     //check all channels for intrupt bit
     for ( int channel = 0; channel < NUM_PM_CHANNELS; channel++)
@@ -148,7 +148,7 @@ void PM_set_cycle_time(int channel, int divisions, int base_frequency)
     PM_device[channel].device->CDR = divisions - 1;
 
     //base cylce time 
-    int base_clk =  PM_CLK_HZ/(PM_device[channel].device->CDR + 1);
+    int base_clk =  PM_CLK_HZ/(PM_device[channel].device->CDR + 1); //division slow, but only for init
     ASSERT(base_clk != 0);
     PM_device[channel].device->BCR = base_clk/base_frequency - 1; //ths equation is probably right
 

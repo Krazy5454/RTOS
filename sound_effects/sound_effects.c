@@ -53,7 +53,7 @@ void audio_handler()
   static uint8_t* buffer = NULL; // make it static so that it always exists.
   static int buffer_valid = 0;
   static int i = 0;
-  BaseType_t HigherPriorityTaskWoken;
+  BaseType_t HigherPriorityTaskWoken = pdFALSE;
 	BaseType_t ret;
 
   //shouldn't call xQueueReceiveFromISR before scheduler started
@@ -70,10 +70,10 @@ void audio_handler()
   }
 
   // While the PM FIFO is not full,
-  while(!PM_FIFO_full(0) && buffer_valid == 1)
+  while(!PM_FIFO_full(CHANNEL) && buffer_valid == 1)
   {
     //   Transfer a data item from the buffer to the FIFO
-    PM_set_duty_absolute(0, buffer[i]);
+    PM_set_duty_absolute(CHANNEL, buffer[i]);
     i++;
     if (i >= EFFECT_BUFFER_SIZE)
     {
@@ -98,9 +98,9 @@ void audio_handler()
   //just write zeros if not valid
   if (buffer_valid == 0)
   {
-    while(!PM_FIFO_full(0))
+    while(!PM_FIFO_full(CHANNEL))
     {
-      PM_set_duty_absolute(0, buffer[i]); 
+      PM_set_duty_absolute(CHANNEL, 0); 
     }
   }
 
@@ -122,8 +122,9 @@ static uint8_t mixer_buffers[NUM_MIXER_BUFFERS][EFFECT_BUFFER_SIZE];
 // mixes the audio data before sending it to the ISR.
 static void effect_mixer_task(void *params)
 {
-  uint8_t* buffer;
-  int i;
+  uint8_t* ISR_buffer;
+  uint8_t* from_effects_buffer;
+  int i,j;
   BaseType_t ret;
   
   //wait a little so hardware gets started up fine
@@ -143,50 +144,89 @@ static void effect_mixer_task(void *params)
   }
     
   // configure and enable the pulse modulator
-  PM_acquire(0);
-  PM_set_cycle_time(0, DIVISION, FREQ); //BCR + 1 = 256 (or 255 + 1)
-  PM_set_PDM_mode(0);
-  PM_set_handler(0, &audio_handler);
-  int enabled = PM_enable_FIFO(0);
+  PM_acquire(CHANNEL);
+  PM_set_cycle_time(CHANNEL, DIVISION, FREQ); //BCR + 1 = 256 (or 255 + 1)
+  PM_set_PDM_mode(CHANNEL);
+  PM_set_handler(CHANNEL, &audio_handler);
+  int enabled = PM_enable_FIFO(CHANNEL);
   ASSERT (enabled != 0);
-  PM_enable_interrupt(0);
-  PM_enable(0);
+  PM_enable_interrupt(CHANNEL);
+  PM_enable(CHANNEL);
 
   while (1)
+  {
+    // Part 1:
+    // Pick one of the sound effects.  For each chunk of data in the sound effect:
+    //   Get a mixer buffer pointer from the ISR to mixer queue
+    //   Copy (making adjustments) the data from the sound effect into it.
+    //   Send the mixer buffer pointer to the mixer to ISR queue
+  
+    // for ( i = 0; i < NUM_explosion1_BUFFERS; i++)
+    // {
+    //   //it will wait here until get available buffer from ISR
+    //   ret = xQueueReceive ( ISRToMixerqueue,
+    //                                   &buffer,
+    //                                   portMAX_DELAY);
+
+    //   //fill buffer
+    //   for ( int j = 0; j < EFFECT_BUFFER_SIZE; j++)   
+    //   {
+    //     buffer[j]   = ((uint8_t)(explosion1[i].data[j])) + 128; //signed to unsigned
+    //   }                                
+
+    //   ret &= xQueueSendToBack( MixerToISRqueue, 
+    //                           &buffer, 
+    //                           portMAX_DELAY);
+    //   ASSERT(ret == pdPASS); //might to actual handle this senario
+    // }
+
+    // vTaskDelay(pdMS_TO_TICKS(500));
+
+    // Part 2: (comment out part 1)
+    //   Get a mixer buffer pointer from the ISR to mixer queue
+    //   Get incoming data pointers from all of the sound effects queues.
+    //   Add all of the incoming data streams and store the results in the mixer buffer. 
+    //   Send the mixer buffer pointer to the mixer to ISR queue
+
+    EventBits_t bits = xEventGroupWaitBits( effect_events,
+                                            0xFFF,
+                                            pdFALSE,
+                                            pdFALSE,
+                                            portMAX_DELAY);
+    ret = xQueueReceive ( ISRToMixerqueue,
+                          &ISR_buffer,
+                          portMAX_DELAY);
+    ASSERT ( ret == pdPASS);
+
+    //blank out next buffer
+    //could make more faster by writing to words at time
+    for ( j = 0; j < EFFECT_BUFFER_SIZE; j++) 
+      ISR_buffer[j] = 0;
+
+    //go thought all effects
+    for (i = 0; i < NUM_EFFECTS; i++)
     {
-      // Part 1:
-      // Pick one of the sound effects.  For each chunk of data in the sound effect:
-      //   Get a mixer buffer pointer from the ISR to mixer queue
-      //   Copy (making adjustments) the data from the sound effect into it.
-      //   Send the mixer buffer pointer to the mixer to ISR queue
-    
-      for ( i = 0; i < NUM_explosion1_BUFFERS; i++)
+      if( bits & effect_task_params[i].event) //event is signaling 
       {
-        //it will wait here until get available buffer from ISR
-        ret = xQueueReceive ( ISRToMixerqueue,
-                                        &buffer,
-                                        portMAX_DELAY);
-
-        //fill buffer
-        for ( int j = 0; j < EFFECT_BUFFER_SIZE; j++)   
-        {
-          buffer[j]   = ((uint8_t)(explosion1[i].data[j])) + 128; //signed to unsigned
-        }                                
-
-        ret &= xQueueSendToBack( MixerToISRqueue, 
-                                &buffer, 
+          ret = xQueueReceive ( effect_task_params[i].sendqueue,
+                                &from_effects_buffer,
                                 portMAX_DELAY);
-        ASSERT(ret == pdPASS); //might to actual handle this senario
+          ASSERT ( ret == pdPASS);
+          
+          for ( j = 0; j < EFFECT_BUFFER_SIZE; j++) 
+            ISR_buffer[j] += ((uint8_t)(from_effects_buffer[j])) + 128; //signed to unsigned
+
+        if( uxQueueMessagesWaiting(effect_task_params[i].sendqueue) > 0)
+            xEventGroupClearBits(effect_events, effect_task_params[i].event);
       }
-
-      vTaskDelay(pdMS_TO_TICKS(500));
-
-      // Part 2: (comment out part 1)
-      //   Get a mixer buffer pointer from the ISR to mixer queue
-      //   Get incoming data pointers from all of the sound effects queues.
-      //   Add all of the incoming data streams and store the results in the mixer buffer. 
-      //   Send the mixer buffer pointer to the mixer to ISR queue
     }
+
+    //send buffer to ISR
+    ret &= xQueueSendToBack( MixerToISRqueue, 
+                             &ISR_buffer, 
+                             portMAX_DELAY);
+     ASSERT(ret == pdPASS); //might to actual handle this senario                                   
+  }
 }
 
 
@@ -194,14 +234,31 @@ static void effect_mixer_task(void *params)
 static void effect_task(void *params)
 {
   // typecast the params pointer so we can access our effect data
-  effect_param_t *my_effect = (effect_param_t*)params;
+  effect_param_t* my_effect = (effect_param_t*)params;
+  BaseType_t ret = pdPASS;
+	uint8_t* buffer;
 
   while(1)
     {
-      // Block until my event occurs.
-      // loop:
-      //   send pointers to my buffers to my send queue
-      //   until I have sent all of my buffers.
+      vTaskDelay(2000);
+      // // Block until my event ocurs.
+      // // loop:
+      // //   send pointers to my buffers to my send queue
+      // //   until I have sent all of my buffers.
+      for ( int i = 0; i < my_effect->num_buffers; i++)
+      {
+        //will block until room is avaliable
+        
+				buffer = my_effect->buffers[i].data;
+        ret &= xQueueSendToBack( my_effect->sendqueue, 
+                                &buffer,  
+                                portMAX_DELAY);
+
+        ASSERT( ret == pdPASS );
+
+        //flag mixer that stuff is in queue
+        xEventGroupSetBits(effect_events, my_effect->event);
+      }
     }
 }
 
@@ -221,13 +278,16 @@ static uint8_t ISRToMixerqueue_storage[NUM_MIXER_BUFFERS * EFFECT_BUFFER_PTR_SIZ
 //effect tasks
 #define EFFECT_STACK_SIZE 512 //TODO could change this
 static TaskHandle_t effect_task_handle[NUM_EFFECTS];
-static StackType_t  effect_stack[MIXER_STACK_SIZE][NUM_EFFECTS];
+static StackType_t  effect_stack[NUM_EFFECTS][MIXER_STACK_SIZE];
 static StaticTask_t effect_TCB[NUM_EFFECTS];
 
 // for effect to mixer queue
 #define EFFECT_QUEUE_SIZE NUM_MIXER_BUFFERS
-static uint8_t effect_queue_storage [EFFECT_QUEUE_SIZE * EFFECT_BUFFER_PTR_SIZE][NUM_EFFECTS];
+static uint8_t effect_queue_storage [NUM_EFFECTS][EFFECT_QUEUE_SIZE * EFFECT_BUFFER_PTR_SIZE];
 static StaticQueue_t effect_queue_QCB [NUM_EFFECTS];
+
+//eventGroup
+StaticEventGroup_t xCreatedEventGroup;
 
 void effect_init() // main should call this function to set up the sound effects
 {
@@ -237,15 +297,15 @@ void effect_init() // main should call this function to set up the sound effects
   // create all of the queues that will be used by the effects tasks
   // to send data to the mixer. Store their handles in the
   // effect_to_mixer_queues array
-  // for ( i = 0; i < NUM_EFFECTS; i++)
-  // {
-  //   effect_to_mixer_queues[i] = xQueueCreateStatic( EFFECT_QUEUE_SIZE, 
-  //                                                   EFFECT_BUFFER_PTR_SIZE,
-  //                                                   effect_queue_storage[i],
-  //                                                   &effect_queue_QCB[i] );
-  //   ASSERT(  effect_to_mixer_queues[i] ); //make sure they got created
-  //   effect_task_params[i].sendqueue = effect_to_mixer_queues[i];
-  // }
+  for ( i = 0; i < NUM_EFFECTS; i++)
+  {
+    effect_to_mixer_queues[i] = xQueueCreateStatic( EFFECT_QUEUE_SIZE, 
+                                                    EFFECT_BUFFER_PTR_SIZE,
+                                                    effect_queue_storage[i],
+                                                    &effect_queue_QCB[i] );
+    ASSERT(  effect_to_mixer_queues[i] ); //make sure they got created
+    effect_task_params[i].sendqueue = effect_to_mixer_queues[i];
+  }
   // create the two queues to communicate between the mixer and the ISR
   MixerToISRqueue = xQueueCreateStatic( NUM_MIXER_BUFFERS, 
                                         EFFECT_BUFFER_PTR_SIZE,
@@ -261,18 +321,21 @@ void effect_init() // main should call this function to set up the sound effects
 
   // create all of the effect tasks, giving them each a unique queue handle and
   // other parameters (effect_params)
-  // char name_buffer[20];
-  // for ( i = 0; i < NUM_EFFECTS; i++)
-  // {
-  //   sprintf(name_buffer, "effect %d", i);
-  //   effect_task_handle[i] = xTaskCreateStatic(effect_task, name_buffer, EFFECT_STACK_SIZE,
-	// 			   (void*)&effect_task_params[i], 6, effect_stack[i], &effect_TCB[i]); //might need to change prioirty
-  // }
+  char name_buffer[20];
+  for ( i = 0; i < NUM_EFFECTS; i++)
+  {
+    sprintf(name_buffer, "effect %d", i);
+    effect_task_handle[i] = xTaskCreateStatic(effect_task, name_buffer, EFFECT_STACK_SIZE,
+				   (void*)&(effect_task_params[i]), 6, effect_stack[i], &effect_TCB[i]); //might need to change prioirty
+  }
 
   // create the mixer task
   //might need to change prioirty. just need to be bigger than effect priority
   mixer_task_handle = xTaskCreateStatic(effect_mixer_task, "mixer", MIXER_STACK_SIZE,
 				   NULL, 7, mixer_stack, &mixer_TCB); 
+
+  effect_events = xEventGroupCreateStatic( &xCreatedEventGroup );
+  ASSERT( effect_events );
 }
  
 

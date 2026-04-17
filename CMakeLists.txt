@@ -68,7 +68,7 @@ add_compile_options(-ffunction-sections -fdata-sections -fno-common -fmessage-le
 
 # Option 1: Debugger will follow your C code
 message(STATUS "Minimal optimization, include debug info")
-add_compile_options(-g)
+add_compile_options(-O0 -g)
 
 # Option 2: Debugger may "jump around" in your C code   
 #     message(STATUS "Maximum optimization for speed, include debug info")
@@ -93,7 +93,7 @@ include_directories(
   ${CMAKE_SOURCE_DIR}/PDCurses/ANSI 
   ${CMAKE_SOURCE_DIR}/PDCurses/ANSI/drivers
   ${CMAKE_SOURCE_DIR}/ninvaders
-
+  ${CMAKE_SOURCE_DIR}/sound_effects
 )
 
 # list of FreeRTOS sources that we need
@@ -104,6 +104,7 @@ file(GLOB FREERTOS_SOURCES
    "${CMAKE_SOURCE_DIR}/FreeRTOS/mutex.c"
    "${CMAKE_SOURCE_DIR}/FreeRTOS/stream_buffer.c"
    "${CMAKE_SOURCE_DIR}/FreeRTOS/timers.c"
+   "${CMAKE_SOURCE_DIR}/FreeRTOS/event_groups.c"
    "${CMAKE_SOURCE_DIR}/FreeRTOS/portable/GCC/ARM_CM3/port.c"
    #"${CMAKE_SOURCE_DIR}/FreeRTOS/portable/MemMang/heap_3.c"
 # add more as needed
@@ -119,16 +120,18 @@ file(GLOB PDCURSES_SOURCES
 # Sources for the executable
 file(GLOB SOURCES
   "${CMAKE_SOURCE_DIR}/src/main.c"
-  "${CMAKE_SOURCE_DIR}/src/hello_task.c"
+ # "${CMAKE_SOURCE_DIR}/src/hello_task.c"
   "${CMAKE_SOURCE_DIR}/src/stats_task.c"
-  "${CMAKE_SOURCE_DIR}/src/receiver_task.c"
+ # "${CMAKE_SOURCE_DIR}/src/receiver_task.c"
   #"${CMAKE_SOURCE_DIR}/ninvaders/*.c" #change fun task
-  "${CMAKE_SOURCE_DIR}/src/PM_test_task.c"
+ # "${CMAKE_SOURCE_DIR}/src/PM_test_task.c"
   "${CMAKE_SOURCE_DIR}/src/PM.c"
   "${CMAKE_SOURCE_DIR}/src/AXI_timer.c"
   "${CMAKE_SOURCE_DIR}/src/UART_16550.c" 
   "${CMAKE_SOURCE_DIR}/src/startup_ARMCM3.S"
   "${CMAKE_SOURCE_DIR}/src/heap_useNewlib.c"
+  "${CMAKE_SOURCE_DIR}/sound_effects/*.c"
+
 )
 
 # Define our linker script
