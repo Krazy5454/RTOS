@@ -8,7 +8,9 @@
 
 #define CHANNEL 0
 
-EventGroupHandle_t effect_events;
+EventGroupHandle_t ninvaders_to_effect_events;
+EventGroupHandle_t effect_to_mixer_events;
+
 
 // Each sound effect task will send audio buffers (actually just
 // pointers) to the mixer using a dedicated queue
@@ -50,7 +52,7 @@ static effect_param_t effect_task_params[NUM_EFFECTS] = {
 // The interrupt handler for the audio pulse modulator
 void audio_handler()
 {
-  static uint8_t* buffer = NULL; // make it static so that it always exists.
+  static int8_t* buffer = NULL; // make it static so that it always exists.
   static int buffer_valid = 0;
   static int i = 0;
   BaseType_t HigherPriorityTaskWoken = pdFALSE;
@@ -73,7 +75,7 @@ void audio_handler()
   while(!PM_FIFO_full(CHANNEL) && buffer_valid == 1)
   {
     //   Transfer a data item from the buffer to the FIFO
-    PM_set_duty_absolute(CHANNEL, buffer[i]);
+    PM_set_duty_absolute(CHANNEL, buffer[i] + 128);
     i++;
     if (i >= EFFECT_BUFFER_SIZE)
     {
@@ -122,10 +124,11 @@ static uint8_t mixer_buffers[NUM_MIXER_BUFFERS][EFFECT_BUFFER_SIZE];
 // mixes the audio data before sending it to the ISR.
 static void effect_mixer_task(void *params)
 {
-  uint8_t* ISR_buffer;
-  uint8_t* from_effects_buffer;
+  int8_t* ISR_buffer;
+  int8_t* from_effects_buffer;
   int i,j;
   BaseType_t ret;
+  int16_t temp_16;
   
   //wait a little so hardware gets started up fine
   vTaskDelay(pdMS_TO_TICKS(100));
@@ -188,7 +191,7 @@ static void effect_mixer_task(void *params)
     //   Add all of the incoming data streams and store the results in the mixer buffer. 
     //   Send the mixer buffer pointer to the mixer to ISR queue
 
-    EventBits_t bits = xEventGroupWaitBits( effect_events,
+    EventBits_t bits = xEventGroupWaitBits( effect_to_mixer_events,
                                             0xFFF,
                                             pdFALSE,
                                             pdFALSE,
@@ -213,11 +216,20 @@ static void effect_mixer_task(void *params)
                                 portMAX_DELAY);
           ASSERT ( ret == pdPASS);
           
-          for ( j = 0; j < EFFECT_BUFFER_SIZE; j++) 
-            ISR_buffer[j] += ((uint8_t)(from_effects_buffer[j])) + 128; //signed to unsigned
+          for ( j = 0; j < EFFECT_BUFFER_SIZE; j++)
+          {
+            temp_16 = ((int16_t)ISR_buffer[j]) + ((int16_t)(from_effects_buffer[j])); 
+            //satruate if goes over max //TDOD replace with lineline assembly
+            if (temp_16 > 127)
+              temp_16 = 127;
+            else if (temp_16 < -128)
+              temp_16 = -128;
+            ISR_buffer[j] = (int8_t)(temp_16);
+          } 
+            
 
         if( uxQueueMessagesWaiting(effect_task_params[i].sendqueue) > 0)
-            xEventGroupClearBits(effect_events, effect_task_params[i].event);
+            xEventGroupClearBits(effect_to_mixer_events, effect_task_params[i].event);
       }
     }
 
@@ -236,11 +248,15 @@ static void effect_task(void *params)
   // typecast the params pointer so we can access our effect data
   effect_param_t* my_effect = (effect_param_t*)params;
   BaseType_t ret = pdPASS;
-	uint8_t* buffer;
+	int8_t* buffer;
 
   while(1)
     {
-      vTaskDelay(2000);
+      xEventGroupWaitBits(ninvaders_to_effect_events,
+                          my_effect->event,
+                          pdTRUE, 
+                          pdFALSE,
+                          portMAX_DELAY);
       // // Block until my event ocurs.
       // // loop:
       // //   send pointers to my buffers to my send queue
@@ -257,7 +273,7 @@ static void effect_task(void *params)
         ASSERT( ret == pdPASS );
 
         //flag mixer that stuff is in queue
-        xEventGroupSetBits(effect_events, my_effect->event);
+        xEventGroupSetBits(effect_to_mixer_events, my_effect->event);
       }
     }
 }
@@ -287,7 +303,8 @@ static uint8_t effect_queue_storage [NUM_EFFECTS][EFFECT_QUEUE_SIZE * EFFECT_BUF
 static StaticQueue_t effect_queue_QCB [NUM_EFFECTS];
 
 //eventGroup
-StaticEventGroup_t xCreatedEventGroup;
+StaticEventGroup_t xCreatedEventGroup1;
+StaticEventGroup_t xCreatedEventGroup2;
 
 void effect_init() // main should call this function to set up the sound effects
 {
@@ -334,8 +351,11 @@ void effect_init() // main should call this function to set up the sound effects
   mixer_task_handle = xTaskCreateStatic(effect_mixer_task, "mixer", MIXER_STACK_SIZE,
 				   NULL, 7, mixer_stack, &mixer_TCB); 
 
-  effect_events = xEventGroupCreateStatic( &xCreatedEventGroup );
-  ASSERT( effect_events );
+  effect_to_mixer_events = xEventGroupCreateStatic( &xCreatedEventGroup1 );
+  ASSERT( effect_to_mixer_events );
+
+  ninvaders_to_effect_events = xEventGroupCreateStatic( &xCreatedEventGroup2 );
+  ASSERT( ninvaders_to_effect_events );
 }
  
 

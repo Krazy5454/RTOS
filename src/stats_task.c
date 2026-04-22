@@ -36,16 +36,17 @@ void stats_task(void *pvParameters)
       int width = 0, height = 0;
       vTaskGetRunTimeStats(stats_buffer);
       // lock uart
-      ANSI_getScreenSize(UART0, &width, &height);
+      ANSI_getScreenSize(UART1, &width, &height);
       for (int i = 1; i < height; i++)
       {
         //clear every line bellow hello world
-        ANSI_moveTo(UART0, i, 0); 
-        ANSI_cleartoeol(UART0);
+        ANSI_moveTo(UART1, i, 0); 
+        ANSI_cleartoeol(UART1);
       }
       
-      ANSI_moveTo(UART0, 2, 0); //write bellow hello world
-      UART_16550_write_string(UART0,stats_buffer,portMAX_DELAY);
+      ANSI_moveTo(UART1, 3, 0); //write bellow hello world
+      UART_16550_write_string(UART1,stats_buffer,portMAX_DELAY);
+
       // unlock uart
       vTaskDelay(pdMS_TO_TICKS( 5000 ));
     }

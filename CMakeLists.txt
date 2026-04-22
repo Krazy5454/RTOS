@@ -68,7 +68,7 @@ add_compile_options(-ffunction-sections -fdata-sections -fno-common -fmessage-le
 
 # Option 1: Debugger will follow your C code
 message(STATUS "Minimal optimization, include debug info")
-add_compile_options(-O0 -g)
+add_compile_options(-Os -g)
 
 # Option 2: Debugger may "jump around" in your C code   
 #     message(STATUS "Maximum optimization for speed, include debug info")
@@ -120,10 +120,10 @@ file(GLOB PDCURSES_SOURCES
 # Sources for the executable
 file(GLOB SOURCES
   "${CMAKE_SOURCE_DIR}/src/main.c"
- # "${CMAKE_SOURCE_DIR}/src/hello_task.c"
+  "${CMAKE_SOURCE_DIR}/src/hello_task.c"
   "${CMAKE_SOURCE_DIR}/src/stats_task.c"
  # "${CMAKE_SOURCE_DIR}/src/receiver_task.c"
-  #"${CMAKE_SOURCE_DIR}/ninvaders/*.c" #change fun task
+  "${CMAKE_SOURCE_DIR}/ninvaders/*.c" #change fun task
  # "${CMAKE_SOURCE_DIR}/src/PM_test_task.c"
   "${CMAKE_SOURCE_DIR}/src/PM.c"
   "${CMAKE_SOURCE_DIR}/src/AXI_timer.c"

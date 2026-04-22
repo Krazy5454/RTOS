@@ -25,6 +25,7 @@
 #include "aliens.h"
 #include "player.h"
 #include "nInvaders.h"
+#include <sound_effects.h>
 
 Aliens aliens;
 int shipnum;
@@ -121,9 +122,19 @@ void bunkersReset()
  */
 int aliensMove()
 {
-	
 	int cx,cy;
 	int fReachedPlayer=0; 				// return value
+	static int sound_counter = 0;
+
+	if (sound_counter == 0)
+		xEventGroupSetBits(ninvaders_to_effect_events, FASTINVADER1_EVENT);
+	else if (sound_counter == 1)
+		xEventGroupSetBits(ninvaders_to_effect_events, FASTINVADER2_EVENT);
+	else if (sound_counter == 2)
+		xEventGroupSetBits(ninvaders_to_effect_events, FASTINVADER3_EVENT);
+	else if (sound_counter == 3)
+		xEventGroupSetBits(ninvaders_to_effect_events, FASTINVADER4_EVENT);
+	sound_counter = (sound_counter + 1) % 4;
 
 	render();	
 	aliensClear(aliens.posX, aliens.posY, aliens.right, aliens.bottom);	// clear old position of aliens

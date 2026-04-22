@@ -19,24 +19,30 @@ void hello_task(void *pvParameters)
   while(1)
     {
       // wait until the timeout
-      vTaskDelayUntil(&lastwake,period);
+      xTaskDelayUntil(&lastwake,period);
       //vTaskDelay(period);
 
       // Calculate ticks since we last woke up, and track the jitter
       ticks = xTaskGetTickCount();
       if(loop_times>2)
-	{
-	  time = ticks-last_tick;
-	  if(time < min_time)
-	    min_time = time;
-	  if(time > max_time)
-	    max_time = time;
-	  max_jitter = max_time-min_time;
-	}
+    {
+        time = ticks-last_tick;
+        if(time < min_time)
+          min_time = time;
+        if(time > max_time)
+          max_time = time;
+        max_jitter = max_time-min_time;
+      }
       loop_times++;
 
       ANSI_moveTo(UART1, 0, 0);
       ANSI_cleartoeol(UART1);
+      sprintf(buffer,"                Max Time    Min Time   Max Jitter   Count\n\r");
+
+      // acquire uart 
+      UART_16550_write_string(UART1,buffer,portMAX_DELAY);
+      // release uart
+
       sprintf(buffer,"Hello World %10lu %10lu %10lu %10lu\n\r",max_time,min_time,max_jitter,hello_count);
 
       // acquire uart 

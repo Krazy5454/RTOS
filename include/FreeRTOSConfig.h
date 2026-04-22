@@ -75,10 +75,10 @@
 #define configIDLE_SHOULD_YIELD                          0
 #define configUSE_CO_ROUTINES                            0
 
-#define configMAX_PRIORITIES                             (10)
+#define configMAX_PRIORITIES                             (11)
 #define configMAX_CO_ROUTINE_PRIORITIES                  (2)
 #define configTIMER_QUEUE_LENGTH                         20
-#define configTIMER_TASK_PRIORITY                    (configMAX_PRIORITIES - 1)
+#define configTIMER_TASK_PRIORITY                    (configMAX_PRIORITIES - 2)
 #define configUSE_COUNTING_SEMAPHORES                    0
 #define configSUPPORT_STATIC_ALLOCATION                  1
 #define configSTREAM_BUFFER_TRIGGER_LEVEL_TEST_MARGIN    2

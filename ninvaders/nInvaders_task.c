@@ -32,6 +32,7 @@
 #include "player.h"
 #include "aliens.h"
 #include "ufo.h"
+#include <sound_effects.h>
 
 #define FPS 50
 
@@ -48,6 +49,8 @@ int skill_level;
 #define GAME_OVER 4
 #define GAME_EXIT 5
 #define GAME_HIGHSCORE 6
+
+static TaskHandle_t ninvaders_display_task_handle = NULL;
 
 
 
@@ -214,6 +217,16 @@ void readInput()
  */
 void handleTimer( TimerHandle_t xTimer )
 {
+	BaseType_t xHigherPriorityTaskWoken = pdFALSE;
+
+	//release acutally timer handler which is own task
+	vTaskNotifyGiveFromISR ( ninvaders_display_task_handle, &xHigherPriorityTaskWoken);
+
+	portYIELD_FROM_ISR( xHigherPriorityTaskWoken );
+}
+
+void ninvaders_display_task(void *pvParameters)
+{
 	static int aliens_move_counter = 0; 
 	static int aliens_shot_counter = 0;
 	static int player_shot_counter = 0;
@@ -221,94 +234,99 @@ void handleTimer( TimerHandle_t xTimer )
 	static int title_animation_counter = 0;
 	static int game_over_counter = 0;
 	
-	switch (status) {
-		 
-	case GAME_NEXTLEVEL:    // go to next level
-		
-		level++;	// increase level
+	while (1)
+	{
+		ulTaskNotifyTake( pdTRUE, portMAX_DELAY ); //wait for ISR to notify
 
-		initLevel();	// initialize level
-		
-		aliens_move_counter = 0; 
-		aliens_shot_counter = 0;
-		player_shot_counter = 0;
-		ufo_move_counter = 0;
-		
-		weite = (shipnum+(skill_level*10)-(level*5)+5)/10;
-		
-		if (weite < 0) {
-			weite = 0;
-		}
-		
-		// change status and start game!
-		status = GAME_LOOP;
+		switch (status) {
+			
+		case GAME_NEXTLEVEL:    // go to next level
+			
+			level++;	// increase level
 
-	case GAME_LOOP:   	 // do game handling
-		
-		// move aliens			
-		if (aliens_move_counter == 0 && aliensMove() == 1) {
-			// aliens reached player
-			lives = 0;
-			status = GAME_OVER;
-		}
-		
-		// move player missile			
-		if (player_shot_counter == 0 && playerMoveMissile() == 1) {
-			// no aliens left
-			status = GAME_NEXTLEVEL;
-		}
-		
-		// move aliens' missiles
-		if (aliens_shot_counter == 0 && aliensMissileMove() == 1) {
-			// player was hit
-			lives--;			// player looses one life
-			drawscore();	                // draw score
-			playerExplode();		// display some explosion graphics
-			if (lives == 0) {		// if no lives left ...
-				status = GAME_OVER;		// ... exit game
+			initLevel();	// initialize level
+			
+			aliens_move_counter = 0; 
+			aliens_shot_counter = 0;
+			player_shot_counter = 0;
+			ufo_move_counter = 0;
+			
+			weite = (shipnum+(skill_level*10)-(level*5)+5)/10;
+			
+			if (weite < 0) {
+				weite = 0;
 			}
-		}
-		
-		// move ufo
-		if (ufo_move_counter == 0 && ufoShowUfo() == 1) {
-			ufoMoveLeft();			// move it one position to the left
-		}
-		
-		
-		if (aliens_shot_counter++ >= 5) {aliens_shot_counter=0;}     // speed of alien shot
-		if (player_shot_counter++ >= 1) {player_shot_counter=0;}     // speed of player shot
-		if (aliens_move_counter++ >= weite) {aliens_move_counter=0;} // speed of aliend
-		if (ufo_move_counter++ >= 3) {ufo_move_counter=0;}           // speed of ufo
-		
-		refreshScreen();
-		break;
-		
-	case GAME_PAUSED:    // game is paused
-		break;
-		
-	case GAME_OVER:      // game over
-		if (game_over_counter == 100) {
-			battleFieldClear();
-			status = GAME_HIGHSCORE;
-			game_over_counter = 0;
-		} else {
-			gameOverDisplay();
-			game_over_counter++;
-		}
-		break;
-		
-	case GAME_EXIT:      // exit game
-		// /finish(0);
-		break;
-		
-	case GAME_HIGHSCORE: // display highscore
-		if (title_animation_counter == 0) {
-			titleScreenDisplay();
-		}
+			
+			// change status and start game!
+			status = GAME_LOOP;
 
-		if (title_animation_counter++ >= 6) {title_animation_counter = 0;} // speed of animation
-		break;
-		
+		case GAME_LOOP:   	 // do game handling
+			
+			// move aliens			
+			if (aliens_move_counter == 0 && aliensMove() == 1) {
+				// aliens reached player
+				lives = 0;
+				status = GAME_OVER;
+			}
+			
+			// move player missile			
+			if (player_shot_counter == 0 && playerMoveMissile() == 1) {
+				// no aliens left
+				status = GAME_NEXTLEVEL;
+			}
+			
+			// move aliens' missiles
+			if (aliens_shot_counter == 0 && aliensMissileMove() == 1) {
+				// player was hit
+				lives--;			// player looses one life
+				drawscore();	                // draw score
+				playerExplode();		// display some explosion graphics
+				if (lives == 0) {		// if no lives left ...
+					status = GAME_OVER;		// ... exit game
+				}
+			}
+			
+			// move ufo
+			if (ufo_move_counter == 0 && ufoShowUfo() == 1) {
+				ufoMoveLeft();			// move it one position to the left
+			}
+			
+			
+			if (aliens_shot_counter++ >= 5) {aliens_shot_counter=0;}     // speed of alien shot
+			if (player_shot_counter++ >= 1) {player_shot_counter=0;}     // speed of player shot
+			if (aliens_move_counter++ >= weite) {aliens_move_counter=0;} // speed of aliend
+			if (ufo_move_counter++ >= 3) {ufo_move_counter=0;}           // speed of ufo
+			
+			refreshScreen();
+			break;
+			
+		case GAME_PAUSED:    // game is paused
+			break;
+			
+		case GAME_OVER:      // game over
+			if (game_over_counter == 100) {
+				battleFieldClear();
+				status = GAME_HIGHSCORE;
+				game_over_counter = 0;
+			} else {
+				gameOverDisplay();
+				game_over_counter++;
+			}
+			break;
+			
+		case GAME_EXIT:      // exit game
+			// /finish(0);
+			break;
+			
+		case GAME_HIGHSCORE: // display highscore
+			if (title_animation_counter == 0) {
+				titleScreenDisplay();
+			}
+
+			if (title_animation_counter++ >= 6) {title_animation_counter = 0;} // speed of animation
+			break;
+			
+		}
 	}
 }
 
@@ -353,6 +371,10 @@ void ninvaders_task(void *pvParameters)
 	level = 0;
 	skill_level = 1;
 
+	//create display task
+	ninvaders_display_task_handle = xTaskCreateStatic(ninvaders_display_task,"ninvaders_display",NINVADERS_STACK_SIZE,
+	 			  NULL,1,ninvaders_display_stack,&ninvaders_display_TCB);
+
 	//evaluateCommandLine(argc, argv);	// evaluate command line parameters
 	graphicEngineInit();			// initialize graphic engine
 	
@@ -393,8 +415,11 @@ void doScoring(int alienType)
 
 /* Structure that will hold the TCB of the task being created. */
 StaticTask_t ninvaders_TCB;
+StaticTask_t ninvaders_display_TCB;
+
 
 /* Buffer that the task being created will use as its stack. Note this
 is an array of StackType_t variables. The size of StackType_t is
 dependent on the RTOS port. */
 StackType_t ninvaders_stack[ NINVADERS_STACK_SIZE ];
+StackType_t ninvaders_display_stack[ NINVADERS_DISPLAY_STACK_SIZE ];
