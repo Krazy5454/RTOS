@@ -94,6 +94,7 @@ include_directories(
   ${CMAKE_SOURCE_DIR}/PDCurses/ANSI/drivers
   ${CMAKE_SOURCE_DIR}/ninvaders
   ${CMAKE_SOURCE_DIR}/sound_effects
+  ${CMAKE_SOURCE_DIR}/sound_effects/theme
 )
 
 # list of FreeRTOS sources that we need
@@ -131,7 +132,7 @@ file(GLOB SOURCES
   "${CMAKE_SOURCE_DIR}/src/startup_ARMCM3.S"
   "${CMAKE_SOURCE_DIR}/src/heap_useNewlib.c"
   "${CMAKE_SOURCE_DIR}/sound_effects/*.c"
-
+  "${CMAKE_SOURCE_DIR}/sound_effects/theme/theme.c"
 )
 
 # Define our linker script

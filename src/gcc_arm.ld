@@ -12,9 +12,12 @@ __STACK_SIZE = 0x00000400;
    required here but we may want to check memory usage. */
 /*__HEAP_SIZE = 0x00010000; */ /*old */
 
-__HEAP_SIZE = 0x8000000 - 0x400000;
-__HeapStart = 0x80400000;
+__HEAP_SIZE = 0x7000000 - 0x400000;
+__HeapStart = 0x81400000;
 __HeapTop   = 0x88000000;
+
+__THEME_START = 0x81000000;
+__THEME_SIZE =  0x400000 - 0x10;
    
 
 
@@ -25,6 +28,7 @@ MEMORY
   ROM   (rx)  : ORIGIN = __ROM_BASE, LENGTH = __ROM_SIZE
   RAM   (rwx) : ORIGIN = __RAM_BASE, LENGTH = __RAM_SIZE
   
+  THEME (rwx) : ORIGIN = __THEME_START, LENGTH = __THEME_SIZE
   HEAP  (rwx) : ORIGIN = __HeapStart, LENGTH = __HEAP_SIZE 
 }
 
@@ -234,4 +238,9 @@ SECTIONS
  /*ASSERT(__StackLimit > __HeapTop, "Data/BSS overflowed with stack")*/
 
 
+  .theme :
+  {
+    . = ALIGN(8);
+    KEEP(*(.theme))
+  } > THEME
 }

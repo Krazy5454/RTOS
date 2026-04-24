@@ -48,7 +48,17 @@ void ufoReset()
  */
 static void ufoMove(int posX)
 {
-	xEventGroupSetBits(ninvaders_to_effect_events, UFO_HIGHPITCH_EVENT);
+	static int sound_counter = 0;
+	if (sound_counter == 0)
+	{
+		xEventGroupSetBits(ninvaders_to_effect_events, UFO_LOWPITCH_EVENT);
+	}
+	else if (sound_counter % 5 == 0)
+	{
+		xEventGroupSetBits(ninvaders_to_effect_events, UFO_HIGHPITCH_EVENT);
+	}
+	sound_counter = (sound_counter + 1) % 100;
+
 	ufoClear(ufo.posX, ufo.posY);   // clear sprite
 	ufo.posX = posX;
 	ufoRefresh();
@@ -96,7 +106,6 @@ int ufoHitCheck(int shotX, int shotY)
 	if (shotY == UFOPOSY) {
 		// if shot hits ufo
 		if (shotX >= ufo.posX && shotX <= ufo.posX + UFOWIDTH -1) {
-			xEventGroupSetBits(ninvaders_to_effect_events, UFO_LOWPITCH_EVENT);
 			ufoReset();
 			fUfoWasHit = 1;
 		}

@@ -24,6 +24,7 @@
 
 
 #include "nInvaders.h"
+#include <curses.h>
 #include <task.h>
 #include <stdio.h>
 #include <string.h>
@@ -233,7 +234,9 @@ void ninvaders_display_task(void *pvParameters)
 	static int ufo_move_counter = 0;
 	static int title_animation_counter = 0;
 	static int game_over_counter = 0;
-	
+
+	curs_set(0);	// hide cursor
+
 	while (1)
 	{
 		ulTaskNotifyTake( pdTRUE, portMAX_DELAY ); //wait for ISR to notify

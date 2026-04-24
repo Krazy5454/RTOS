@@ -5,6 +5,7 @@
 #include <queue.h>
 #include <PM.h>
 #include <stdio.h>
+#include <theme.h>
 
 #define CHANNEL 0
 
@@ -15,6 +16,8 @@ EventGroupHandle_t effect_to_mixer_events;
 // Each sound effect task will send audio buffers (actually just
 // pointers) to the mixer using a dedicated queue
 static QueueHandle_t effect_to_mixer_queues[NUM_EFFECTS];
+
+static QueueHandle_t theme_queue;
 
 // The mixer will send buffer pointers to the ISR.
 static QueueHandle_t MixerToISRqueue;
@@ -126,9 +129,11 @@ static void effect_mixer_task(void *params)
 {
   int8_t* ISR_buffer;
   int8_t* from_effects_buffer;
+  int16_t acculator[EFFECT_BUFFER_SIZE];
   int i,j;
   BaseType_t ret;
   int16_t temp_16;
+  static int theme_buffer_index = 0;
   
   //wait a little so hardware gets started up fine
   vTaskDelay(pdMS_TO_TICKS(100));
@@ -191,11 +196,14 @@ static void effect_mixer_task(void *params)
     //   Add all of the incoming data streams and store the results in the mixer buffer. 
     //   Send the mixer buffer pointer to the mixer to ISR queue
 
-    EventBits_t bits = xEventGroupWaitBits( effect_to_mixer_events,
-                                            0xFFF,
-                                            pdFALSE,
-                                            pdFALSE,
-                                            portMAX_DELAY);
+    // EventBits_t bits = xEventGroupWaitBits( effect_to_mixer_events,
+    //                                         0xFFF,
+    //                                         pdFALSE,
+    //                                         pdFALSE,
+    //                                         portMAX_DELAY);
+
+    EventBits_t bits = xEventGroupGetBits( effect_to_mixer_events );
+
     ret = xQueueReceive ( ISRToMixerqueue,
                           &ISR_buffer,
                           portMAX_DELAY);
@@ -204,7 +212,7 @@ static void effect_mixer_task(void *params)
     //blank out next buffer
     //could make more faster by writing to words at time
     for ( j = 0; j < EFFECT_BUFFER_SIZE; j++) 
-      ISR_buffer[j] = 0;
+      acculator[j] = 0;
 
     //go thought all effects
     for (i = 0; i < NUM_EFFECTS; i++)
@@ -218,20 +226,37 @@ static void effect_mixer_task(void *params)
           
           for ( j = 0; j < EFFECT_BUFFER_SIZE; j++)
           {
-            temp_16 = ((int16_t)ISR_buffer[j]) + ((int16_t)(from_effects_buffer[j])); 
-            //satruate if goes over max //TDOD replace with lineline assembly
-            if (temp_16 > 127)
-              temp_16 = 127;
-            else if (temp_16 < -128)
-              temp_16 = -128;
-            ISR_buffer[j] = (int8_t)(temp_16);
-          } 
-            
+            acculator[j] += ((int16_t)(from_effects_buffer[j])); 
+          }
 
         if( uxQueueMessagesWaiting(effect_task_params[i].sendqueue) > 0)
             xEventGroupClearBits(effect_to_mixer_events, effect_task_params[i].event);
       }
     }
+
+    // //theme
+    for ( j = 0; j < EFFECT_BUFFER_SIZE; j++)
+    {
+      acculator[j] += ((int16_t)(theme[theme_buffer_index].data[j]));
+    }
+
+    theme_buffer_index++;
+    if (theme_buffer_index >= NUM_theme_BUFFERS)
+    {
+      theme_buffer_index = 0;
+    }
+
+    //put in buffer to send. Truncate here
+    for ( j = 0; j < EFFECT_BUFFER_SIZE; j++) 
+    {
+      if (acculator[j] > 127)
+        acculator[j] = 127;
+      else if (acculator[j] < -128)
+        acculator[j] = -128;
+
+      ISR_buffer[j] = (int8_t)acculator[j];
+    }
+      
 
     //send buffer to ISR
     ret &= xQueueSendToBack( MixerToISRqueue, 
