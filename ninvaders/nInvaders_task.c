@@ -171,8 +171,6 @@ void readInput()
 		break;
 
 	case GAME_OVER:
-		break; // don't do anything
-
 	default:
 
 		if (ch == 'l' || ch == KEY_RIGHT) {	// move player right
@@ -201,6 +199,8 @@ void readInput()
 		} else if (ch == 'L') {			// cheat: one more live
 			lives++;
 			drawscore();
+		} else if (ch == 'D') {			// cheat: die
+			status = GAME_OVER;
 		} else if (ch == 'q') {	// quit game
 			status = GAME_EXIT;
 		} else {		// disable turbo mode if key is not kept pressed
@@ -218,12 +218,8 @@ void readInput()
  */
 void handleTimer( TimerHandle_t xTimer )
 {
-	BaseType_t xHigherPriorityTaskWoken = pdFALSE;
-
 	//release acutally timer handler which is own task
-	vTaskNotifyGiveFromISR ( ninvaders_display_task_handle, &xHigherPriorityTaskWoken);
-
-	portYIELD_FROM_ISR( xHigherPriorityTaskWoken );
+	xTaskNotifyGive ( ninvaders_display_task_handle);
 }
 
 void ninvaders_display_task(void *pvParameters)

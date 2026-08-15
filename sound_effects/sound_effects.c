@@ -319,7 +319,7 @@ static uint8_t ISRToMixerqueue_storage[NUM_MIXER_BUFFERS * EFFECT_BUFFER_PTR_SIZ
 //effect tasks
 #define EFFECT_STACK_SIZE 512 //TODO could change this
 static TaskHandle_t effect_task_handle[NUM_EFFECTS];
-static StackType_t  effect_stack[NUM_EFFECTS][MIXER_STACK_SIZE];
+static StackType_t  effect_stack[NUM_EFFECTS][EFFECT_STACK_SIZE];
 static StaticTask_t effect_TCB[NUM_EFFECTS];
 
 // for effect to mixer queue

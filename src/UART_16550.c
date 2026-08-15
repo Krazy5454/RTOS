@@ -2,10 +2,11 @@
 
 // comment or delete the next line when you start part 4 of the lab
 //#define ORIGINAL_PUT_CHAR
+#define ORIGIONAL_WRITE_STRING
 
 #define UART_16550_USE_STATIC_ALLOCATION
 #define UART_16550_RX_BUFFER_SIZE 128
-#define UART_16550_TX_BUFFER_SIZE 512
+#define UART_16550_TX_BUFFER_SIZE 4096 //increase buffer size
 
 // By including our header, we ensure that the header and the C
 // file agree about the function definitions.
@@ -597,7 +598,7 @@ BaseType_t UART_16550_put_char(int UART,
 
       // ------------ STUDENTS Insert code here
       size_t bytes_sent = xStreamBufferSend(uart[UART].TX_buffer, &c, 1, xTicksToWait);
-      ASSERT( bytes_sent == 1); //check if the bytes sent
+      //ASSERT( bytes_sent == 1); //check if the bytes sent
       uart[UART].tx_state = TX_BUFFER;
       //uart[UART].dev->IER.ETBEI = 1; 
 
@@ -617,7 +618,7 @@ BaseType_t UART_16550_put_char(int UART,
       if( avaliable > 0 )
       {
          size_t bytes_sent = xStreamBufferSend(uart[UART].TX_buffer, &c, 1, xTicksToWait);
-        ASSERT( bytes_sent == 1); //check if the bytes sent
+        //ASSERT( bytes_sent == 1); //check if the bytes sent
       }
 
       //   Otherwise, things get a bit trickier.  The stream buffer is
@@ -645,7 +646,7 @@ BaseType_t UART_16550_put_char(int UART,
       
       //      Exit the critical section so the ISR can eventually move
       //      data out of the buffer and unblock this thread.
-
+ 
       // ------------ STUDENTS Insert code here
         taskEXIT_CRITICAL();
       
@@ -656,7 +657,7 @@ BaseType_t UART_16550_put_char(int UART,
 
       // ------------ STUDENTS Insert code here
         size_t bytes_sent = xStreamBufferSend(uart[UART].TX_buffer, &c, 1, xTicksToWait);
-        ASSERT( bytes_sent == 1); //check if the bytes sent
+        //ASSERT( bytes_sent == 1); //check if the bytes sent
 
       }
       break;
@@ -687,35 +688,275 @@ BaseType_t UART_16550_put_char(int UART,
 
 #endif
 
+// #ifdef ORIGIONAL_WRITE_STRING
+// /*****************************************************************************/
+// /* Write a string to the UART. */
+// BaseType_t UART_16550_write_string(int UART,
+// 				   char *s,
+// 				   TickType_t xTicksToWait)
+// {
+//   static char buffer[64]; 
+//   int i = 0;
+//   // Assert that the uart number is good.
+//   ASSERT(UART >= 0 && UART < NUM_UARTS);
+
+//   // Get the TX mutex using xTicksToWait (return pdFAIL if we don't
+//   // get it)
+//   while (*s != 0)
+//   {
+//     for (i = 0; i < 64 && *s != 0; i++)
+//     {
+//       buffer[i] = *s;
+//       s++;
+//     }
+  
+//     // ------------ STUDENTS Insert code here
+//     if (pdFAIL == xSemaphoreTakeRecursive(uart[UART].TX_mutex, xTicksToWait))
+//       return pdFAIL;
+
+//     // Use the put char function to send characters.  This could be
+//     // greatly improved.
+//     for (i = 0; i < 64 && buffer[i] != 0; i++)
+//         UART_16550_put_char(UART,buffer[i],xTicksToWait);
+
+//     // release the TX mutex
+//     // ------------ STUDENTS Insert code here
+//     xSemaphoreGiveRecursive(uart[UART].TX_mutex);
+
+//     if( *s != 0)
+//       vTaskDelay(2); //wait so no jidder
+//   }
+  
+//   return pdPASS;
+// }
+#ifdef ORIGIONAL_WRITE_STRING
 /*****************************************************************************/
 /* Write a string to the UART. */
 BaseType_t UART_16550_write_string(int UART,
 				   char *s,
 				   TickType_t xTicksToWait)
 {
+  int i = 0;
   // Assert that the uart number is good.
   ASSERT(UART >= 0 && UART < NUM_UARTS);
 
   // Get the TX mutex using xTicksToWait (return pdFAIL if we don't
   // get it)
+  if( s[i] != 0)
+  {
+    // ------------ STUDENTS Insert code here
+    if (pdFAIL == xSemaphoreTakeRecursive(uart[UART].TX_mutex, xTicksToWait))
+      return pdFAIL;
 
-  // ------------ STUDENTS Insert code here
-  if (pdFAIL == xSemaphoreTakeRecursive(uart[UART].TX_mutex, xTicksToWait))
-    return pdFAIL;
+    // Use the put char function to send characters.  This could be
+    // greatly improved.
+    while (s[i] != 0)
+    {
+      UART_16550_put_char(UART, s[i], xTicksToWait);
+      i++;
+    }
 
-  // Use the put char function to send characters.  This could be
-  // greatly improved.
-  if(s != NULL)
-    while (*s != 0)
-      UART_16550_put_char(UART,*(s++),xTicksToWait);
-
-  // release the TX mutex
-
-  // ------------ STUDENTS Insert code here
-  xSemaphoreGiveRecursive(uart[UART].TX_mutex);
+    // release the TX mutex
+    // ------------ STUDENTS Insert code here
+    xSemaphoreGiveRecursive(uart[UART].TX_mutex);
+  }
   
   return pdPASS;
 }
+
+#else
+BaseType_t UART_16550_write_string(int UART,
+				   char *s,
+				   TickType_t xTicksToWait)
+{
+// Assert that the uart number is good.
+  ASSERT(UART >= 0 && UART < NUM_UARTS);
+  
+  static char buffer[512]; //buffer to hold string to send, max size of TX buffer
+  int num_chars = 0; //number of chars in the string
+  int i = 0;
+  int buffer_size = 0;
+
+  while (s[num_chars] != 0)
+  {
+    num_chars++;
+  }
+  
+  // We must call VPortExitCritical() before exiting this function,
+  // but we MAY call it early.  We must only call it ONCE. So lets
+  // create a local flag to keep track of when we are in the critical
+  // section.
+  int still_in_critical_section = 1;
+
+  // Acquire the transmitter mutex for this UART, so that other threads
+  // cannot interfere ( the ISR can sill interrupt us).
+
+  // ------------ STUDENTS Insert code here
+  if ( xSemaphoreTakeRecursive(uart[UART].TX_mutex, xTicksToWait) == pdFAIL )
+  {
+    return pdFAIL;
+  }
+
+  // Enter a CRITICAL SECTION, so that even the ISR cannot interrupt us
+  
+  // ------------ STUDENTS Insert code here
+  taskENTER_CRITICAL();
+
+  // Make decisions based on the current state of the transmit
+  // software state machine.
+  while (i < num_chars)
+  {
+    switch(uart[UART].tx_state)
+    {
+      case TX_EMPTY:
+      {
+        // If the software state machine is in the TX_EMPTY state, then
+        // write our character directly to the UART FIFO and set the
+        // change the transmit software state machine state to TX_FIFO.
+        // To indicate that there is data in the UART FIFO, but the
+        // transmit stream buffer is empty.
+
+        // ------------ STUDENTS Insert code here
+        while (i < 16 && i < num_chars)
+        {
+          uart[UART].dev->THR = s[i]; //put up to 16 chars in FIFO
+          i++;
+        }
+        if (num_chars <= 16)
+          uart[UART].tx_state = TX_FIFO;
+        else
+          uart[UART].tx_state = TX_BUFFER;
+        uart[UART].dev->IER.ETBEI = 1; //enable inturupt to get signal when fifo empty
+
+
+        break;
+      }
+      case TX_FIFO:
+      {
+        // If the software state machine is in the TX_FIFO state, then
+        // write the character to the transmit stream buffer and change
+        // the software state machine state to TX_BUFFER to indicated
+        // that there is data in the transmit stream buffer.
+
+        // ------------ STUDENTS Insert code here
+        //size_t avaliable = xStreamBufferSpacesAvailable( uart[UART].TX_buffer );
+        buffer_size = 0;
+        while (buffer_size < UART_16550_TX_BUFFER_SIZE  && i < num_chars)
+        {
+          buffer[buffer_size] = s[i]; //put chars in buffer until full or string done
+          i++;
+          buffer_size++;
+        }
+        size_t bytes_sent = xStreamBufferSend(uart[UART].TX_buffer, buffer, buffer_size, xTicksToWait);
+        //ASSERT( bytes_sent == 1); //check if the bytes sent
+        uart[UART].tx_state = TX_BUFFER;
+        //uart[UART].dev->IER.ETBEI = 1; 
+
+
+        break;
+      }
+      case TX_BUFFER:
+      {
+        // If the state is TX_BUFFER, then
+        //   Find out how much space is available in the transmit stream buffer.
+
+        // ------------ STUDENTS Insert code here
+        size_t avaliable = xStreamBufferSpacesAvailable( uart[UART].TX_buffer );
+
+        //   If the buffer is not full then we can write our character
+        //   to it and continue.
+        
+        // ------------ STUDENTS Insert code here
+        //size_t avaliable = xStreamBufferSpacesAvailable( uart[UART].TX_buffer );
+        buffer_size = 0;
+        if (avaliable > 0)
+        {
+          while (buffer_size < avaliable && i < num_chars)
+          {
+            buffer[buffer_size] = s[i]; //put chars in buffer until full or string done
+            buffer_size++;
+            i++;
+          }
+          size_t bytes_sent = xStreamBufferSend(uart[UART].TX_buffer, buffer, buffer_size, xTicksToWait);
+          ASSERT( bytes_sent == buffer_size); //check if the bytes sent
+        }
+
+        //   Otherwise, things get a bit trickier.  The stream buffer is
+        //   full, so a write to the stream buffer could block this task
+        //   (depending on the value of xTicksToWait).  We are in a
+        //   critical section, so if this task blocks, then no
+        //   interrupts will get processed. If no interrupts are
+        //   processed, then there is no way that the stream buffer can
+        //   be read. If the stream buffer is never read, then this task
+        //   will never be unblocked.  We MUST exit the critical section
+        //   NOW, and then attempt to write to the stream buffer.  If it
+        //   blocks, only this thread blocks. The system continues to
+        //   get interrupts and continues to run whatever tasks are
+        //   runnable.  The ISR will eventually read from the stream
+        //   buffer, and unblock this task so that it can unlock the
+        //   mutex and let other tasks write to the UART.
+
+        //      Change the still_in_critical_section variable to 0, to
+        //      indicate that we left the critical section early.
+        
+        // ------------ STUDENTS Insert code here
+        else //avaliable == 0
+        {
+          still_in_critical_section = 0;
+        
+        //      Exit the critical section so the ISR can eventually move
+        //      data out of the buffer and unblock this thread.
+
+        // ------------ STUDENTS Insert code here
+          taskEXIT_CRITICAL();
+        
+        //      Write our character to the stream buffer, using the
+        //      timeout value that was passed in to this function, and
+        //      return the result of that write at the end of this
+        //      function. 
+
+        // ------------ STUDENTS Insert code here 
+          buffer_size = 0;
+          while (buffer_size < UART_16550_TX_BUFFER_SIZE && i < num_chars)
+          {
+            buffer[buffer_size] = s[i]; //put chars in buffer until full or string done
+            buffer_size++;
+            i++;
+          }
+          size_t bytes_sent = xStreamBufferSend(uart[UART].TX_buffer, buffer, buffer_size, xTicksToWait); //block until can send all data left to send
+          ASSERT( bytes_sent == buffer_size); //check if the bytes sent
+          //ASSERT( bytes_sent == 1); //check if the bytes sent
+
+        }
+        break;
+      }
+      default:
+        while(1); // Illegal tx_state.  Go into infinite loop for
+      // debugging.
+        break;
+    }
+  }
+
+  // If we are still in the critical section, exit the critical
+  // section.
+
+  // ------------ STUDENTS Insert code here
+  if(still_in_critical_section)
+    taskEXIT_CRITICAL();
+
+  // Release the mutex.
+
+  // ------------ STUDENTS Insert code here
+  xSemaphoreGiveRecursive(uart[UART].TX_mutex);
+
+  // Return pdPASS or pdFAIL.
+
+  // ------------ STUDENTS Insert code here
+  return pdPASS;
+
+}
+
+#endif
 
 /*****************************************************************************/
 /* Lock the given UART receiver, so that no other task can read

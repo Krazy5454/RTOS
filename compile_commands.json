@@ -1,0 +1,440 @@
+[
+{
+  "directory": "/home/student/s101101787/RTOS/lab6",
+  "command": "/usr/bin/arm-none-eabi-gcc  -I/home/student/s101101787/RTOS/lab6/include -I/home/student/s101101787/RTOS/lab6/FreeRTOS/include -I/home/student/s101101787/RTOS/lab6/FreeRTOS/portable/GCC/ARM_CM3 -I/home/student/s101101787/RTOS/lab6/CMSIS/CMSIS/Core/Include -I/home/student/s101101787/RTOS/lab6/CMSIS/Device/ARM/ARMCM3/Include -I/home/student/s101101787/RTOS/lab6/PDCurses -I/home/student/s101101787/RTOS/lab6/PDCurses/ANSI -I/home/student/s101101787/RTOS/lab6/PDCurses/ANSI/drivers -I/home/student/s101101787/RTOS/lab6/ninvaders -I/home/student/s101101787/RTOS/lab6/sound_effects -I/home/student/s101101787/RTOS/lab6/sound_effects/theme -std=gnu11 -mcpu=cortex-m3 -mthumb -mthumb-interwork -ffunction-sections -fdata-sections -fno-common -fmessage-length=0 -Os -g -o CMakeFiles/lab6.elf.dir/ninvaders/aliens.c.obj -c /home/student/s101101787/RTOS/lab6/ninvaders/aliens.c",
+  "file": "/home/student/s101101787/RTOS/lab6/ninvaders/aliens.c",
+  "output": "CMakeFiles/lab6.elf.dir/ninvaders/aliens.c.obj"
+},
+{
+  "directory": "/home/student/s101101787/RTOS/lab6",
+  "command": "/usr/bin/arm-none-eabi-gcc  -I/home/student/s101101787/RTOS/lab6/include -I/home/student/s101101787/RTOS/lab6/FreeRTOS/include -I/home/student/s101101787/RTOS/lab6/FreeRTOS/portable/GCC/ARM_CM3 -I/home/student/s101101787/RTOS/lab6/CMSIS/CMSIS/Core/Include -I/home/student/s101101787/RTOS/lab6/CMSIS/Device/ARM/ARMCM3/Include -I/home/student/s101101787/RTOS/lab6/PDCurses -I/home/student/s101101787/RTOS/lab6/PDCurses/ANSI -I/home/student/s101101787/RTOS/lab6/PDCurses/ANSI/drivers -I/home/student/s101101787/RTOS/lab6/ninvaders -I/home/student/s101101787/RTOS/lab6/sound_effects -I/home/student/s101101787/RTOS/lab6/sound_effects/theme -std=gnu11 -mcpu=cortex-m3 -mthumb -mthumb-interwork -ffunction-sections -fdata-sections -fno-common -fmessage-length=0 -Os -g -o CMakeFiles/lab6.elf.dir/ninvaders/globals.c.obj -c /home/student/s101101787/RTOS/lab6/ninvaders/globals.c",
+  "file": "/home/student/s101101787/RTOS/lab6/ninvaders/globals.c",
+  "output": "CMakeFiles/lab6.elf.dir/ninvaders/globals.c.obj"
+},
+{
+  "directory": "/home/student/s101101787/RTOS/lab6",
+  "command": "/usr/bin/arm-none-eabi-gcc  -I/home/student/s101101787/RTOS/lab6/include -I/home/student/s101101787/RTOS/lab6/FreeRTOS/include -I/home/student/s101101787/RTOS/lab6/FreeRTOS/portable/GCC/ARM_CM3 -I/home/student/s101101787/RTOS/lab6/CMSIS/CMSIS/Core/Include -I/home/student/s101101787/RTOS/lab6/CMSIS/Device/ARM/ARMCM3/Include -I/home/student/s101101787/RTOS/lab6/PDCurses -I/home/student/s101101787/RTOS/lab6/PDCurses/ANSI -I/home/student/s101101787/RTOS/lab6/PDCurses/ANSI/drivers -I/home/student/s101101787/RTOS/lab6/ninvaders -I/home/student/s101101787/RTOS/lab6/sound_effects -I/home/student/s101101787/RTOS/lab6/sound_effects/theme -std=gnu11 -mcpu=cortex-m3 -mthumb -mthumb-interwork -ffunction-sections -fdata-sections -fno-common -fmessage-length=0 -Os -g -o CMakeFiles/lab6.elf.dir/ninvaders/nInvaders_task.c.obj -c /home/student/s101101787/RTOS/lab6/ninvaders/nInvaders_task.c",
+  "file": "/home/student/s101101787/RTOS/lab6/ninvaders/nInvaders_task.c",
+  "output": "CMakeFiles/lab6.elf.dir/ninvaders/nInvaders_task.c.obj"
+},
+{
+  "directory": "/home/student/s101101787/RTOS/lab6",
+  "command": "/usr/bin/arm-none-eabi-gcc  -I/home/student/s101101787/RTOS/lab6/include -I/home/student/s101101787/RTOS/lab6/FreeRTOS/include -I/home/student/s101101787/RTOS/lab6/FreeRTOS/portable/GCC/ARM_CM3 -I/home/student/s101101787/RTOS/lab6/CMSIS/CMSIS/Core/Include -I/home/student/s101101787/RTOS/lab6/CMSIS/Device/ARM/ARMCM3/Include -I/home/student/s101101787/RTOS/lab6/PDCurses -I/home/student/s101101787/RTOS/lab6/PDCurses/ANSI -I/home/student/s101101787/RTOS/lab6/PDCurses/ANSI/drivers -I/home/student/s101101787/RTOS/lab6/ninvaders -I/home/student/s101101787/RTOS/lab6/sound_effects -I/home/student/s101101787/RTOS/lab6/sound_effects/theme -std=gnu11 -mcpu=cortex-m3 -mthumb -mthumb-interwork -ffunction-sections -fdata-sections -fno-common -fmessage-length=0 -Os -g -o CMakeFiles/lab6.elf.dir/ninvaders/player.c.obj -c /home/student/s101101787/RTOS/lab6/ninvaders/player.c",
+  "file": "/home/student/s101101787/RTOS/lab6/ninvaders/player.c",
+  "output": "CMakeFiles/lab6.elf.dir/ninvaders/player.c.obj"
+},
+{
+  "directory": "/home/student/s101101787/RTOS/lab6",
+  "command": "/usr/bin/arm-none-eabi-gcc  -I/home/student/s101101787/RTOS/lab6/include -I/home/student/s101101787/RTOS/lab6/FreeRTOS/include -I/home/student/s101101787/RTOS/lab6/FreeRTOS/portable/GCC/ARM_CM3 -I/home/student/s101101787/RTOS/lab6/CMSIS/CMSIS/Core/Include -I/home/student/s101101787/RTOS/lab6/CMSIS/Device/ARM/ARMCM3/Include -I/home/student/s101101787/RTOS/lab6/PDCurses -I/home/student/s101101787/RTOS/lab6/PDCurses/ANSI -I/home/student/s101101787/RTOS/lab6/PDCurses/ANSI/drivers -I/home/student/s101101787/RTOS/lab6/ninvaders -I/home/student/s101101787/RTOS/lab6/sound_effects -I/home/student/s101101787/RTOS/lab6/sound_effects/theme -std=gnu11 -mcpu=cortex-m3 -mthumb -mthumb-interwork -ffunction-sections -fdata-sections -fno-common -fmessage-length=0 -Os -g -o CMakeFiles/lab6.elf.dir/ninvaders/ufo.c.obj -c /home/student/s101101787/RTOS/lab6/ninvaders/ufo.c",
+  "file": "/home/student/s101101787/RTOS/lab6/ninvaders/ufo.c",
+  "output": "CMakeFiles/lab6.elf.dir/ninvaders/ufo.c.obj"
+},
+{
+  "directory": "/home/student/s101101787/RTOS/lab6",
+  "command": "/usr/bin/arm-none-eabi-gcc  -I/home/student/s101101787/RTOS/lab6/include -I/home/student/s101101787/RTOS/lab6/FreeRTOS/include -I/home/student/s101101787/RTOS/lab6/FreeRTOS/portable/GCC/ARM_CM3 -I/home/student/s101101787/RTOS/lab6/CMSIS/CMSIS/Core/Include -I/home/student/s101101787/RTOS/lab6/CMSIS/Device/ARM/ARMCM3/Include -I/home/student/s101101787/RTOS/lab6/PDCurses -I/home/student/s101101787/RTOS/lab6/PDCurses/ANSI -I/home/student/s101101787/RTOS/lab6/PDCurses/ANSI/drivers -I/home/student/s101101787/RTOS/lab6/ninvaders -I/home/student/s101101787/RTOS/lab6/sound_effects -I/home/student/s101101787/RTOS/lab6/sound_effects/theme -std=gnu11 -mcpu=cortex-m3 -mthumb -mthumb-interwork -ffunction-sections -fdata-sections -fno-common -fmessage-length=0 -Os -g -o CMakeFiles/lab6.elf.dir/ninvaders/view.c.obj -c /home/student/s101101787/RTOS/lab6/ninvaders/view.c",
+  "file": "/home/student/s101101787/RTOS/lab6/ninvaders/view.c",
+  "output": "CMakeFiles/lab6.elf.dir/ninvaders/view.c.obj"
+},
+{
+  "directory": "/home/student/s101101787/RTOS/lab6",
+  "command": "/usr/bin/arm-none-eabi-gcc  -I/home/student/s101101787/RTOS/lab6/include -I/home/student/s101101787/RTOS/lab6/FreeRTOS/include -I/home/student/s101101787/RTOS/lab6/FreeRTOS/portable/GCC/ARM_CM3 -I/home/student/s101101787/RTOS/lab6/CMSIS/CMSIS/Core/Include -I/home/student/s101101787/RTOS/lab6/CMSIS/Device/ARM/ARMCM3/Include -I/home/student/s101101787/RTOS/lab6/PDCurses -I/home/student/s101101787/RTOS/lab6/PDCurses/ANSI -I/home/student/s101101787/RTOS/lab6/PDCurses/ANSI/drivers -I/home/student/s101101787/RTOS/lab6/ninvaders -I/home/student/s101101787/RTOS/lab6/sound_effects -I/home/student/s101101787/RTOS/lab6/sound_effects/theme -std=gnu11 -mcpu=cortex-m3 -mthumb -mthumb-interwork -ffunction-sections -fdata-sections -fno-common -fmessage-length=0 -Os -g -o CMakeFiles/lab6.elf.dir/sound_effects/sound_effects.c.obj -c /home/student/s101101787/RTOS/lab6/sound_effects/sound_effects.c",
+  "file": "/home/student/s101101787/RTOS/lab6/sound_effects/sound_effects.c",
+  "output": "CMakeFiles/lab6.elf.dir/sound_effects/sound_effects.c.obj"
+},
+{
+  "directory": "/home/student/s101101787/RTOS/lab6",
+  "command": "/usr/bin/arm-none-eabi-gcc  -I/home/student/s101101787/RTOS/lab6/include -I/home/student/s101101787/RTOS/lab6/FreeRTOS/include -I/home/student/s101101787/RTOS/lab6/FreeRTOS/portable/GCC/ARM_CM3 -I/home/student/s101101787/RTOS/lab6/CMSIS/CMSIS/Core/Include -I/home/student/s101101787/RTOS/lab6/CMSIS/Device/ARM/ARMCM3/Include -I/home/student/s101101787/RTOS/lab6/PDCurses -I/home/student/s101101787/RTOS/lab6/PDCurses/ANSI -I/home/student/s101101787/RTOS/lab6/PDCurses/ANSI/drivers -I/home/student/s101101787/RTOS/lab6/ninvaders -I/home/student/s101101787/RTOS/lab6/sound_effects -I/home/student/s101101787/RTOS/lab6/sound_effects/theme -std=gnu11 -mcpu=cortex-m3 -mthumb -mthumb-interwork -ffunction-sections -fdata-sections -fno-common -fmessage-length=0 -Os -g -o CMakeFiles/lab6.elf.dir/sound_effects/sounds.c.obj -c /home/student/s101101787/RTOS/lab6/sound_effects/sounds.c",
+  "file": "/home/student/s101101787/RTOS/lab6/sound_effects/sounds.c",
+  "output": "CMakeFiles/lab6.elf.dir/sound_effects/sounds.c.obj"
+},
+{
+  "directory": "/home/student/s101101787/RTOS/lab6",
+  "command": "/usr/bin/arm-none-eabi-gcc  -I/home/student/s101101787/RTOS/lab6/include -I/home/student/s101101787/RTOS/lab6/FreeRTOS/include -I/home/student/s101101787/RTOS/lab6/FreeRTOS/portable/GCC/ARM_CM3 -I/home/student/s101101787/RTOS/lab6/CMSIS/CMSIS/Core/Include -I/home/student/s101101787/RTOS/lab6/CMSIS/Device/ARM/ARMCM3/Include -I/home/student/s101101787/RTOS/lab6/PDCurses -I/home/student/s101101787/RTOS/lab6/PDCurses/ANSI -I/home/student/s101101787/RTOS/lab6/PDCurses/ANSI/drivers -I/home/student/s101101787/RTOS/lab6/ninvaders -I/home/student/s101101787/RTOS/lab6/sound_effects -I/home/student/s101101787/RTOS/lab6/sound_effects/theme -std=gnu11 -mcpu=cortex-m3 -mthumb -mthumb-interwork -ffunction-sections -fdata-sections -fno-common -fmessage-length=0 -Os -g -o CMakeFiles/lab6.elf.dir/sound_effects/theme/theme.c.obj -c /home/student/s101101787/RTOS/lab6/sound_effects/theme/theme.c",
+  "file": "/home/student/s101101787/RTOS/lab6/sound_effects/theme/theme.c",
+  "output": "CMakeFiles/lab6.elf.dir/sound_effects/theme/theme.c.obj"
+},
+{
+  "directory": "/home/student/s101101787/RTOS/lab6",
+  "command": "/usr/bin/arm-none-eabi-gcc  -I/home/student/s101101787/RTOS/lab6/include -I/home/student/s101101787/RTOS/lab6/FreeRTOS/include -I/home/student/s101101787/RTOS/lab6/FreeRTOS/portable/GCC/ARM_CM3 -I/home/student/s101101787/RTOS/lab6/CMSIS/CMSIS/Core/Include -I/home/student/s101101787/RTOS/lab6/CMSIS/Device/ARM/ARMCM3/Include -I/home/student/s101101787/RTOS/lab6/PDCurses -I/home/student/s101101787/RTOS/lab6/PDCurses/ANSI -I/home/student/s101101787/RTOS/lab6/PDCurses/ANSI/drivers -I/home/student/s101101787/RTOS/lab6/ninvaders -I/home/student/s101101787/RTOS/lab6/sound_effects -I/home/student/s101101787/RTOS/lab6/sound_effects/theme -std=gnu11 -mcpu=cortex-m3 -mthumb -mthumb-interwork -ffunction-sections -fdata-sections -fno-common -fmessage-length=0 -Os -g -o CMakeFiles/lab6.elf.dir/src/AXI_timer.c.obj -c /home/student/s101101787/RTOS/lab6/src/AXI_timer.c",
+  "file": "/home/student/s101101787/RTOS/lab6/src/AXI_timer.c",
+  "output": "CMakeFiles/lab6.elf.dir/src/AXI_timer.c.obj"
+},
+{
+  "directory": "/home/student/s101101787/RTOS/lab6",
+  "command": "/usr/bin/arm-none-eabi-gcc  -I/home/student/s101101787/RTOS/lab6/include -I/home/student/s101101787/RTOS/lab6/FreeRTOS/include -I/home/student/s101101787/RTOS/lab6/FreeRTOS/portable/GCC/ARM_CM3 -I/home/student/s101101787/RTOS/lab6/CMSIS/CMSIS/Core/Include -I/home/student/s101101787/RTOS/lab6/CMSIS/Device/ARM/ARMCM3/Include -I/home/student/s101101787/RTOS/lab6/PDCurses -I/home/student/s101101787/RTOS/lab6/PDCurses/ANSI -I/home/student/s101101787/RTOS/lab6/PDCurses/ANSI/drivers -I/home/student/s101101787/RTOS/lab6/ninvaders -I/home/student/s101101787/RTOS/lab6/sound_effects -I/home/student/s101101787/RTOS/lab6/sound_effects/theme -std=gnu11 -mcpu=cortex-m3 -mthumb -mthumb-interwork -ffunction-sections -fdata-sections -fno-common -fmessage-length=0 -Os -g -o CMakeFiles/lab6.elf.dir/src/PM.c.obj -c /home/student/s101101787/RTOS/lab6/src/PM.c",
+  "file": "/home/student/s101101787/RTOS/lab6/src/PM.c",
+  "output": "CMakeFiles/lab6.elf.dir/src/PM.c.obj"
+},
+{
+  "directory": "/home/student/s101101787/RTOS/lab6",
+  "command": "/usr/bin/arm-none-eabi-gcc  -I/home/student/s101101787/RTOS/lab6/include -I/home/student/s101101787/RTOS/lab6/FreeRTOS/include -I/home/student/s101101787/RTOS/lab6/FreeRTOS/portable/GCC/ARM_CM3 -I/home/student/s101101787/RTOS/lab6/CMSIS/CMSIS/Core/Include -I/home/student/s101101787/RTOS/lab6/CMSIS/Device/ARM/ARMCM3/Include -I/home/student/s101101787/RTOS/lab6/PDCurses -I/home/student/s101101787/RTOS/lab6/PDCurses/ANSI -I/home/student/s101101787/RTOS/lab6/PDCurses/ANSI/drivers -I/home/student/s101101787/RTOS/lab6/ninvaders -I/home/student/s101101787/RTOS/lab6/sound_effects -I/home/student/s101101787/RTOS/lab6/sound_effects/theme -std=gnu11 -mcpu=cortex-m3 -mthumb -mthumb-interwork -ffunction-sections -fdata-sections -fno-common -fmessage-length=0 -Os -g -o CMakeFiles/lab6.elf.dir/src/UART_16550.c.obj -c /home/student/s101101787/RTOS/lab6/src/UART_16550.c",
+  "file": "/home/student/s101101787/RTOS/lab6/src/UART_16550.c",
+  "output": "CMakeFiles/lab6.elf.dir/src/UART_16550.c.obj"
+},
+{
+  "directory": "/home/student/s101101787/RTOS/lab6",
+  "command": "/usr/bin/arm-none-eabi-gcc  -I/home/student/s101101787/RTOS/lab6/include -I/home/student/s101101787/RTOS/lab6/FreeRTOS/include -I/home/student/s101101787/RTOS/lab6/FreeRTOS/portable/GCC/ARM_CM3 -I/home/student/s101101787/RTOS/lab6/CMSIS/CMSIS/Core/Include -I/home/student/s101101787/RTOS/lab6/CMSIS/Device/ARM/ARMCM3/Include -I/home/student/s101101787/RTOS/lab6/PDCurses -I/home/student/s101101787/RTOS/lab6/PDCurses/ANSI -I/home/student/s101101787/RTOS/lab6/PDCurses/ANSI/drivers -I/home/student/s101101787/RTOS/lab6/ninvaders -I/home/student/s101101787/RTOS/lab6/sound_effects -I/home/student/s101101787/RTOS/lab6/sound_effects/theme -std=gnu11 -mcpu=cortex-m3 -mthumb -mthumb-interwork -ffunction-sections -fdata-sections -fno-common -fmessage-length=0 -Os -g -o CMakeFiles/lab6.elf.dir/src/heap_useNewlib.c.obj -c /home/student/s101101787/RTOS/lab6/src/heap_useNewlib.c",
+  "file": "/home/student/s101101787/RTOS/lab6/src/heap_useNewlib.c",
+  "output": "CMakeFiles/lab6.elf.dir/src/heap_useNewlib.c.obj"
+},
+{
+  "directory": "/home/student/s101101787/RTOS/lab6",
+  "command": "/usr/bin/arm-none-eabi-gcc  -I/home/student/s101101787/RTOS/lab6/include -I/home/student/s101101787/RTOS/lab6/FreeRTOS/include -I/home/student/s101101787/RTOS/lab6/FreeRTOS/portable/GCC/ARM_CM3 -I/home/student/s101101787/RTOS/lab6/CMSIS/CMSIS/Core/Include -I/home/student/s101101787/RTOS/lab6/CMSIS/Device/ARM/ARMCM3/Include -I/home/student/s101101787/RTOS/lab6/PDCurses -I/home/student/s101101787/RTOS/lab6/PDCurses/ANSI -I/home/student/s101101787/RTOS/lab6/PDCurses/ANSI/drivers -I/home/student/s101101787/RTOS/lab6/ninvaders -I/home/student/s101101787/RTOS/lab6/sound_effects -I/home/student/s101101787/RTOS/lab6/sound_effects/theme -std=gnu11 -mcpu=cortex-m3 -mthumb -mthumb-interwork -ffunction-sections -fdata-sections -fno-common -fmessage-length=0 -Os -g -o CMakeFiles/lab6.elf.dir/src/hello_task.c.obj -c /home/student/s101101787/RTOS/lab6/src/hello_task.c",
+  "file": "/home/student/s101101787/RTOS/lab6/src/hello_task.c",
+  "output": "CMakeFiles/lab6.elf.dir/src/hello_task.c.obj"
+},
+{
+  "directory": "/home/student/s101101787/RTOS/lab6",
+  "command": "/usr/bin/arm-none-eabi-gcc  -I/home/student/s101101787/RTOS/lab6/include -I/home/student/s101101787/RTOS/lab6/FreeRTOS/include -I/home/student/s101101787/RTOS/lab6/FreeRTOS/portable/GCC/ARM_CM3 -I/home/student/s101101787/RTOS/lab6/CMSIS/CMSIS/Core/Include -I/home/student/s101101787/RTOS/lab6/CMSIS/Device/ARM/ARMCM3/Include -I/home/student/s101101787/RTOS/lab6/PDCurses -I/home/student/s101101787/RTOS/lab6/PDCurses/ANSI -I/home/student/s101101787/RTOS/lab6/PDCurses/ANSI/drivers -I/home/student/s101101787/RTOS/lab6/ninvaders -I/home/student/s101101787/RTOS/lab6/sound_effects -I/home/student/s101101787/RTOS/lab6/sound_effects/theme -std=gnu11 -mcpu=cortex-m3 -mthumb -mthumb-interwork -ffunction-sections -fdata-sections -fno-common -fmessage-length=0 -Os -g -o CMakeFiles/lab6.elf.dir/src/main.c.obj -c /home/student/s101101787/RTOS/lab6/src/main.c",
+  "file": "/home/student/s101101787/RTOS/lab6/src/main.c",
+  "output": "CMakeFiles/lab6.elf.dir/src/main.c.obj"
+},
+{
+  "directory": "/home/student/s101101787/RTOS/lab6",
+  "command": "/usr/bin/arm-none-eabi-gcc  -I/home/student/s101101787/RTOS/lab6/include -I/home/student/s101101787/RTOS/lab6/FreeRTOS/include -I/home/student/s101101787/RTOS/lab6/FreeRTOS/portable/GCC/ARM_CM3 -I/home/student/s101101787/RTOS/lab6/CMSIS/CMSIS/Core/Include -I/home/student/s101101787/RTOS/lab6/CMSIS/Device/ARM/ARMCM3/Include -I/home/student/s101101787/RTOS/lab6/PDCurses -I/home/student/s101101787/RTOS/lab6/PDCurses/ANSI -I/home/student/s101101787/RTOS/lab6/PDCurses/ANSI/drivers -I/home/student/s101101787/RTOS/lab6/ninvaders -I/home/student/s101101787/RTOS/lab6/sound_effects -I/home/student/s101101787/RTOS/lab6/sound_effects/theme -mcpu=cortex-m3 -mthumb -mthumb-interwork -ffunction-sections -fdata-sections -fno-common -fmessage-length=0 -Os -g -o CMakeFiles/lab6.elf.dir/src/startup_ARMCM3.S.obj -c /home/student/s101101787/RTOS/lab6/src/startup_ARMCM3.S",
+  "file": "/home/student/s101101787/RTOS/lab6/src/startup_ARMCM3.S",
+  "output": "CMakeFiles/lab6.elf.dir/src/startup_ARMCM3.S.obj"
+},
+{
+  "directory": "/home/student/s101101787/RTOS/lab6",
+  "command": "/usr/bin/arm-none-eabi-gcc  -I/home/student/s101101787/RTOS/lab6/include -I/home/student/s101101787/RTOS/lab6/FreeRTOS/include -I/home/student/s101101787/RTOS/lab6/FreeRTOS/portable/GCC/ARM_CM3 -I/home/student/s101101787/RTOS/lab6/CMSIS/CMSIS/Core/Include -I/home/student/s101101787/RTOS/lab6/CMSIS/Device/ARM/ARMCM3/Include -I/home/student/s101101787/RTOS/lab6/PDCurses -I/home/student/s101101787/RTOS/lab6/PDCurses/ANSI -I/home/student/s101101787/RTOS/lab6/PDCurses/ANSI/drivers -I/home/student/s101101787/RTOS/lab6/ninvaders -I/home/student/s101101787/RTOS/lab6/sound_effects -I/home/student/s101101787/RTOS/lab6/sound_effects/theme -std=gnu11 -mcpu=cortex-m3 -mthumb -mthumb-interwork -ffunction-sections -fdata-sections -fno-common -fmessage-length=0 -Os -g -o CMakeFiles/lab6.elf.dir/src/stats_task.c.obj -c /home/student/s101101787/RTOS/lab6/src/stats_task.c",
+  "file": "/home/student/s101101787/RTOS/lab6/src/stats_task.c",
+  "output": "CMakeFiles/lab6.elf.dir/src/stats_task.c.obj"
+},
+{
+  "directory": "/home/student/s101101787/RTOS/lab6",
+  "command": "/usr/bin/arm-none-eabi-gcc  -I/home/student/s101101787/RTOS/lab6/include -I/home/student/s101101787/RTOS/lab6/FreeRTOS/include -I/home/student/s101101787/RTOS/lab6/FreeRTOS/portable/GCC/ARM_CM3 -I/home/student/s101101787/RTOS/lab6/CMSIS/CMSIS/Core/Include -I/home/student/s101101787/RTOS/lab6/CMSIS/Device/ARM/ARMCM3/Include -I/home/student/s101101787/RTOS/lab6/PDCurses -I/home/student/s101101787/RTOS/lab6/PDCurses/ANSI -I/home/student/s101101787/RTOS/lab6/PDCurses/ANSI/drivers -I/home/student/s101101787/RTOS/lab6/ninvaders -I/home/student/s101101787/RTOS/lab6/sound_effects -I/home/student/s101101787/RTOS/lab6/sound_effects/theme -std=gnu11 -mcpu=cortex-m3 -mthumb -mthumb-interwork -ffunction-sections -fdata-sections -fno-common -fmessage-length=0 -Os -g -o CMakeFiles/lab6.elf.dir/FreeRTOS/event_groups.c.obj -c /home/student/s101101787/RTOS/lab6/FreeRTOS/event_groups.c",
+  "file": "/home/student/s101101787/RTOS/lab6/FreeRTOS/event_groups.c",
+  "output": "CMakeFiles/lab6.elf.dir/FreeRTOS/event_groups.c.obj"
+},
+{
+  "directory": "/home/student/s101101787/RTOS/lab6",
+  "command": "/usr/bin/arm-none-eabi-gcc  -I/home/student/s101101787/RTOS/lab6/include -I/home/student/s101101787/RTOS/lab6/FreeRTOS/include -I/home/student/s101101787/RTOS/lab6/FreeRTOS/portable/GCC/ARM_CM3 -I/home/student/s101101787/RTOS/lab6/CMSIS/CMSIS/Core/Include -I/home/student/s101101787/RTOS/lab6/CMSIS/Device/ARM/ARMCM3/Include -I/home/student/s101101787/RTOS/lab6/PDCurses -I/home/student/s101101787/RTOS/lab6/PDCurses/ANSI -I/home/student/s101101787/RTOS/lab6/PDCurses/ANSI/drivers -I/home/student/s101101787/RTOS/lab6/ninvaders -I/home/student/s101101787/RTOS/lab6/sound_effects -I/home/student/s101101787/RTOS/lab6/sound_effects/theme -std=gnu11 -mcpu=cortex-m3 -mthumb -mthumb-interwork -ffunction-sections -fdata-sections -fno-common -fmessage-length=0 -Os -g -o CMakeFiles/lab6.elf.dir/FreeRTOS/list.c.obj -c /home/student/s101101787/RTOS/lab6/FreeRTOS/list.c",
+  "file": "/home/student/s101101787/RTOS/lab6/FreeRTOS/list.c",
+  "output": "CMakeFiles/lab6.elf.dir/FreeRTOS/list.c.obj"
+},
+{
+  "directory": "/home/student/s101101787/RTOS/lab6",
+  "command": "/usr/bin/arm-none-eabi-gcc  -I/home/student/s101101787/RTOS/lab6/include -I/home/student/s101101787/RTOS/lab6/FreeRTOS/include -I/home/student/s101101787/RTOS/lab6/FreeRTOS/portable/GCC/ARM_CM3 -I/home/student/s101101787/RTOS/lab6/CMSIS/CMSIS/Core/Include -I/home/student/s101101787/RTOS/lab6/CMSIS/Device/ARM/ARMCM3/Include -I/home/student/s101101787/RTOS/lab6/PDCurses -I/home/student/s101101787/RTOS/lab6/PDCurses/ANSI -I/home/student/s101101787/RTOS/lab6/PDCurses/ANSI/drivers -I/home/student/s101101787/RTOS/lab6/ninvaders -I/home/student/s101101787/RTOS/lab6/sound_effects -I/home/student/s101101787/RTOS/lab6/sound_effects/theme -std=gnu11 -mcpu=cortex-m3 -mthumb -mthumb-interwork -ffunction-sections -fdata-sections -fno-common -fmessage-length=0 -Os -g -o CMakeFiles/lab6.elf.dir/FreeRTOS/portable/GCC/ARM_CM3/port.c.obj -c /home/student/s101101787/RTOS/lab6/FreeRTOS/portable/GCC/ARM_CM3/port.c",
+  "file": "/home/student/s101101787/RTOS/lab6/FreeRTOS/portable/GCC/ARM_CM3/port.c",
+  "output": "CMakeFiles/lab6.elf.dir/FreeRTOS/portable/GCC/ARM_CM3/port.c.obj"
+},
+{
+  "directory": "/home/student/s101101787/RTOS/lab6",
+  "command": "/usr/bin/arm-none-eabi-gcc  -I/home/student/s101101787/RTOS/lab6/include -I/home/student/s101101787/RTOS/lab6/FreeRTOS/include -I/home/student/s101101787/RTOS/lab6/FreeRTOS/portable/GCC/ARM_CM3 -I/home/student/s101101787/RTOS/lab6/CMSIS/CMSIS/Core/Include -I/home/student/s101101787/RTOS/lab6/CMSIS/Device/ARM/ARMCM3/Include -I/home/student/s101101787/RTOS/lab6/PDCurses -I/home/student/s101101787/RTOS/lab6/PDCurses/ANSI -I/home/student/s101101787/RTOS/lab6/PDCurses/ANSI/drivers -I/home/student/s101101787/RTOS/lab6/ninvaders -I/home/student/s101101787/RTOS/lab6/sound_effects -I/home/student/s101101787/RTOS/lab6/sound_effects/theme -std=gnu11 -mcpu=cortex-m3 -mthumb -mthumb-interwork -ffunction-sections -fdata-sections -fno-common -fmessage-length=0 -Os -g -o CMakeFiles/lab6.elf.dir/FreeRTOS/queue.c.obj -c /home/student/s101101787/RTOS/lab6/FreeRTOS/queue.c",
+  "file": "/home/student/s101101787/RTOS/lab6/FreeRTOS/queue.c",
+  "output": "CMakeFiles/lab6.elf.dir/FreeRTOS/queue.c.obj"
+},
+{
+  "directory": "/home/student/s101101787/RTOS/lab6",
+  "command": "/usr/bin/arm-none-eabi-gcc  -I/home/student/s101101787/RTOS/lab6/include -I/home/student/s101101787/RTOS/lab6/FreeRTOS/include -I/home/student/s101101787/RTOS/lab6/FreeRTOS/portable/GCC/ARM_CM3 -I/home/student/s101101787/RTOS/lab6/CMSIS/CMSIS/Core/Include -I/home/student/s101101787/RTOS/lab6/CMSIS/Device/ARM/ARMCM3/Include -I/home/student/s101101787/RTOS/lab6/PDCurses -I/home/student/s101101787/RTOS/lab6/PDCurses/ANSI -I/home/student/s101101787/RTOS/lab6/PDCurses/ANSI/drivers -I/home/student/s101101787/RTOS/lab6/ninvaders -I/home/student/s101101787/RTOS/lab6/sound_effects -I/home/student/s101101787/RTOS/lab6/sound_effects/theme -std=gnu11 -mcpu=cortex-m3 -mthumb -mthumb-interwork -ffunction-sections -fdata-sections -fno-common -fmessage-length=0 -Os -g -o CMakeFiles/lab6.elf.dir/FreeRTOS/stream_buffer.c.obj -c /home/student/s101101787/RTOS/lab6/FreeRTOS/stream_buffer.c",
+  "file": "/home/student/s101101787/RTOS/lab6/FreeRTOS/stream_buffer.c",
+  "output": "CMakeFiles/lab6.elf.dir/FreeRTOS/stream_buffer.c.obj"
+},
+{
+  "directory": "/home/student/s101101787/RTOS/lab6",
+  "command": "/usr/bin/arm-none-eabi-gcc  -I/home/student/s101101787/RTOS/lab6/include -I/home/student/s101101787/RTOS/lab6/FreeRTOS/include -I/home/student/s101101787/RTOS/lab6/FreeRTOS/portable/GCC/ARM_CM3 -I/home/student/s101101787/RTOS/lab6/CMSIS/CMSIS/Core/Include -I/home/student/s101101787/RTOS/lab6/CMSIS/Device/ARM/ARMCM3/Include -I/home/student/s101101787/RTOS/lab6/PDCurses -I/home/student/s101101787/RTOS/lab6/PDCurses/ANSI -I/home/student/s101101787/RTOS/lab6/PDCurses/ANSI/drivers -I/home/student/s101101787/RTOS/lab6/ninvaders -I/home/student/s101101787/RTOS/lab6/sound_effects -I/home/student/s101101787/RTOS/lab6/sound_effects/theme -std=gnu11 -mcpu=cortex-m3 -mthumb -mthumb-interwork -ffunction-sections -fdata-sections -fno-common -fmessage-length=0 -Os -g -o CMakeFiles/lab6.elf.dir/FreeRTOS/tasks.c.obj -c /home/student/s101101787/RTOS/lab6/FreeRTOS/tasks.c",
+  "file": "/home/student/s101101787/RTOS/lab6/FreeRTOS/tasks.c",
+  "output": "CMakeFiles/lab6.elf.dir/FreeRTOS/tasks.c.obj"
+},
+{
+  "directory": "/home/student/s101101787/RTOS/lab6",
+  "command": "/usr/bin/arm-none-eabi-gcc  -I/home/student/s101101787/RTOS/lab6/include -I/home/student/s101101787/RTOS/lab6/FreeRTOS/include -I/home/student/s101101787/RTOS/lab6/FreeRTOS/portable/GCC/ARM_CM3 -I/home/student/s101101787/RTOS/lab6/CMSIS/CMSIS/Core/Include -I/home/student/s101101787/RTOS/lab6/CMSIS/Device/ARM/ARMCM3/Include -I/home/student/s101101787/RTOS/lab6/PDCurses -I/home/student/s101101787/RTOS/lab6/PDCurses/ANSI -I/home/student/s101101787/RTOS/lab6/PDCurses/ANSI/drivers -I/home/student/s101101787/RTOS/lab6/ninvaders -I/home/student/s101101787/RTOS/lab6/sound_effects -I/home/student/s101101787/RTOS/lab6/sound_effects/theme -std=gnu11 -mcpu=cortex-m3 -mthumb -mthumb-interwork -ffunction-sections -fdata-sections -fno-common -fmessage-length=0 -Os -g -o CMakeFiles/lab6.elf.dir/FreeRTOS/timers.c.obj -c /home/student/s101101787/RTOS/lab6/FreeRTOS/timers.c",
+  "file": "/home/student/s101101787/RTOS/lab6/FreeRTOS/timers.c",
+  "output": "CMakeFiles/lab6.elf.dir/FreeRTOS/timers.c.obj"
+},
+{
+  "directory": "/home/student/s101101787/RTOS/lab6",
+  "command": "/usr/bin/arm-none-eabi-gcc  -I/home/student/s101101787/RTOS/lab6/include -I/home/student/s101101787/RTOS/lab6/FreeRTOS/include -I/home/student/s101101787/RTOS/lab6/FreeRTOS/portable/GCC/ARM_CM3 -I/home/student/s101101787/RTOS/lab6/CMSIS/CMSIS/Core/Include -I/home/student/s101101787/RTOS/lab6/CMSIS/Device/ARM/ARMCM3/Include -I/home/student/s101101787/RTOS/lab6/PDCurses -I/home/student/s101101787/RTOS/lab6/PDCurses/ANSI -I/home/student/s101101787/RTOS/lab6/PDCurses/ANSI/drivers -I/home/student/s101101787/RTOS/lab6/ninvaders -I/home/student/s101101787/RTOS/lab6/sound_effects -I/home/student/s101101787/RTOS/lab6/sound_effects/theme -std=gnu11 -mcpu=cortex-m3 -mthumb -mthumb-interwork -ffunction-sections -fdata-sections -fno-common -fmessage-length=0 -Os -g -o CMakeFiles/lab6.elf.dir/PDCurses/ANSI/drivers/ANSI_terminal.c.obj -c /home/student/s101101787/RTOS/lab6/PDCurses/ANSI/drivers/ANSI_terminal.c",
+  "file": "/home/student/s101101787/RTOS/lab6/PDCurses/ANSI/drivers/ANSI_terminal.c",
+  "output": "CMakeFiles/lab6.elf.dir/PDCurses/ANSI/drivers/ANSI_terminal.c.obj"
+},
+{
+  "directory": "/home/student/s101101787/RTOS/lab6",
+  "command": "/usr/bin/arm-none-eabi-gcc  -I/home/student/s101101787/RTOS/lab6/include -I/home/student/s101101787/RTOS/lab6/FreeRTOS/include -I/home/student/s101101787/RTOS/lab6/FreeRTOS/portable/GCC/ARM_CM3 -I/home/student/s101101787/RTOS/lab6/CMSIS/CMSIS/Core/Include -I/home/student/s101101787/RTOS/lab6/CMSIS/Device/ARM/ARMCM3/Include -I/home/student/s101101787/RTOS/lab6/PDCurses -I/home/student/s101101787/RTOS/lab6/PDCurses/ANSI -I/home/student/s101101787/RTOS/lab6/PDCurses/ANSI/drivers -I/home/student/s101101787/RTOS/lab6/ninvaders -I/home/student/s101101787/RTOS/lab6/sound_effects -I/home/student/s101101787/RTOS/lab6/sound_effects/theme -std=gnu11 -mcpu=cortex-m3 -mthumb -mthumb-interwork -ffunction-sections -fdata-sections -fno-common -fmessage-length=0 -Os -g -o CMakeFiles/lab6.elf.dir/PDCurses/ANSI/drivers/FreeRTOS/driver_table.c.obj -c /home/student/s101101787/RTOS/lab6/PDCurses/ANSI/drivers/FreeRTOS/driver_table.c",
+  "file": "/home/student/s101101787/RTOS/lab6/PDCurses/ANSI/drivers/FreeRTOS/driver_table.c",
+  "output": "CMakeFiles/lab6.elf.dir/PDCurses/ANSI/drivers/FreeRTOS/driver_table.c.obj"
+},
+{
+  "directory": "/home/student/s101101787/RTOS/lab6",
+  "command": "/usr/bin/arm-none-eabi-gcc  -I/home/student/s101101787/RTOS/lab6/include -I/home/student/s101101787/RTOS/lab6/FreeRTOS/include -I/home/student/s101101787/RTOS/lab6/FreeRTOS/portable/GCC/ARM_CM3 -I/home/student/s101101787/RTOS/lab6/CMSIS/CMSIS/Core/Include -I/home/student/s101101787/RTOS/lab6/CMSIS/Device/ARM/ARMCM3/Include -I/home/student/s101101787/RTOS/lab6/PDCurses -I/home/student/s101101787/RTOS/lab6/PDCurses/ANSI -I/home/student/s101101787/RTOS/lab6/PDCurses/ANSI/drivers -I/home/student/s101101787/RTOS/lab6/ninvaders -I/home/student/s101101787/RTOS/lab6/sound_effects -I/home/student/s101101787/RTOS/lab6/sound_effects/theme -std=gnu11 -mcpu=cortex-m3 -mthumb -mthumb-interwork -ffunction-sections -fdata-sections -fno-common -fmessage-length=0 -Os -g -o CMakeFiles/lab6.elf.dir/PDCurses/ANSI/pdcclip.c.obj -c /home/student/s101101787/RTOS/lab6/PDCurses/ANSI/pdcclip.c",
+  "file": "/home/student/s101101787/RTOS/lab6/PDCurses/ANSI/pdcclip.c",
+  "output": "CMakeFiles/lab6.elf.dir/PDCurses/ANSI/pdcclip.c.obj"
+},
+{
+  "directory": "/home/student/s101101787/RTOS/lab6",
+  "command": "/usr/bin/arm-none-eabi-gcc  -I/home/student/s101101787/RTOS/lab6/include -I/home/student/s101101787/RTOS/lab6/FreeRTOS/include -I/home/student/s101101787/RTOS/lab6/FreeRTOS/portable/GCC/ARM_CM3 -I/home/student/s101101787/RTOS/lab6/CMSIS/CMSIS/Core/Include -I/home/student/s101101787/RTOS/lab6/CMSIS/Device/ARM/ARMCM3/Include -I/home/student/s101101787/RTOS/lab6/PDCurses -I/home/student/s101101787/RTOS/lab6/PDCurses/ANSI -I/home/student/s101101787/RTOS/lab6/PDCurses/ANSI/drivers -I/home/student/s101101787/RTOS/lab6/ninvaders -I/home/student/s101101787/RTOS/lab6/sound_effects -I/home/student/s101101787/RTOS/lab6/sound_effects/theme -std=gnu11 -mcpu=cortex-m3 -mthumb -mthumb-interwork -ffunction-sections -fdata-sections -fno-common -fmessage-length=0 -Os -g -o CMakeFiles/lab6.elf.dir/PDCurses/ANSI/pdcdisp.c.obj -c /home/student/s101101787/RTOS/lab6/PDCurses/ANSI/pdcdisp.c",
+  "file": "/home/student/s101101787/RTOS/lab6/PDCurses/ANSI/pdcdisp.c",
+  "output": "CMakeFiles/lab6.elf.dir/PDCurses/ANSI/pdcdisp.c.obj"
+},
+{
+  "directory": "/home/student/s101101787/RTOS/lab6",
+  "command": "/usr/bin/arm-none-eabi-gcc  -I/home/student/s101101787/RTOS/lab6/include -I/home/student/s101101787/RTOS/lab6/FreeRTOS/include -I/home/student/s101101787/RTOS/lab6/FreeRTOS/portable/GCC/ARM_CM3 -I/home/student/s101101787/RTOS/lab6/CMSIS/CMSIS/Core/Include -I/home/student/s101101787/RTOS/lab6/CMSIS/Device/ARM/ARMCM3/Include -I/home/student/s101101787/RTOS/lab6/PDCurses -I/home/student/s101101787/RTOS/lab6/PDCurses/ANSI -I/home/student/s101101787/RTOS/lab6/PDCurses/ANSI/drivers -I/home/student/s101101787/RTOS/lab6/ninvaders -I/home/student/s101101787/RTOS/lab6/sound_effects -I/home/student/s101101787/RTOS/lab6/sound_effects/theme -std=gnu11 -mcpu=cortex-m3 -mthumb -mthumb-interwork -ffunction-sections -fdata-sections -fno-common -fmessage-length=0 -Os -g -o CMakeFiles/lab6.elf.dir/PDCurses/ANSI/pdcgetsc.c.obj -c /home/student/s101101787/RTOS/lab6/PDCurses/ANSI/pdcgetsc.c",
+  "file": "/home/student/s101101787/RTOS/lab6/PDCurses/ANSI/pdcgetsc.c",
+  "output": "CMakeFiles/lab6.elf.dir/PDCurses/ANSI/pdcgetsc.c.obj"
+},
+{
+  "directory": "/home/student/s101101787/RTOS/lab6",
+  "command": "/usr/bin/arm-none-eabi-gcc  -I/home/student/s101101787/RTOS/lab6/include -I/home/student/s101101787/RTOS/lab6/FreeRTOS/include -I/home/student/s101101787/RTOS/lab6/FreeRTOS/portable/GCC/ARM_CM3 -I/home/student/s101101787/RTOS/lab6/CMSIS/CMSIS/Core/Include -I/home/student/s101101787/RTOS/lab6/CMSIS/Device/ARM/ARMCM3/Include -I/home/student/s101101787/RTOS/lab6/PDCurses -I/home/student/s101101787/RTOS/lab6/PDCurses/ANSI -I/home/student/s101101787/RTOS/lab6/PDCurses/ANSI/drivers -I/home/student/s101101787/RTOS/lab6/ninvaders -I/home/student/s101101787/RTOS/lab6/sound_effects -I/home/student/s101101787/RTOS/lab6/sound_effects/theme -std=gnu11 -mcpu=cortex-m3 -mthumb -mthumb-interwork -ffunction-sections -fdata-sections -fno-common -fmessage-length=0 -Os -g -o CMakeFiles/lab6.elf.dir/PDCurses/ANSI/pdckbd.c.obj -c /home/student/s101101787/RTOS/lab6/PDCurses/ANSI/pdckbd.c",
+  "file": "/home/student/s101101787/RTOS/lab6/PDCurses/ANSI/pdckbd.c",
+  "output": "CMakeFiles/lab6.elf.dir/PDCurses/ANSI/pdckbd.c.obj"
+},
+{
+  "directory": "/home/student/s101101787/RTOS/lab6",
+  "command": "/usr/bin/arm-none-eabi-gcc  -I/home/student/s101101787/RTOS/lab6/include -I/home/student/s101101787/RTOS/lab6/FreeRTOS/include -I/home/student/s101101787/RTOS/lab6/FreeRTOS/portable/GCC/ARM_CM3 -I/home/student/s101101787/RTOS/lab6/CMSIS/CMSIS/Core/Include -I/home/student/s101101787/RTOS/lab6/CMSIS/Device/ARM/ARMCM3/Include -I/home/student/s101101787/RTOS/lab6/PDCurses -I/home/student/s101101787/RTOS/lab6/PDCurses/ANSI -I/home/student/s101101787/RTOS/lab6/PDCurses/ANSI/drivers -I/home/student/s101101787/RTOS/lab6/ninvaders -I/home/student/s101101787/RTOS/lab6/sound_effects -I/home/student/s101101787/RTOS/lab6/sound_effects/theme -std=gnu11 -mcpu=cortex-m3 -mthumb -mthumb-interwork -ffunction-sections -fdata-sections -fno-common -fmessage-length=0 -Os -g -o CMakeFiles/lab6.elf.dir/PDCurses/ANSI/pdcscrn.c.obj -c /home/student/s101101787/RTOS/lab6/PDCurses/ANSI/pdcscrn.c",
+  "file": "/home/student/s101101787/RTOS/lab6/PDCurses/ANSI/pdcscrn.c",
+  "output": "CMakeFiles/lab6.elf.dir/PDCurses/ANSI/pdcscrn.c.obj"
+},
+{
+  "directory": "/home/student/s101101787/RTOS/lab6",
+  "command": "/usr/bin/arm-none-eabi-gcc  -I/home/student/s101101787/RTOS/lab6/include -I/home/student/s101101787/RTOS/lab6/FreeRTOS/include -I/home/student/s101101787/RTOS/lab6/FreeRTOS/portable/GCC/ARM_CM3 -I/home/student/s101101787/RTOS/lab6/CMSIS/CMSIS/Core/Include -I/home/student/s101101787/RTOS/lab6/CMSIS/Device/ARM/ARMCM3/Include -I/home/student/s101101787/RTOS/lab6/PDCurses -I/home/student/s101101787/RTOS/lab6/PDCurses/ANSI -I/home/student/s101101787/RTOS/lab6/PDCurses/ANSI/drivers -I/home/student/s101101787/RTOS/lab6/ninvaders -I/home/student/s101101787/RTOS/lab6/sound_effects -I/home/student/s101101787/RTOS/lab6/sound_effects/theme -std=gnu11 -mcpu=cortex-m3 -mthumb -mthumb-interwork -ffunction-sections -fdata-sections -fno-common -fmessage-length=0 -Os -g -o CMakeFiles/lab6.elf.dir/PDCurses/ANSI/pdcsetsc.c.obj -c /home/student/s101101787/RTOS/lab6/PDCurses/ANSI/pdcsetsc.c",
+  "file": "/home/student/s101101787/RTOS/lab6/PDCurses/ANSI/pdcsetsc.c",
+  "output": "CMakeFiles/lab6.elf.dir/PDCurses/ANSI/pdcsetsc.c.obj"
+},
+{
+  "directory": "/home/student/s101101787/RTOS/lab6",
+  "command": "/usr/bin/arm-none-eabi-gcc  -I/home/student/s101101787/RTOS/lab6/include -I/home/student/s101101787/RTOS/lab6/FreeRTOS/include -I/home/student/s101101787/RTOS/lab6/FreeRTOS/portable/GCC/ARM_CM3 -I/home/student/s101101787/RTOS/lab6/CMSIS/CMSIS/Core/Include -I/home/student/s101101787/RTOS/lab6/CMSIS/Device/ARM/ARMCM3/Include -I/home/student/s101101787/RTOS/lab6/PDCurses -I/home/student/s101101787/RTOS/lab6/PDCurses/ANSI -I/home/student/s101101787/RTOS/lab6/PDCurses/ANSI/drivers -I/home/student/s101101787/RTOS/lab6/ninvaders -I/home/student/s101101787/RTOS/lab6/sound_effects -I/home/student/s101101787/RTOS/lab6/sound_effects/theme -std=gnu11 -mcpu=cortex-m3 -mthumb -mthumb-interwork -ffunction-sections -fdata-sections -fno-common -fmessage-length=0 -Os -g -o CMakeFiles/lab6.elf.dir/PDCurses/ANSI/pdcutil.c.obj -c /home/student/s101101787/RTOS/lab6/PDCurses/ANSI/pdcutil.c",
+  "file": "/home/student/s101101787/RTOS/lab6/PDCurses/ANSI/pdcutil.c",
+  "output": "CMakeFiles/lab6.elf.dir/PDCurses/ANSI/pdcutil.c.obj"
+},
+{
+  "directory": "/home/student/s101101787/RTOS/lab6",
+  "command": "/usr/bin/arm-none-eabi-gcc  -I/home/student/s101101787/RTOS/lab6/include -I/home/student/s101101787/RTOS/lab6/FreeRTOS/include -I/home/student/s101101787/RTOS/lab6/FreeRTOS/portable/GCC/ARM_CM3 -I/home/student/s101101787/RTOS/lab6/CMSIS/CMSIS/Core/Include -I/home/student/s101101787/RTOS/lab6/CMSIS/Device/ARM/ARMCM3/Include -I/home/student/s101101787/RTOS/lab6/PDCurses -I/home/student/s101101787/RTOS/lab6/PDCurses/ANSI -I/home/student/s101101787/RTOS/lab6/PDCurses/ANSI/drivers -I/home/student/s101101787/RTOS/lab6/ninvaders -I/home/student/s101101787/RTOS/lab6/sound_effects -I/home/student/s101101787/RTOS/lab6/sound_effects/theme -std=gnu11 -mcpu=cortex-m3 -mthumb -mthumb-interwork -ffunction-sections -fdata-sections -fno-common -fmessage-length=0 -Os -g -o CMakeFiles/lab6.elf.dir/PDCurses/pdcurses/addch.c.obj -c /home/student/s101101787/RTOS/lab6/PDCurses/pdcurses/addch.c",
+  "file": "/home/student/s101101787/RTOS/lab6/PDCurses/pdcurses/addch.c",
+  "output": "CMakeFiles/lab6.elf.dir/PDCurses/pdcurses/addch.c.obj"
+},
+{
+  "directory": "/home/student/s101101787/RTOS/lab6",
+  "command": "/usr/bin/arm-none-eabi-gcc  -I/home/student/s101101787/RTOS/lab6/include -I/home/student/s101101787/RTOS/lab6/FreeRTOS/include -I/home/student/s101101787/RTOS/lab6/FreeRTOS/portable/GCC/ARM_CM3 -I/home/student/s101101787/RTOS/lab6/CMSIS/CMSIS/Core/Include -I/home/student/s101101787/RTOS/lab6/CMSIS/Device/ARM/ARMCM3/Include -I/home/student/s101101787/RTOS/lab6/PDCurses -I/home/student/s101101787/RTOS/lab6/PDCurses/ANSI -I/home/student/s101101787/RTOS/lab6/PDCurses/ANSI/drivers -I/home/student/s101101787/RTOS/lab6/ninvaders -I/home/student/s101101787/RTOS/lab6/sound_effects -I/home/student/s101101787/RTOS/lab6/sound_effects/theme -std=gnu11 -mcpu=cortex-m3 -mthumb -mthumb-interwork -ffunction-sections -fdata-sections -fno-common -fmessage-length=0 -Os -g -o CMakeFiles/lab6.elf.dir/PDCurses/pdcurses/addchstr.c.obj -c /home/student/s101101787/RTOS/lab6/PDCurses/pdcurses/addchstr.c",
+  "file": "/home/student/s101101787/RTOS/lab6/PDCurses/pdcurses/addchstr.c",
+  "output": "CMakeFiles/lab6.elf.dir/PDCurses/pdcurses/addchstr.c.obj"
+},
+{
+  "directory": "/home/student/s101101787/RTOS/lab6",
+  "command": "/usr/bin/arm-none-eabi-gcc  -I/home/student/s101101787/RTOS/lab6/include -I/home/student/s101101787/RTOS/lab6/FreeRTOS/include -I/home/student/s101101787/RTOS/lab6/FreeRTOS/portable/GCC/ARM_CM3 -I/home/student/s101101787/RTOS/lab6/CMSIS/CMSIS/Core/Include -I/home/student/s101101787/RTOS/lab6/CMSIS/Device/ARM/ARMCM3/Include -I/home/student/s101101787/RTOS/lab6/PDCurses -I/home/student/s101101787/RTOS/lab6/PDCurses/ANSI -I/home/student/s101101787/RTOS/lab6/PDCurses/ANSI/drivers -I/home/student/s101101787/RTOS/lab6/ninvaders -I/home/student/s101101787/RTOS/lab6/sound_effects -I/home/student/s101101787/RTOS/lab6/sound_effects/theme -std=gnu11 -mcpu=cortex-m3 -mthumb -mthumb-interwork -ffunction-sections -fdata-sections -fno-common -fmessage-length=0 -Os -g -o CMakeFiles/lab6.elf.dir/PDCurses/pdcurses/addstr.c.obj -c /home/student/s101101787/RTOS/lab6/PDCurses/pdcurses/addstr.c",
+  "file": "/home/student/s101101787/RTOS/lab6/PDCurses/pdcurses/addstr.c",
+  "output": "CMakeFiles/lab6.elf.dir/PDCurses/pdcurses/addstr.c.obj"
+},
+{
+  "directory": "/home/student/s101101787/RTOS/lab6",
+  "command": "/usr/bin/arm-none-eabi-gcc  -I/home/student/s101101787/RTOS/lab6/include -I/home/student/s101101787/RTOS/lab6/FreeRTOS/include -I/home/student/s101101787/RTOS/lab6/FreeRTOS/portable/GCC/ARM_CM3 -I/home/student/s101101787/RTOS/lab6/CMSIS/CMSIS/Core/Include -I/home/student/s101101787/RTOS/lab6/CMSIS/Device/ARM/ARMCM3/Include -I/home/student/s101101787/RTOS/lab6/PDCurses -I/home/student/s101101787/RTOS/lab6/PDCurses/ANSI -I/home/student/s101101787/RTOS/lab6/PDCurses/ANSI/drivers -I/home/student/s101101787/RTOS/lab6/ninvaders -I/home/student/s101101787/RTOS/lab6/sound_effects -I/home/student/s101101787/RTOS/lab6/sound_effects/theme -std=gnu11 -mcpu=cortex-m3 -mthumb -mthumb-interwork -ffunction-sections -fdata-sections -fno-common -fmessage-length=0 -Os -g -o CMakeFiles/lab6.elf.dir/PDCurses/pdcurses/attr.c.obj -c /home/student/s101101787/RTOS/lab6/PDCurses/pdcurses/attr.c",
+  "file": "/home/student/s101101787/RTOS/lab6/PDCurses/pdcurses/attr.c",
+  "output": "CMakeFiles/lab6.elf.dir/PDCurses/pdcurses/attr.c.obj"
+},
+{
+  "directory": "/home/student/s101101787/RTOS/lab6",
+  "command": "/usr/bin/arm-none-eabi-gcc  -I/home/student/s101101787/RTOS/lab6/include -I/home/student/s101101787/RTOS/lab6/FreeRTOS/include -I/home/student/s101101787/RTOS/lab6/FreeRTOS/portable/GCC/ARM_CM3 -I/home/student/s101101787/RTOS/lab6/CMSIS/CMSIS/Core/Include -I/home/student/s101101787/RTOS/lab6/CMSIS/Device/ARM/ARMCM3/Include -I/home/student/s101101787/RTOS/lab6/PDCurses -I/home/student/s101101787/RTOS/lab6/PDCurses/ANSI -I/home/student/s101101787/RTOS/lab6/PDCurses/ANSI/drivers -I/home/student/s101101787/RTOS/lab6/ninvaders -I/home/student/s101101787/RTOS/lab6/sound_effects -I/home/student/s101101787/RTOS/lab6/sound_effects/theme -std=gnu11 -mcpu=cortex-m3 -mthumb -mthumb-interwork -ffunction-sections -fdata-sections -fno-common -fmessage-length=0 -Os -g -o CMakeFiles/lab6.elf.dir/PDCurses/pdcurses/beep.c.obj -c /home/student/s101101787/RTOS/lab6/PDCurses/pdcurses/beep.c",
+  "file": "/home/student/s101101787/RTOS/lab6/PDCurses/pdcurses/beep.c",
+  "output": "CMakeFiles/lab6.elf.dir/PDCurses/pdcurses/beep.c.obj"
+},
+{
+  "directory": "/home/student/s101101787/RTOS/lab6",
+  "command": "/usr/bin/arm-none-eabi-gcc  -I/home/student/s101101787/RTOS/lab6/include -I/home/student/s101101787/RTOS/lab6/FreeRTOS/include -I/home/student/s101101787/RTOS/lab6/FreeRTOS/portable/GCC/ARM_CM3 -I/home/student/s101101787/RTOS/lab6/CMSIS/CMSIS/Core/Include -I/home/student/s101101787/RTOS/lab6/CMSIS/Device/ARM/ARMCM3/Include -I/home/student/s101101787/RTOS/lab6/PDCurses -I/home/student/s101101787/RTOS/lab6/PDCurses/ANSI -I/home/student/s101101787/RTOS/lab6/PDCurses/ANSI/drivers -I/home/student/s101101787/RTOS/lab6/ninvaders -I/home/student/s101101787/RTOS/lab6/sound_effects -I/home/student/s101101787/RTOS/lab6/sound_effects/theme -std=gnu11 -mcpu=cortex-m3 -mthumb -mthumb-interwork -ffunction-sections -fdata-sections -fno-common -fmessage-length=0 -Os -g -o CMakeFiles/lab6.elf.dir/PDCurses/pdcurses/bkgd.c.obj -c /home/student/s101101787/RTOS/lab6/PDCurses/pdcurses/bkgd.c",
+  "file": "/home/student/s101101787/RTOS/lab6/PDCurses/pdcurses/bkgd.c",
+  "output": "CMakeFiles/lab6.elf.dir/PDCurses/pdcurses/bkgd.c.obj"
+},
+{
+  "directory": "/home/student/s101101787/RTOS/lab6",
+  "command": "/usr/bin/arm-none-eabi-gcc  -I/home/student/s101101787/RTOS/lab6/include -I/home/student/s101101787/RTOS/lab6/FreeRTOS/include -I/home/student/s101101787/RTOS/lab6/FreeRTOS/portable/GCC/ARM_CM3 -I/home/student/s101101787/RTOS/lab6/CMSIS/CMSIS/Core/Include -I/home/student/s101101787/RTOS/lab6/CMSIS/Device/ARM/ARMCM3/Include -I/home/student/s101101787/RTOS/lab6/PDCurses -I/home/student/s101101787/RTOS/lab6/PDCurses/ANSI -I/home/student/s101101787/RTOS/lab6/PDCurses/ANSI/drivers -I/home/student/s101101787/RTOS/lab6/ninvaders -I/home/student/s101101787/RTOS/lab6/sound_effects -I/home/student/s101101787/RTOS/lab6/sound_effects/theme -std=gnu11 -mcpu=cortex-m3 -mthumb -mthumb-interwork -ffunction-sections -fdata-sections -fno-common -fmessage-length=0 -Os -g -o CMakeFiles/lab6.elf.dir/PDCurses/pdcurses/border.c.obj -c /home/student/s101101787/RTOS/lab6/PDCurses/pdcurses/border.c",
+  "file": "/home/student/s101101787/RTOS/lab6/PDCurses/pdcurses/border.c",
+  "output": "CMakeFiles/lab6.elf.dir/PDCurses/pdcurses/border.c.obj"
+},
+{
+  "directory": "/home/student/s101101787/RTOS/lab6",
+  "command": "/usr/bin/arm-none-eabi-gcc  -I/home/student/s101101787/RTOS/lab6/include -I/home/student/s101101787/RTOS/lab6/FreeRTOS/include -I/home/student/s101101787/RTOS/lab6/FreeRTOS/portable/GCC/ARM_CM3 -I/home/student/s101101787/RTOS/lab6/CMSIS/CMSIS/Core/Include -I/home/student/s101101787/RTOS/lab6/CMSIS/Device/ARM/ARMCM3/Include -I/home/student/s101101787/RTOS/lab6/PDCurses -I/home/student/s101101787/RTOS/lab6/PDCurses/ANSI -I/home/student/s101101787/RTOS/lab6/PDCurses/ANSI/drivers -I/home/student/s101101787/RTOS/lab6/ninvaders -I/home/student/s101101787/RTOS/lab6/sound_effects -I/home/student/s101101787/RTOS/lab6/sound_effects/theme -std=gnu11 -mcpu=cortex-m3 -mthumb -mthumb-interwork -ffunction-sections -fdata-sections -fno-common -fmessage-length=0 -Os -g -o CMakeFiles/lab6.elf.dir/PDCurses/pdcurses/clear.c.obj -c /home/student/s101101787/RTOS/lab6/PDCurses/pdcurses/clear.c",
+  "file": "/home/student/s101101787/RTOS/lab6/PDCurses/pdcurses/clear.c",
+  "output": "CMakeFiles/lab6.elf.dir/PDCurses/pdcurses/clear.c.obj"
+},
+{
+  "directory": "/home/student/s101101787/RTOS/lab6",
+  "command": "/usr/bin/arm-none-eabi-gcc  -I/home/student/s101101787/RTOS/lab6/include -I/home/student/s101101787/RTOS/lab6/FreeRTOS/include -I/home/student/s101101787/RTOS/lab6/FreeRTOS/portable/GCC/ARM_CM3 -I/home/student/s101101787/RTOS/lab6/CMSIS/CMSIS/Core/Include -I/home/student/s101101787/RTOS/lab6/CMSIS/Device/ARM/ARMCM3/Include -I/home/student/s101101787/RTOS/lab6/PDCurses -I/home/student/s101101787/RTOS/lab6/PDCurses/ANSI -I/home/student/s101101787/RTOS/lab6/PDCurses/ANSI/drivers -I/home/student/s101101787/RTOS/lab6/ninvaders -I/home/student/s101101787/RTOS/lab6/sound_effects -I/home/student/s101101787/RTOS/lab6/sound_effects/theme -std=gnu11 -mcpu=cortex-m3 -mthumb -mthumb-interwork -ffunction-sections -fdata-sections -fno-common -fmessage-length=0 -Os -g -o CMakeFiles/lab6.elf.dir/PDCurses/pdcurses/color.c.obj -c /home/student/s101101787/RTOS/lab6/PDCurses/pdcurses/color.c",
+  "file": "/home/student/s101101787/RTOS/lab6/PDCurses/pdcurses/color.c",
+  "output": "CMakeFiles/lab6.elf.dir/PDCurses/pdcurses/color.c.obj"
+},
+{
+  "directory": "/home/student/s101101787/RTOS/lab6",
+  "command": "/usr/bin/arm-none-eabi-gcc  -I/home/student/s101101787/RTOS/lab6/include -I/home/student/s101101787/RTOS/lab6/FreeRTOS/include -I/home/student/s101101787/RTOS/lab6/FreeRTOS/portable/GCC/ARM_CM3 -I/home/student/s101101787/RTOS/lab6/CMSIS/CMSIS/Core/Include -I/home/student/s101101787/RTOS/lab6/CMSIS/Device/ARM/ARMCM3/Include -I/home/student/s101101787/RTOS/lab6/PDCurses -I/home/student/s101101787/RTOS/lab6/PDCurses/ANSI -I/home/student/s101101787/RTOS/lab6/PDCurses/ANSI/drivers -I/home/student/s101101787/RTOS/lab6/ninvaders -I/home/student/s101101787/RTOS/lab6/sound_effects -I/home/student/s101101787/RTOS/lab6/sound_effects/theme -std=gnu11 -mcpu=cortex-m3 -mthumb -mthumb-interwork -ffunction-sections -fdata-sections -fno-common -fmessage-length=0 -Os -g -o CMakeFiles/lab6.elf.dir/PDCurses/pdcurses/debug.c.obj -c /home/student/s101101787/RTOS/lab6/PDCurses/pdcurses/debug.c",
+  "file": "/home/student/s101101787/RTOS/lab6/PDCurses/pdcurses/debug.c",
+  "output": "CMakeFiles/lab6.elf.dir/PDCurses/pdcurses/debug.c.obj"
+},
+{
+  "directory": "/home/student/s101101787/RTOS/lab6",
+  "command": "/usr/bin/arm-none-eabi-gcc  -I/home/student/s101101787/RTOS/lab6/include -I/home/student/s101101787/RTOS/lab6/FreeRTOS/include -I/home/student/s101101787/RTOS/lab6/FreeRTOS/portable/GCC/ARM_CM3 -I/home/student/s101101787/RTOS/lab6/CMSIS/CMSIS/Core/Include -I/home/student/s101101787/RTOS/lab6/CMSIS/Device/ARM/ARMCM3/Include -I/home/student/s101101787/RTOS/lab6/PDCurses -I/home/student/s101101787/RTOS/lab6/PDCurses/ANSI -I/home/student/s101101787/RTOS/lab6/PDCurses/ANSI/drivers -I/home/student/s101101787/RTOS/lab6/ninvaders -I/home/student/s101101787/RTOS/lab6/sound_effects -I/home/student/s101101787/RTOS/lab6/sound_effects/theme -std=gnu11 -mcpu=cortex-m3 -mthumb -mthumb-interwork -ffunction-sections -fdata-sections -fno-common -fmessage-length=0 -Os -g -o CMakeFiles/lab6.elf.dir/PDCurses/pdcurses/delch.c.obj -c /home/student/s101101787/RTOS/lab6/PDCurses/pdcurses/delch.c",
+  "file": "/home/student/s101101787/RTOS/lab6/PDCurses/pdcurses/delch.c",
+  "output": "CMakeFiles/lab6.elf.dir/PDCurses/pdcurses/delch.c.obj"
+},
+{
+  "directory": "/home/student/s101101787/RTOS/lab6",
+  "command": "/usr/bin/arm-none-eabi-gcc  -I/home/student/s101101787/RTOS/lab6/include -I/home/student/s101101787/RTOS/lab6/FreeRTOS/include -I/home/student/s101101787/RTOS/lab6/FreeRTOS/portable/GCC/ARM_CM3 -I/home/student/s101101787/RTOS/lab6/CMSIS/CMSIS/Core/Include -I/home/student/s101101787/RTOS/lab6/CMSIS/Device/ARM/ARMCM3/Include -I/home/student/s101101787/RTOS/lab6/PDCurses -I/home/student/s101101787/RTOS/lab6/PDCurses/ANSI -I/home/student/s101101787/RTOS/lab6/PDCurses/ANSI/drivers -I/home/student/s101101787/RTOS/lab6/ninvaders -I/home/student/s101101787/RTOS/lab6/sound_effects -I/home/student/s101101787/RTOS/lab6/sound_effects/theme -std=gnu11 -mcpu=cortex-m3 -mthumb -mthumb-interwork -ffunction-sections -fdata-sections -fno-common -fmessage-length=0 -Os -g -o CMakeFiles/lab6.elf.dir/PDCurses/pdcurses/deleteln.c.obj -c /home/student/s101101787/RTOS/lab6/PDCurses/pdcurses/deleteln.c",
+  "file": "/home/student/s101101787/RTOS/lab6/PDCurses/pdcurses/deleteln.c",
+  "output": "CMakeFiles/lab6.elf.dir/PDCurses/pdcurses/deleteln.c.obj"
+},
+{
+  "directory": "/home/student/s101101787/RTOS/lab6",
+  "command": "/usr/bin/arm-none-eabi-gcc  -I/home/student/s101101787/RTOS/lab6/include -I/home/student/s101101787/RTOS/lab6/FreeRTOS/include -I/home/student/s101101787/RTOS/lab6/FreeRTOS/portable/GCC/ARM_CM3 -I/home/student/s101101787/RTOS/lab6/CMSIS/CMSIS/Core/Include -I/home/student/s101101787/RTOS/lab6/CMSIS/Device/ARM/ARMCM3/Include -I/home/student/s101101787/RTOS/lab6/PDCurses -I/home/student/s101101787/RTOS/lab6/PDCurses/ANSI -I/home/student/s101101787/RTOS/lab6/PDCurses/ANSI/drivers -I/home/student/s101101787/RTOS/lab6/ninvaders -I/home/student/s101101787/RTOS/lab6/sound_effects -I/home/student/s101101787/RTOS/lab6/sound_effects/theme -std=gnu11 -mcpu=cortex-m3 -mthumb -mthumb-interwork -ffunction-sections -fdata-sections -fno-common -fmessage-length=0 -Os -g -o CMakeFiles/lab6.elf.dir/PDCurses/pdcurses/getch.c.obj -c /home/student/s101101787/RTOS/lab6/PDCurses/pdcurses/getch.c",
+  "file": "/home/student/s101101787/RTOS/lab6/PDCurses/pdcurses/getch.c",
+  "output": "CMakeFiles/lab6.elf.dir/PDCurses/pdcurses/getch.c.obj"
+},
+{
+  "directory": "/home/student/s101101787/RTOS/lab6",
+  "command": "/usr/bin/arm-none-eabi-gcc  -I/home/student/s101101787/RTOS/lab6/include -I/home/student/s101101787/RTOS/lab6/FreeRTOS/include -I/home/student/s101101787/RTOS/lab6/FreeRTOS/portable/GCC/ARM_CM3 -I/home/student/s101101787/RTOS/lab6/CMSIS/CMSIS/Core/Include -I/home/student/s101101787/RTOS/lab6/CMSIS/Device/ARM/ARMCM3/Include -I/home/student/s101101787/RTOS/lab6/PDCurses -I/home/student/s101101787/RTOS/lab6/PDCurses/ANSI -I/home/student/s101101787/RTOS/lab6/PDCurses/ANSI/drivers -I/home/student/s101101787/RTOS/lab6/ninvaders -I/home/student/s101101787/RTOS/lab6/sound_effects -I/home/student/s101101787/RTOS/lab6/sound_effects/theme -std=gnu11 -mcpu=cortex-m3 -mthumb -mthumb-interwork -ffunction-sections -fdata-sections -fno-common -fmessage-length=0 -Os -g -o CMakeFiles/lab6.elf.dir/PDCurses/pdcurses/getstr.c.obj -c /home/student/s101101787/RTOS/lab6/PDCurses/pdcurses/getstr.c",
+  "file": "/home/student/s101101787/RTOS/lab6/PDCurses/pdcurses/getstr.c",
+  "output": "CMakeFiles/lab6.elf.dir/PDCurses/pdcurses/getstr.c.obj"
+},
+{
+  "directory": "/home/student/s101101787/RTOS/lab6",
+  "command": "/usr/bin/arm-none-eabi-gcc  -I/home/student/s101101787/RTOS/lab6/include -I/home/student/s101101787/RTOS/lab6/FreeRTOS/include -I/home/student/s101101787/RTOS/lab6/FreeRTOS/portable/GCC/ARM_CM3 -I/home/student/s101101787/RTOS/lab6/CMSIS/CMSIS/Core/Include -I/home/student/s101101787/RTOS/lab6/CMSIS/Device/ARM/ARMCM3/Include -I/home/student/s101101787/RTOS/lab6/PDCurses -I/home/student/s101101787/RTOS/lab6/PDCurses/ANSI -I/home/student/s101101787/RTOS/lab6/PDCurses/ANSI/drivers -I/home/student/s101101787/RTOS/lab6/ninvaders -I/home/student/s101101787/RTOS/lab6/sound_effects -I/home/student/s101101787/RTOS/lab6/sound_effects/theme -std=gnu11 -mcpu=cortex-m3 -mthumb -mthumb-interwork -ffunction-sections -fdata-sections -fno-common -fmessage-length=0 -Os -g -o CMakeFiles/lab6.elf.dir/PDCurses/pdcurses/getyx.c.obj -c /home/student/s101101787/RTOS/lab6/PDCurses/pdcurses/getyx.c",
+  "file": "/home/student/s101101787/RTOS/lab6/PDCurses/pdcurses/getyx.c",
+  "output": "CMakeFiles/lab6.elf.dir/PDCurses/pdcurses/getyx.c.obj"
+},
+{
+  "directory": "/home/student/s101101787/RTOS/lab6",
+  "command": "/usr/bin/arm-none-eabi-gcc  -I/home/student/s101101787/RTOS/lab6/include -I/home/student/s101101787/RTOS/lab6/FreeRTOS/include -I/home/student/s101101787/RTOS/lab6/FreeRTOS/portable/GCC/ARM_CM3 -I/home/student/s101101787/RTOS/lab6/CMSIS/CMSIS/Core/Include -I/home/student/s101101787/RTOS/lab6/CMSIS/Device/ARM/ARMCM3/Include -I/home/student/s101101787/RTOS/lab6/PDCurses -I/home/student/s101101787/RTOS/lab6/PDCurses/ANSI -I/home/student/s101101787/RTOS/lab6/PDCurses/ANSI/drivers -I/home/student/s101101787/RTOS/lab6/ninvaders -I/home/student/s101101787/RTOS/lab6/sound_effects -I/home/student/s101101787/RTOS/lab6/sound_effects/theme -std=gnu11 -mcpu=cortex-m3 -mthumb -mthumb-interwork -ffunction-sections -fdata-sections -fno-common -fmessage-length=0 -Os -g -o CMakeFiles/lab6.elf.dir/PDCurses/pdcurses/inch.c.obj -c /home/student/s101101787/RTOS/lab6/PDCurses/pdcurses/inch.c",
+  "file": "/home/student/s101101787/RTOS/lab6/PDCurses/pdcurses/inch.c",
+  "output": "CMakeFiles/lab6.elf.dir/PDCurses/pdcurses/inch.c.obj"
+},
+{
+  "directory": "/home/student/s101101787/RTOS/lab6",
+  "command": "/usr/bin/arm-none-eabi-gcc  -I/home/student/s101101787/RTOS/lab6/include -I/home/student/s101101787/RTOS/lab6/FreeRTOS/include -I/home/student/s101101787/RTOS/lab6/FreeRTOS/portable/GCC/ARM_CM3 -I/home/student/s101101787/RTOS/lab6/CMSIS/CMSIS/Core/Include -I/home/student/s101101787/RTOS/lab6/CMSIS/Device/ARM/ARMCM3/Include -I/home/student/s101101787/RTOS/lab6/PDCurses -I/home/student/s101101787/RTOS/lab6/PDCurses/ANSI -I/home/student/s101101787/RTOS/lab6/PDCurses/ANSI/drivers -I/home/student/s101101787/RTOS/lab6/ninvaders -I/home/student/s101101787/RTOS/lab6/sound_effects -I/home/student/s101101787/RTOS/lab6/sound_effects/theme -std=gnu11 -mcpu=cortex-m3 -mthumb -mthumb-interwork -ffunction-sections -fdata-sections -fno-common -fmessage-length=0 -Os -g -o CMakeFiles/lab6.elf.dir/PDCurses/pdcurses/inchstr.c.obj -c /home/student/s101101787/RTOS/lab6/PDCurses/pdcurses/inchstr.c",
+  "file": "/home/student/s101101787/RTOS/lab6/PDCurses/pdcurses/inchstr.c",
+  "output": "CMakeFiles/lab6.elf.dir/PDCurses/pdcurses/inchstr.c.obj"
+},
+{
+  "directory": "/home/student/s101101787/RTOS/lab6",
+  "command": "/usr/bin/arm-none-eabi-gcc  -I/home/student/s101101787/RTOS/lab6/include -I/home/student/s101101787/RTOS/lab6/FreeRTOS/include -I/home/student/s101101787/RTOS/lab6/FreeRTOS/portable/GCC/ARM_CM3 -I/home/student/s101101787/RTOS/lab6/CMSIS/CMSIS/Core/Include -I/home/student/s101101787/RTOS/lab6/CMSIS/Device/ARM/ARMCM3/Include -I/home/student/s101101787/RTOS/lab6/PDCurses -I/home/student/s101101787/RTOS/lab6/PDCurses/ANSI -I/home/student/s101101787/RTOS/lab6/PDCurses/ANSI/drivers -I/home/student/s101101787/RTOS/lab6/ninvaders -I/home/student/s101101787/RTOS/lab6/sound_effects -I/home/student/s101101787/RTOS/lab6/sound_effects/theme -std=gnu11 -mcpu=cortex-m3 -mthumb -mthumb-interwork -ffunction-sections -fdata-sections -fno-common -fmessage-length=0 -Os -g -o CMakeFiles/lab6.elf.dir/PDCurses/pdcurses/initscr.c.obj -c /home/student/s101101787/RTOS/lab6/PDCurses/pdcurses/initscr.c",
+  "file": "/home/student/s101101787/RTOS/lab6/PDCurses/pdcurses/initscr.c",
+  "output": "CMakeFiles/lab6.elf.dir/PDCurses/pdcurses/initscr.c.obj"
+},
+{
+  "directory": "/home/student/s101101787/RTOS/lab6",
+  "command": "/usr/bin/arm-none-eabi-gcc  -I/home/student/s101101787/RTOS/lab6/include -I/home/student/s101101787/RTOS/lab6/FreeRTOS/include -I/home/student/s101101787/RTOS/lab6/FreeRTOS/portable/GCC/ARM_CM3 -I/home/student/s101101787/RTOS/lab6/CMSIS/CMSIS/Core/Include -I/home/student/s101101787/RTOS/lab6/CMSIS/Device/ARM/ARMCM3/Include -I/home/student/s101101787/RTOS/lab6/PDCurses -I/home/student/s101101787/RTOS/lab6/PDCurses/ANSI -I/home/student/s101101787/RTOS/lab6/PDCurses/ANSI/drivers -I/home/student/s101101787/RTOS/lab6/ninvaders -I/home/student/s101101787/RTOS/lab6/sound_effects -I/home/student/s101101787/RTOS/lab6/sound_effects/theme -std=gnu11 -mcpu=cortex-m3 -mthumb -mthumb-interwork -ffunction-sections -fdata-sections -fno-common -fmessage-length=0 -Os -g -o CMakeFiles/lab6.elf.dir/PDCurses/pdcurses/inopts.c.obj -c /home/student/s101101787/RTOS/lab6/PDCurses/pdcurses/inopts.c",
+  "file": "/home/student/s101101787/RTOS/lab6/PDCurses/pdcurses/inopts.c",
+  "output": "CMakeFiles/lab6.elf.dir/PDCurses/pdcurses/inopts.c.obj"
+},
+{
+  "directory": "/home/student/s101101787/RTOS/lab6",
+  "command": "/usr/bin/arm-none-eabi-gcc  -I/home/student/s101101787/RTOS/lab6/include -I/home/student/s101101787/RTOS/lab6/FreeRTOS/include -I/home/student/s101101787/RTOS/lab6/FreeRTOS/portable/GCC/ARM_CM3 -I/home/student/s101101787/RTOS/lab6/CMSIS/CMSIS/Core/Include -I/home/student/s101101787/RTOS/lab6/CMSIS/Device/ARM/ARMCM3/Include -I/home/student/s101101787/RTOS/lab6/PDCurses -I/home/student/s101101787/RTOS/lab6/PDCurses/ANSI -I/home/student/s101101787/RTOS/lab6/PDCurses/ANSI/drivers -I/home/student/s101101787/RTOS/lab6/ninvaders -I/home/student/s101101787/RTOS/lab6/sound_effects -I/home/student/s101101787/RTOS/lab6/sound_effects/theme -std=gnu11 -mcpu=cortex-m3 -mthumb -mthumb-interwork -ffunction-sections -fdata-sections -fno-common -fmessage-length=0 -Os -g -o CMakeFiles/lab6.elf.dir/PDCurses/pdcurses/insch.c.obj -c /home/student/s101101787/RTOS/lab6/PDCurses/pdcurses/insch.c",
+  "file": "/home/student/s101101787/RTOS/lab6/PDCurses/pdcurses/insch.c",
+  "output": "CMakeFiles/lab6.elf.dir/PDCurses/pdcurses/insch.c.obj"
+},
+{
+  "directory": "/home/student/s101101787/RTOS/lab6",
+  "command": "/usr/bin/arm-none-eabi-gcc  -I/home/student/s101101787/RTOS/lab6/include -I/home/student/s101101787/RTOS/lab6/FreeRTOS/include -I/home/student/s101101787/RTOS/lab6/FreeRTOS/portable/GCC/ARM_CM3 -I/home/student/s101101787/RTOS/lab6/CMSIS/CMSIS/Core/Include -I/home/student/s101101787/RTOS/lab6/CMSIS/Device/ARM/ARMCM3/Include -I/home/student/s101101787/RTOS/lab6/PDCurses -I/home/student/s101101787/RTOS/lab6/PDCurses/ANSI -I/home/student/s101101787/RTOS/lab6/PDCurses/ANSI/drivers -I/home/student/s101101787/RTOS/lab6/ninvaders -I/home/student/s101101787/RTOS/lab6/sound_effects -I/home/student/s101101787/RTOS/lab6/sound_effects/theme -std=gnu11 -mcpu=cortex-m3 -mthumb -mthumb-interwork -ffunction-sections -fdata-sections -fno-common -fmessage-length=0 -Os -g -o CMakeFiles/lab6.elf.dir/PDCurses/pdcurses/insstr.c.obj -c /home/student/s101101787/RTOS/lab6/PDCurses/pdcurses/insstr.c",
+  "file": "/home/student/s101101787/RTOS/lab6/PDCurses/pdcurses/insstr.c",
+  "output": "CMakeFiles/lab6.elf.dir/PDCurses/pdcurses/insstr.c.obj"
+},
+{
+  "directory": "/home/student/s101101787/RTOS/lab6",
+  "command": "/usr/bin/arm-none-eabi-gcc  -I/home/student/s101101787/RTOS/lab6/include -I/home/student/s101101787/RTOS/lab6/FreeRTOS/include -I/home/student/s101101787/RTOS/lab6/FreeRTOS/portable/GCC/ARM_CM3 -I/home/student/s101101787/RTOS/lab6/CMSIS/CMSIS/Core/Include -I/home/student/s101101787/RTOS/lab6/CMSIS/Device/ARM/ARMCM3/Include -I/home/student/s101101787/RTOS/lab6/PDCurses -I/home/student/s101101787/RTOS/lab6/PDCurses/ANSI -I/home/student/s101101787/RTOS/lab6/PDCurses/ANSI/drivers -I/home/student/s101101787/RTOS/lab6/ninvaders -I/home/student/s101101787/RTOS/lab6/sound_effects -I/home/student/s101101787/RTOS/lab6/sound_effects/theme -std=gnu11 -mcpu=cortex-m3 -mthumb -mthumb-interwork -ffunction-sections -fdata-sections -fno-common -fmessage-length=0 -Os -g -o CMakeFiles/lab6.elf.dir/PDCurses/pdcurses/instr.c.obj -c /home/student/s101101787/RTOS/lab6/PDCurses/pdcurses/instr.c",
+  "file": "/home/student/s101101787/RTOS/lab6/PDCurses/pdcurses/instr.c",
+  "output": "CMakeFiles/lab6.elf.dir/PDCurses/pdcurses/instr.c.obj"
+},
+{
+  "directory": "/home/student/s101101787/RTOS/lab6",
+  "command": "/usr/bin/arm-none-eabi-gcc  -I/home/student/s101101787/RTOS/lab6/include -I/home/student/s101101787/RTOS/lab6/FreeRTOS/include -I/home/student/s101101787/RTOS/lab6/FreeRTOS/portable/GCC/ARM_CM3 -I/home/student/s101101787/RTOS/lab6/CMSIS/CMSIS/Core/Include -I/home/student/s101101787/RTOS/lab6/CMSIS/Device/ARM/ARMCM3/Include -I/home/student/s101101787/RTOS/lab6/PDCurses -I/home/student/s101101787/RTOS/lab6/PDCurses/ANSI -I/home/student/s101101787/RTOS/lab6/PDCurses/ANSI/drivers -I/home/student/s101101787/RTOS/lab6/ninvaders -I/home/student/s101101787/RTOS/lab6/sound_effects -I/home/student/s101101787/RTOS/lab6/sound_effects/theme -std=gnu11 -mcpu=cortex-m3 -mthumb -mthumb-interwork -ffunction-sections -fdata-sections -fno-common -fmessage-length=0 -Os -g -o CMakeFiles/lab6.elf.dir/PDCurses/pdcurses/kernel.c.obj -c /home/student/s101101787/RTOS/lab6/PDCurses/pdcurses/kernel.c",
+  "file": "/home/student/s101101787/RTOS/lab6/PDCurses/pdcurses/kernel.c",
+  "output": "CMakeFiles/lab6.elf.dir/PDCurses/pdcurses/kernel.c.obj"
+},
+{
+  "directory": "/home/student/s101101787/RTOS/lab6",
+  "command": "/usr/bin/arm-none-eabi-gcc  -I/home/student/s101101787/RTOS/lab6/include -I/home/student/s101101787/RTOS/lab6/FreeRTOS/include -I/home/student/s101101787/RTOS/lab6/FreeRTOS/portable/GCC/ARM_CM3 -I/home/student/s101101787/RTOS/lab6/CMSIS/CMSIS/Core/Include -I/home/student/s101101787/RTOS/lab6/CMSIS/Device/ARM/ARMCM3/Include -I/home/student/s101101787/RTOS/lab6/PDCurses -I/home/student/s101101787/RTOS/lab6/PDCurses/ANSI -I/home/student/s101101787/RTOS/lab6/PDCurses/ANSI/drivers -I/home/student/s101101787/RTOS/lab6/ninvaders -I/home/student/s101101787/RTOS/lab6/sound_effects -I/home/student/s101101787/RTOS/lab6/sound_effects/theme -std=gnu11 -mcpu=cortex-m3 -mthumb -mthumb-interwork -ffunction-sections -fdata-sections -fno-common -fmessage-length=0 -Os -g -o CMakeFiles/lab6.elf.dir/PDCurses/pdcurses/keyname.c.obj -c /home/student/s101101787/RTOS/lab6/PDCurses/pdcurses/keyname.c",
+  "file": "/home/student/s101101787/RTOS/lab6/PDCurses/pdcurses/keyname.c",
+  "output": "CMakeFiles/lab6.elf.dir/PDCurses/pdcurses/keyname.c.obj"
+},
+{
+  "directory": "/home/student/s101101787/RTOS/lab6",
+  "command": "/usr/bin/arm-none-eabi-gcc  -I/home/student/s101101787/RTOS/lab6/include -I/home/student/s101101787/RTOS/lab6/FreeRTOS/include -I/home/student/s101101787/RTOS/lab6/FreeRTOS/portable/GCC/ARM_CM3 -I/home/student/s101101787/RTOS/lab6/CMSIS/CMSIS/Core/Include -I/home/student/s101101787/RTOS/lab6/CMSIS/Device/ARM/ARMCM3/Include -I/home/student/s101101787/RTOS/lab6/PDCurses -I/home/student/s101101787/RTOS/lab6/PDCurses/ANSI -I/home/student/s101101787/RTOS/lab6/PDCurses/ANSI/drivers -I/home/student/s101101787/RTOS/lab6/ninvaders -I/home/student/s101101787/RTOS/lab6/sound_effects -I/home/student/s101101787/RTOS/lab6/sound_effects/theme -std=gnu11 -mcpu=cortex-m3 -mthumb -mthumb-interwork -ffunction-sections -fdata-sections -fno-common -fmessage-length=0 -Os -g -o CMakeFiles/lab6.elf.dir/PDCurses/pdcurses/mouse.c.obj -c /home/student/s101101787/RTOS/lab6/PDCurses/pdcurses/mouse.c",
+  "file": "/home/student/s101101787/RTOS/lab6/PDCurses/pdcurses/mouse.c",
+  "output": "CMakeFiles/lab6.elf.dir/PDCurses/pdcurses/mouse.c.obj"
+},
+{
+  "directory": "/home/student/s101101787/RTOS/lab6",
+  "command": "/usr/bin/arm-none-eabi-gcc  -I/home/student/s101101787/RTOS/lab6/include -I/home/student/s101101787/RTOS/lab6/FreeRTOS/include -I/home/student/s101101787/RTOS/lab6/FreeRTOS/portable/GCC/ARM_CM3 -I/home/student/s101101787/RTOS/lab6/CMSIS/CMSIS/Core/Include -I/home/student/s101101787/RTOS/lab6/CMSIS/Device/ARM/ARMCM3/Include -I/home/student/s101101787/RTOS/lab6/PDCurses -I/home/student/s101101787/RTOS/lab6/PDCurses/ANSI -I/home/student/s101101787/RTOS/lab6/PDCurses/ANSI/drivers -I/home/student/s101101787/RTOS/lab6/ninvaders -I/home/student/s101101787/RTOS/lab6/sound_effects -I/home/student/s101101787/RTOS/lab6/sound_effects/theme -std=gnu11 -mcpu=cortex-m3 -mthumb -mthumb-interwork -ffunction-sections -fdata-sections -fno-common -fmessage-length=0 -Os -g -o CMakeFiles/lab6.elf.dir/PDCurses/pdcurses/move.c.obj -c /home/student/s101101787/RTOS/lab6/PDCurses/pdcurses/move.c",
+  "file": "/home/student/s101101787/RTOS/lab6/PDCurses/pdcurses/move.c",
+  "output": "CMakeFiles/lab6.elf.dir/PDCurses/pdcurses/move.c.obj"
+},
+{
+  "directory": "/home/student/s101101787/RTOS/lab6",
+  "command": "/usr/bin/arm-none-eabi-gcc  -I/home/student/s101101787/RTOS/lab6/include -I/home/student/s101101787/RTOS/lab6/FreeRTOS/include -I/home/student/s101101787/RTOS/lab6/FreeRTOS/portable/GCC/ARM_CM3 -I/home/student/s101101787/RTOS/lab6/CMSIS/CMSIS/Core/Include -I/home/student/s101101787/RTOS/lab6/CMSIS/Device/ARM/ARMCM3/Include -I/home/student/s101101787/RTOS/lab6/PDCurses -I/home/student/s101101787/RTOS/lab6/PDCurses/ANSI -I/home/student/s101101787/RTOS/lab6/PDCurses/ANSI/drivers -I/home/student/s101101787/RTOS/lab6/ninvaders -I/home/student/s101101787/RTOS/lab6/sound_effects -I/home/student/s101101787/RTOS/lab6/sound_effects/theme -std=gnu11 -mcpu=cortex-m3 -mthumb -mthumb-interwork -ffunction-sections -fdata-sections -fno-common -fmessage-length=0 -Os -g -o CMakeFiles/lab6.elf.dir/PDCurses/pdcurses/outopts.c.obj -c /home/student/s101101787/RTOS/lab6/PDCurses/pdcurses/outopts.c",
+  "file": "/home/student/s101101787/RTOS/lab6/PDCurses/pdcurses/outopts.c",
+  "output": "CMakeFiles/lab6.elf.dir/PDCurses/pdcurses/outopts.c.obj"
+},
+{
+  "directory": "/home/student/s101101787/RTOS/lab6",
+  "command": "/usr/bin/arm-none-eabi-gcc  -I/home/student/s101101787/RTOS/lab6/include -I/home/student/s101101787/RTOS/lab6/FreeRTOS/include -I/home/student/s101101787/RTOS/lab6/FreeRTOS/portable/GCC/ARM_CM3 -I/home/student/s101101787/RTOS/lab6/CMSIS/CMSIS/Core/Include -I/home/student/s101101787/RTOS/lab6/CMSIS/Device/ARM/ARMCM3/Include -I/home/student/s101101787/RTOS/lab6/PDCurses -I/home/student/s101101787/RTOS/lab6/PDCurses/ANSI -I/home/student/s101101787/RTOS/lab6/PDCurses/ANSI/drivers -I/home/student/s101101787/RTOS/lab6/ninvaders -I/home/student/s101101787/RTOS/lab6/sound_effects -I/home/student/s101101787/RTOS/lab6/sound_effects/theme -std=gnu11 -mcpu=cortex-m3 -mthumb -mthumb-interwork -ffunction-sections -fdata-sections -fno-common -fmessage-length=0 -Os -g -o CMakeFiles/lab6.elf.dir/PDCurses/pdcurses/overlay.c.obj -c /home/student/s101101787/RTOS/lab6/PDCurses/pdcurses/overlay.c",
+  "file": "/home/student/s101101787/RTOS/lab6/PDCurses/pdcurses/overlay.c",
+  "output": "CMakeFiles/lab6.elf.dir/PDCurses/pdcurses/overlay.c.obj"
+},
+{
+  "directory": "/home/student/s101101787/RTOS/lab6",
+  "command": "/usr/bin/arm-none-eabi-gcc  -I/home/student/s101101787/RTOS/lab6/include -I/home/student/s101101787/RTOS/lab6/FreeRTOS/include -I/home/student/s101101787/RTOS/lab6/FreeRTOS/portable/GCC/ARM_CM3 -I/home/student/s101101787/RTOS/lab6/CMSIS/CMSIS/Core/Include -I/home/student/s101101787/RTOS/lab6/CMSIS/Device/ARM/ARMCM3/Include -I/home/student/s101101787/RTOS/lab6/PDCurses -I/home/student/s101101787/RTOS/lab6/PDCurses/ANSI -I/home/student/s101101787/RTOS/lab6/PDCurses/ANSI/drivers -I/home/student/s101101787/RTOS/lab6/ninvaders -I/home/student/s101101787/RTOS/lab6/sound_effects -I/home/student/s101101787/RTOS/lab6/sound_effects/theme -std=gnu11 -mcpu=cortex-m3 -mthumb -mthumb-interwork -ffunction-sections -fdata-sections -fno-common -fmessage-length=0 -Os -g -o CMakeFiles/lab6.elf.dir/PDCurses/pdcurses/pad.c.obj -c /home/student/s101101787/RTOS/lab6/PDCurses/pdcurses/pad.c",
+  "file": "/home/student/s101101787/RTOS/lab6/PDCurses/pdcurses/pad.c",
+  "output": "CMakeFiles/lab6.elf.dir/PDCurses/pdcurses/pad.c.obj"
+},
+{
+  "directory": "/home/student/s101101787/RTOS/lab6",
+  "command": "/usr/bin/arm-none-eabi-gcc  -I/home/student/s101101787/RTOS/lab6/include -I/home/student/s101101787/RTOS/lab6/FreeRTOS/include -I/home/student/s101101787/RTOS/lab6/FreeRTOS/portable/GCC/ARM_CM3 -I/home/student/s101101787/RTOS/lab6/CMSIS/CMSIS/Core/Include -I/home/student/s101101787/RTOS/lab6/CMSIS/Device/ARM/ARMCM3/Include -I/home/student/s101101787/RTOS/lab6/PDCurses -I/home/student/s101101787/RTOS/lab6/PDCurses/ANSI -I/home/student/s101101787/RTOS/lab6/PDCurses/ANSI/drivers -I/home/student/s101101787/RTOS/lab6/ninvaders -I/home/student/s101101787/RTOS/lab6/sound_effects -I/home/student/s101101787/RTOS/lab6/sound_effects/theme -std=gnu11 -mcpu=cortex-m3 -mthumb -mthumb-interwork -ffunction-sections -fdata-sections -fno-common -fmessage-length=0 -Os -g -o CMakeFiles/lab6.elf.dir/PDCurses/pdcurses/panel.c.obj -c /home/student/s101101787/RTOS/lab6/PDCurses/pdcurses/panel.c",
+  "file": "/home/student/s101101787/RTOS/lab6/PDCurses/pdcurses/panel.c",
+  "output": "CMakeFiles/lab6.elf.dir/PDCurses/pdcurses/panel.c.obj"
+},
+{
+  "directory": "/home/student/s101101787/RTOS/lab6",
+  "command": "/usr/bin/arm-none-eabi-gcc  -I/home/student/s101101787/RTOS/lab6/include -I/home/student/s101101787/RTOS/lab6/FreeRTOS/include -I/home/student/s101101787/RTOS/lab6/FreeRTOS/portable/GCC/ARM_CM3 -I/home/student/s101101787/RTOS/lab6/CMSIS/CMSIS/Core/Include -I/home/student/s101101787/RTOS/lab6/CMSIS/Device/ARM/ARMCM3/Include -I/home/student/s101101787/RTOS/lab6/PDCurses -I/home/student/s101101787/RTOS/lab6/PDCurses/ANSI -I/home/student/s101101787/RTOS/lab6/PDCurses/ANSI/drivers -I/home/student/s101101787/RTOS/lab6/ninvaders -I/home/student/s101101787/RTOS/lab6/sound_effects -I/home/student/s101101787/RTOS/lab6/sound_effects/theme -std=gnu11 -mcpu=cortex-m3 -mthumb -mthumb-interwork -ffunction-sections -fdata-sections -fno-common -fmessage-length=0 -Os -g -o CMakeFiles/lab6.elf.dir/PDCurses/pdcurses/printw.c.obj -c /home/student/s101101787/RTOS/lab6/PDCurses/pdcurses/printw.c",
+  "file": "/home/student/s101101787/RTOS/lab6/PDCurses/pdcurses/printw.c",
+  "output": "CMakeFiles/lab6.elf.dir/PDCurses/pdcurses/printw.c.obj"
+},
+{
+  "directory": "/home/student/s101101787/RTOS/lab6",
+  "command": "/usr/bin/arm-none-eabi-gcc  -I/home/student/s101101787/RTOS/lab6/include -I/home/student/s101101787/RTOS/lab6/FreeRTOS/include -I/home/student/s101101787/RTOS/lab6/FreeRTOS/portable/GCC/ARM_CM3 -I/home/student/s101101787/RTOS/lab6/CMSIS/CMSIS/Core/Include -I/home/student/s101101787/RTOS/lab6/CMSIS/Device/ARM/ARMCM3/Include -I/home/student/s101101787/RTOS/lab6/PDCurses -I/home/student/s101101787/RTOS/lab6/PDCurses/ANSI -I/home/student/s101101787/RTOS/lab6/PDCurses/ANSI/drivers -I/home/student/s101101787/RTOS/lab6/ninvaders -I/home/student/s101101787/RTOS/lab6/sound_effects -I/home/student/s101101787/RTOS/lab6/sound_effects/theme -std=gnu11 -mcpu=cortex-m3 -mthumb -mthumb-interwork -ffunction-sections -fdata-sections -fno-common -fmessage-length=0 -Os -g -o CMakeFiles/lab6.elf.dir/PDCurses/pdcurses/refresh.c.obj -c /home/student/s101101787/RTOS/lab6/PDCurses/pdcurses/refresh.c",
+  "file": "/home/student/s101101787/RTOS/lab6/PDCurses/pdcurses/refresh.c",
+  "output": "CMakeFiles/lab6.elf.dir/PDCurses/pdcurses/refresh.c.obj"
+},
+{
+  "directory": "/home/student/s101101787/RTOS/lab6",
+  "command": "/usr/bin/arm-none-eabi-gcc  -I/home/student/s101101787/RTOS/lab6/include -I/home/student/s101101787/RTOS/lab6/FreeRTOS/include -I/home/student/s101101787/RTOS/lab6/FreeRTOS/portable/GCC/ARM_CM3 -I/home/student/s101101787/RTOS/lab6/CMSIS/CMSIS/Core/Include -I/home/student/s101101787/RTOS/lab6/CMSIS/Device/ARM/ARMCM3/Include -I/home/student/s101101787/RTOS/lab6/PDCurses -I/home/student/s101101787/RTOS/lab6/PDCurses/ANSI -I/home/student/s101101787/RTOS/lab6/PDCurses/ANSI/drivers -I/home/student/s101101787/RTOS/lab6/ninvaders -I/home/student/s101101787/RTOS/lab6/sound_effects -I/home/student/s101101787/RTOS/lab6/sound_effects/theme -std=gnu11 -mcpu=cortex-m3 -mthumb -mthumb-interwork -ffunction-sections -fdata-sections -fno-common -fmessage-length=0 -Os -g -o CMakeFiles/lab6.elf.dir/PDCurses/pdcurses/scanw.c.obj -c /home/student/s101101787/RTOS/lab6/PDCurses/pdcurses/scanw.c",
+  "file": "/home/student/s101101787/RTOS/lab6/PDCurses/pdcurses/scanw.c",
+  "output": "CMakeFiles/lab6.elf.dir/PDCurses/pdcurses/scanw.c.obj"
+},
+{
+  "directory": "/home/student/s101101787/RTOS/lab6",
+  "command": "/usr/bin/arm-none-eabi-gcc  -I/home/student/s101101787/RTOS/lab6/include -I/home/student/s101101787/RTOS/lab6/FreeRTOS/include -I/home/student/s101101787/RTOS/lab6/FreeRTOS/portable/GCC/ARM_CM3 -I/home/student/s101101787/RTOS/lab6/CMSIS/CMSIS/Core/Include -I/home/student/s101101787/RTOS/lab6/CMSIS/Device/ARM/ARMCM3/Include -I/home/student/s101101787/RTOS/lab6/PDCurses -I/home/student/s101101787/RTOS/lab6/PDCurses/ANSI -I/home/student/s101101787/RTOS/lab6/PDCurses/ANSI/drivers -I/home/student/s101101787/RTOS/lab6/ninvaders -I/home/student/s101101787/RTOS/lab6/sound_effects -I/home/student/s101101787/RTOS/lab6/sound_effects/theme -std=gnu11 -mcpu=cortex-m3 -mthumb -mthumb-interwork -ffunction-sections -fdata-sections -fno-common -fmessage-length=0 -Os -g -o CMakeFiles/lab6.elf.dir/PDCurses/pdcurses/scr_dump.c.obj -c /home/student/s101101787/RTOS/lab6/PDCurses/pdcurses/scr_dump.c",
+  "file": "/home/student/s101101787/RTOS/lab6/PDCurses/pdcurses/scr_dump.c",
+  "output": "CMakeFiles/lab6.elf.dir/PDCurses/pdcurses/scr_dump.c.obj"
+},
+{
+  "directory": "/home/student/s101101787/RTOS/lab6",
+  "command": "/usr/bin/arm-none-eabi-gcc  -I/home/student/s101101787/RTOS/lab6/include -I/home/student/s101101787/RTOS/lab6/FreeRTOS/include -I/home/student/s101101787/RTOS/lab6/FreeRTOS/portable/GCC/ARM_CM3 -I/home/student/s101101787/RTOS/lab6/CMSIS/CMSIS/Core/Include -I/home/student/s101101787/RTOS/lab6/CMSIS/Device/ARM/ARMCM3/Include -I/home/student/s101101787/RTOS/lab6/PDCurses -I/home/student/s101101787/RTOS/lab6/PDCurses/ANSI -I/home/student/s101101787/RTOS/lab6/PDCurses/ANSI/drivers -I/home/student/s101101787/RTOS/lab6/ninvaders -I/home/student/s101101787/RTOS/lab6/sound_effects -I/home/student/s101101787/RTOS/lab6/sound_effects/theme -std=gnu11 -mcpu=cortex-m3 -mthumb -mthumb-interwork -ffunction-sections -fdata-sections -fno-common -fmessage-length=0 -Os -g -o CMakeFiles/lab6.elf.dir/PDCurses/pdcurses/scroll.c.obj -c /home/student/s101101787/RTOS/lab6/PDCurses/pdcurses/scroll.c",
+  "file": "/home/student/s101101787/RTOS/lab6/PDCurses/pdcurses/scroll.c",
+  "output": "CMakeFiles/lab6.elf.dir/PDCurses/pdcurses/scroll.c.obj"
+},
+{
+  "directory": "/home/student/s101101787/RTOS/lab6",
+  "command": "/usr/bin/arm-none-eabi-gcc  -I/home/student/s101101787/RTOS/lab6/include -I/home/student/s101101787/RTOS/lab6/FreeRTOS/include -I/home/student/s101101787/RTOS/lab6/FreeRTOS/portable/GCC/ARM_CM3 -I/home/student/s101101787/RTOS/lab6/CMSIS/CMSIS/Core/Include -I/home/student/s101101787/RTOS/lab6/CMSIS/Device/ARM/ARMCM3/Include -I/home/student/s101101787/RTOS/lab6/PDCurses -I/home/student/s101101787/RTOS/lab6/PDCurses/ANSI -I/home/student/s101101787/RTOS/lab6/PDCurses/ANSI/drivers -I/home/student/s101101787/RTOS/lab6/ninvaders -I/home/student/s101101787/RTOS/lab6/sound_effects -I/home/student/s101101787/RTOS/lab6/sound_effects/theme -std=gnu11 -mcpu=cortex-m3 -mthumb -mthumb-interwork -ffunction-sections -fdata-sections -fno-common -fmessage-length=0 -Os -g -o CMakeFiles/lab6.elf.dir/PDCurses/pdcurses/slk.c.obj -c /home/student/s101101787/RTOS/lab6/PDCurses/pdcurses/slk.c",
+  "file": "/home/student/s101101787/RTOS/lab6/PDCurses/pdcurses/slk.c",
+  "output": "CMakeFiles/lab6.elf.dir/PDCurses/pdcurses/slk.c.obj"
+},
+{
+  "directory": "/home/student/s101101787/RTOS/lab6",
+  "command": "/usr/bin/arm-none-eabi-gcc  -I/home/student/s101101787/RTOS/lab6/include -I/home/student/s101101787/RTOS/lab6/FreeRTOS/include -I/home/student/s101101787/RTOS/lab6/FreeRTOS/portable/GCC/ARM_CM3 -I/home/student/s101101787/RTOS/lab6/CMSIS/CMSIS/Core/Include -I/home/student/s101101787/RTOS/lab6/CMSIS/Device/ARM/ARMCM3/Include -I/home/student/s101101787/RTOS/lab6/PDCurses -I/home/student/s101101787/RTOS/lab6/PDCurses/ANSI -I/home/student/s101101787/RTOS/lab6/PDCurses/ANSI/drivers -I/home/student/s101101787/RTOS/lab6/ninvaders -I/home/student/s101101787/RTOS/lab6/sound_effects -I/home/student/s101101787/RTOS/lab6/sound_effects/theme -std=gnu11 -mcpu=cortex-m3 -mthumb -mthumb-interwork -ffunction-sections -fdata-sections -fno-common -fmessage-length=0 -Os -g -o CMakeFiles/lab6.elf.dir/PDCurses/pdcurses/termattr.c.obj -c /home/student/s101101787/RTOS/lab6/PDCurses/pdcurses/termattr.c",
+  "file": "/home/student/s101101787/RTOS/lab6/PDCurses/pdcurses/termattr.c",
+  "output": "CMakeFiles/lab6.elf.dir/PDCurses/pdcurses/termattr.c.obj"
+},
+{
+  "directory": "/home/student/s101101787/RTOS/lab6",
+  "command": "/usr/bin/arm-none-eabi-gcc  -I/home/student/s101101787/RTOS/lab6/include -I/home/student/s101101787/RTOS/lab6/FreeRTOS/include -I/home/student/s101101787/RTOS/lab6/FreeRTOS/portable/GCC/ARM_CM3 -I/home/student/s101101787/RTOS/lab6/CMSIS/CMSIS/Core/Include -I/home/student/s101101787/RTOS/lab6/CMSIS/Device/ARM/ARMCM3/Include -I/home/student/s101101787/RTOS/lab6/PDCurses -I/home/student/s101101787/RTOS/lab6/PDCurses/ANSI -I/home/student/s101101787/RTOS/lab6/PDCurses/ANSI/drivers -I/home/student/s101101787/RTOS/lab6/ninvaders -I/home/student/s101101787/RTOS/lab6/sound_effects -I/home/student/s101101787/RTOS/lab6/sound_effects/theme -std=gnu11 -mcpu=cortex-m3 -mthumb -mthumb-interwork -ffunction-sections -fdata-sections -fno-common -fmessage-length=0 -Os -g -o CMakeFiles/lab6.elf.dir/PDCurses/pdcurses/touch.c.obj -c /home/student/s101101787/RTOS/lab6/PDCurses/pdcurses/touch.c",
+  "file": "/home/student/s101101787/RTOS/lab6/PDCurses/pdcurses/touch.c",
+  "output": "CMakeFiles/lab6.elf.dir/PDCurses/pdcurses/touch.c.obj"
+},
+{
+  "directory": "/home/student/s101101787/RTOS/lab6",
+  "command": "/usr/bin/arm-none-eabi-gcc  -I/home/student/s101101787/RTOS/lab6/include -I/home/student/s101101787/RTOS/lab6/FreeRTOS/include -I/home/student/s101101787/RTOS/lab6/FreeRTOS/portable/GCC/ARM_CM3 -I/home/student/s101101787/RTOS/lab6/CMSIS/CMSIS/Core/Include -I/home/student/s101101787/RTOS/lab6/CMSIS/Device/ARM/ARMCM3/Include -I/home/student/s101101787/RTOS/lab6/PDCurses -I/home/student/s101101787/RTOS/lab6/PDCurses/ANSI -I/home/student/s101101787/RTOS/lab6/PDCurses/ANSI/drivers -I/home/student/s101101787/RTOS/lab6/ninvaders -I/home/student/s101101787/RTOS/lab6/sound_effects -I/home/student/s101101787/RTOS/lab6/sound_effects/theme -std=gnu11 -mcpu=cortex-m3 -mthumb -mthumb-interwork -ffunction-sections -fdata-sections -fno-common -fmessage-length=0 -Os -g -o CMakeFiles/lab6.elf.dir/PDCurses/pdcurses/util.c.obj -c /home/student/s101101787/RTOS/lab6/PDCurses/pdcurses/util.c",
+  "file": "/home/student/s101101787/RTOS/lab6/PDCurses/pdcurses/util.c",
+  "output": "CMakeFiles/lab6.elf.dir/PDCurses/pdcurses/util.c.obj"
+},
+{
+  "directory": "/home/student/s101101787/RTOS/lab6",
+  "command": "/usr/bin/arm-none-eabi-gcc  -I/home/student/s101101787/RTOS/lab6/include -I/home/student/s101101787/RTOS/lab6/FreeRTOS/include -I/home/student/s101101787/RTOS/lab6/FreeRTOS/portable/GCC/ARM_CM3 -I/home/student/s101101787/RTOS/lab6/CMSIS/CMSIS/Core/Include -I/home/student/s101101787/RTOS/lab6/CMSIS/Device/ARM/ARMCM3/Include -I/home/student/s101101787/RTOS/lab6/PDCurses -I/home/student/s101101787/RTOS/lab6/PDCurses/ANSI -I/home/student/s101101787/RTOS/lab6/PDCurses/ANSI/drivers -I/home/student/s101101787/RTOS/lab6/ninvaders -I/home/student/s101101787/RTOS/lab6/sound_effects -I/home/student/s101101787/RTOS/lab6/sound_effects/theme -std=gnu11 -mcpu=cortex-m3 -mthumb -mthumb-interwork -ffunction-sections -fdata-sections -fno-common -fmessage-length=0 -Os -g -o CMakeFiles/lab6.elf.dir/PDCurses/pdcurses/window.c.obj -c /home/student/s101101787/RTOS/lab6/PDCurses/pdcurses/window.c",
+  "file": "/home/student/s101101787/RTOS/lab6/PDCurses/pdcurses/window.c",
+  "output": "CMakeFiles/lab6.elf.dir/PDCurses/pdcurses/window.c.obj"
+}
+]

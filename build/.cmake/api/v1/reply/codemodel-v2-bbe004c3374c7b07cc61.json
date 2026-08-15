@@ -1,0 +1,87 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"jsonFile" : "directory-.-Debug-f5ebdc15457944623624.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.17"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "lab6",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "extra-clean::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-extra-clean-Debug-894d18e042a87000589e.json",
+					"name" : "extra-clean",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "lab6.elf::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-lab6.elf-Debug-2cb86d848defb1695f13.json",
+					"name" : "lab6.elf",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "realclean::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-realclean-Debug-3169a059c7730ab92adb.json",
+					"name" : "realclean",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "tarfile::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-tarfile-Debug-7364aec69b82508ae778.json",
+					"name" : "tarfile",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/student/s101101787/RTOS/lab6/build",
+		"source" : "/home/student/s101101787/RTOS/lab6"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 6
+	}
+}

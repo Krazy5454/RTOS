@@ -1,0 +1,6 @@
+/home/student/s101101787/RTOS/lab6/build/CMakeFiles/realclean.dir
+/home/student/s101101787/RTOS/lab6/build/CMakeFiles/extra-clean.dir
+/home/student/s101101787/RTOS/lab6/build/CMakeFiles/tarfile.dir
+/home/student/s101101787/RTOS/lab6/build/CMakeFiles/lab6.elf.dir
+/home/student/s101101787/RTOS/lab6/build/CMakeFiles/edit_cache.dir
+/home/student/s101101787/RTOS/lab6/build/CMakeFiles/rebuild_cache.dir

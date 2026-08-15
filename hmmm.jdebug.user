@@ -1,0 +1,44 @@
+
+
+
+Breakpoint=/home/student/s101101787/RTOS/lab6/src/UART_16550.c:748:5, State=BP_STATE_DISABLED
+Breakpoint=/home/student/s101101787/RTOS/lab6/src/hello_task.c:45, State=BP_STATE_DISABLED
+Breakpoint=/home/student/s101101787/RTOS/lab6/src/stats_task.c:36, State=BP_STATE_DISABLED
+Breakpoint=0x0000091C, State=BP_STATE_DISABLED
+OpenDocument="startup_ARMCM3.S", FilePath="/home/student/s101101787/RTOS/lab6/src/startup_ARMCM3.S", Line=64
+OpenDocument="core_cm3.h", FilePath="/home/student/s101101787/RTOS/lab6/CMSIS/CMSIS/Core/Include/core_cm3.h", Line=1624
+OpenDocument="tasks.c", FilePath="/home/student/s101101787/RTOS/lab6/FreeRTOS/tasks.c", Line=6023
+OpenDocument="nInvaders_task.c", FilePath="/home/student/s101101787/RTOS/lab6/ninvaders/nInvaders_task.c", Line=167
+OpenDocument="hello_task.c", FilePath="/home/student/s101101787/RTOS/lab6/src/hello_task.c", Line=2
+OpenDocument="hello_task.h", FilePath="/home/student/s101101787/RTOS/lab6/include/hello_task.h", Line=0
+OpenDocument="stats_task.c", FilePath="/home/student/s101101787/RTOS/lab6/src/stats_task.c", Line=0
+OpenDocument="refresh.c", FilePath="/home/student/s101101787/RTOS/lab6/PDCurses/pdcurses/refresh.c", Line=78
+OpenDocument="UART_16550.c", FilePath="/home/student/s101101787/RTOS/lab6/src/UART_16550.c", Line=672
+OpenDocument="AXI_timer.c", FilePath="/home/student/s101101787/RTOS/lab6/src/AXI_timer.c", Line=86
+OpenDocument="main.c", FilePath="/home/student/s101101787/RTOS/lab6/src/main.c", Line=114
+OpenDocument="PM.c", FilePath="/home/student/s101101787/RTOS/lab6/src/PM.c", Line=31
+OpenDocument="list.c", FilePath="/home/student/s101101787/RTOS/lab6/FreeRTOS/list.c", Line=159
+OpenDocument="overlay.c", FilePath="/home/student/s101101787/RTOS/lab6/PDCurses/pdcurses/overlay.c", Line=66
+OpenDocument="queue.c", FilePath="/home/student/s101101787/RTOS/lab6/FreeRTOS/queue.c", Line=813
+OpenToolbar="Debug", Floating=0, x=0, y=0
+OpenWindow="Call Stack", DockArea=RIGHT, x=0, y=2, w=515, h=212, TabPos=1, TopOfStack=1, FilterBarShown=0, TotalValueBarShown=0, ToolBarShown=0
+OpenWindow="Registers 1", DockArea=RIGHT, x=0, y=4, w=515, h=198, FilterBarShown=0, TotalValueBarShown=0, ToolBarShown=0, FilteredItems=[], RefreshRate=1
+OpenWindow="Source Files", DockArea=LEFT, x=0, y=1, w=276, h=740, FilterBarShown=0, TotalValueBarShown=0, ToolBarShown=0
+OpenWindow="Disassembly", DockArea=RIGHT, x=0, y=1, w=515, h=199, FilterBarShown=0, TotalValueBarShown=0, ToolBarShown=0
+OpenWindow="Memory 1", DockArea=BOTTOM, x=0, y=0, w=1189, h=268, FilterBarShown=0, TotalValueBarShown=0, ToolBarShown=0, EditorAddress=0x81000000
+OpenWindow="Global Data", DockArea=RIGHT, x=0, y=0, w=515, h=198, FilterBarShown=0, TotalValueBarShown=0, ToolBarShown=0
+OpenWindow="Local Data", DockArea=RIGHT, x=0, y=2, w=515, h=212, TabPos=0, TopOfStack=0, FilterBarShown=0, TotalValueBarShown=0, ToolBarShown=0
+OpenWindow="Functions", DockArea=LEFT, x=0, y=0, w=276, h=286, FilterBarShown=0, TotalValueBarShown=0, ToolBarShown=0
+OpenWindow="Console", DockArea=BOTTOM, x=1, y=0, w=90, h=268, FilterBarShown=0, TotalValueBarShown=0, ToolBarShown=0
+OpenWindow="FreeRTOS", DockArea=RIGHT, x=0, y=3, w=515, h=199, FilterBarShown=0, TotalValueBarShown=0, ToolBarShown=0, Showing="Task List"
+SmartViewPlugin="", Page="", Toolbar="Hidden", Window="SmartView 1"
+TableHeader="Local Data", SortCol="Name", SortOrder="ASCENDING", VisibleCols=["Name";"Value";"Location";"Size";"Type";"Scope"], ColWidths=[142;238;100;100;112;100]
+TableHeader="Call Stack", SortCol="Function", SortOrder="ASCENDING", VisibleCols=["Function";"Stack Frame";"Source";"PC";"Return Address";"Stack Used"], ColWidths=[182;112;112;100;168;100]
+TableHeader="Global Data", SortCol="Value", SortOrder="ASCENDING", VisibleCols=["Name";"Value";"Location";"Size";"Type";"Scope"], ColWidths=[175;100;100;100;100;100]
+TableHeader="Source Files", SortCol="File", SortOrder="ASCENDING", VisibleCols=["File";"Status";"Size";"#Insts";"Path"], ColWidths=[176;100;100;100;791]
+TableHeader="Power Sampling", SortCol="None", SortOrder="ASCENDING", VisibleCols=["Index";"Time";"Ch 0"], ColWidths=[100;100;100]
+TableHeader="Task List", SortCol="Priority", SortOrder="ASCENDING", VisibleCols=["Name";"Run Count";"Priority";"Status";"Timeout";"Stack Info";"ID";"Mutex Count";"Notified Value";"Notify State"], ColWidths=[110;110;110;110;110;110;110;110;110;110]
+TableHeader="Registers 1", SortCol="Name", SortOrder="ASCENDING", VisibleCols=["Name";"Value";"Description"], ColWidths=[167;176;259]
+TableHeader="RegisterSelectionDialog", SortCol="None", SortOrder="ASCENDING", VisibleCols=[], ColWidths=[]
+TableHeader="TargetExceptionDialog", SortCol="Name", SortOrder="ASCENDING", VisibleCols=["Name";"Value";"Address";"Description"], ColWidths=[200;100;100;856]
+TableHeader="Functions", SortCol="Name", SortOrder="ASCENDING", VisibleCols=["Name";"Address";"Size";"#Insts";"Source"], ColWidths=[1799;100;100;100;203]

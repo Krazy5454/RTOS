@@ -1,0 +1,8 @@
+{
+    "cortex-debug.gdbPath": "/usr/bin/gdb-multiarch",
+    "cmake.buildDirectory": "${workspaceFolder}",
+     "C_Cpp.default.compilerPath": "/usr/bin/gcc",
+  "C_Cpp.default.intelliSenseMode": "linux-gcc-x64",
+  "C_Cpp.intelliSenseEngine": "default",
+  "cortex-debug.variableUseNaturalFormat": false,
+}
